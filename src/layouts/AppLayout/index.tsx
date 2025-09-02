@@ -12,6 +12,7 @@ import {
 } from '@/components';
 import logoIcon from '../../assets/icons/colored/Logo.svg?react';
 import styles from '@/layouts/AppLayout/appLayout.module.scss';
+import { cn } from '@/utils/cn.ts';
 
 type AppLayoutProps = {
     children: ReactNode;
@@ -21,7 +22,7 @@ const AppLayout: React.FC<AppLayoutProps>= ({ children }) => {
     return (
         <>
             <Header>
-                <div className="bg-light-pink">
+                <div className={cn(styles, "bg-light-pink", "wrapper")}>
                     <div className="container">
                         <div className={styles.headerWrapp}>
                             <Logo icon={logoIcon} />

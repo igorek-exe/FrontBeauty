@@ -1,6 +1,12 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
+.wrapper {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+
 .headerWrapp {
   @include rowing(space-between, center);
   min-height: $spacing-70;
