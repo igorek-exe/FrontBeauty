@@ -12,6 +12,7 @@ export * from './UI/master/MastersToolbar';
 export * from './UI/master/MasterCard';
 export * from './UI/atoms/Picture';
 export * from './UI/atoms/SvgIcon';
+export * from './UI/atoms/ScrollButton';
 export * from './UI/molecules/DiscountCard';
 export * from './UI/organisms/Slider';
 export * from './UI/organisms/JoinSection';

@@ -9,6 +9,7 @@ import {
     LinkButton,
     Logo,
     Menu,
+    ScrollButton,
 } from '@/components';
 import logoIcon from '../../assets/icons/colored/Logo.svg?react';
 import styles from '@/layouts/AppLayout/appLayout.module.scss';
@@ -21,6 +22,7 @@ type AppLayoutProps = {
 const AppLayout: React.FC<AppLayoutProps>= ({ children }) => {
     return (
         <>
+            <ScrollButton/>
             <Header>
                 <div className={cn(styles, "bg-light-pink", "wrapper")}>
                     <div className="container">
