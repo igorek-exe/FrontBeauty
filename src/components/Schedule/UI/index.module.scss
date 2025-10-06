@@ -38,7 +38,6 @@
 .btnDay {
   @include sizes(null, $spacing-73);
   display: block;
-  padding: $spacing-0 $spacing-5;
   border: none;
   background-color: $color-pink;
 }

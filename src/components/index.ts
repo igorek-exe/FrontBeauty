@@ -1,5 +1,5 @@
 export * from './UI/templates/Header';
-export * from './UI/atoms/IconSprite';
+export * from './IconSprite';
 export * from './UI/atoms/Logo';
 export * from './UI/organisms/Menu';
 export * from './UI/atoms/LinkButton';
