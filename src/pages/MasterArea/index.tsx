@@ -6,7 +6,7 @@ import {
     ScheduleContainer,
     MasterAboutContainer,
     MasterEducationContainer,
-    MasterAdressesContainer,
+    MasterAddressesContainer,
     MasterServicesContainer,
     MasterExperienceContainer,
     Diplomas,
@@ -37,7 +37,7 @@ const MasterArea = () => {
                                         <MasterExperienceContainer index={0} />
                                         <Diplomas />
                                         <MasterExperienceContainer index={1} />
-                                        <MasterAdressesContainer />
+                                        <MasterAddressesContainer />
                                         <MasterServicesContainer />
                                         <MasterPortfolio />
                                     </div>

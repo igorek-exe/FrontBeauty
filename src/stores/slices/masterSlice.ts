@@ -6,8 +6,8 @@ import {
     PROFILE_STORAGE_KEY,
     ADDRESS_STORAGE_KEY,
     SERVICES_STORAGE_KEY,
-} from '@/constants/storageKeys.ts';
-import { defaultAboutText } from '@/constants/defaultTexts.ts';
+} from '@/constants/storageKeys';
+import { defaultAboutText } from '@/constants/defaultTexts';
 
 export type EducationItem = {
     title: string;
@@ -31,10 +31,13 @@ export type ServiceItem = {
     price: string;
 };
 
-export type UserState = {
+export type UserProfile = {
     name: string;
     email: string;
     phone: string;
+};
+
+export type UserState = UserProfile & {
     about: string;
     education: EducationItem[];
     experience: ExperienceItem[][];
@@ -70,6 +73,14 @@ export const defaultAddressState: AddressState[] = [
     {
         address: 'Ул. Независимости, 56',
         region: 'Центральный район',
+    },
+];
+
+const defaultServices: ServiceItem[] = [
+    {
+        title: 'Дизайн',
+        description: 'описание услуги',
+        price: '100',
     },
 ];
 
@@ -126,14 +137,12 @@ const getInitialAddress = (): AddressState[] => {
     const stored = localStorage.getItem(ADDRESS_STORAGE_KEY);
 
     if (!stored) {
-        const initial = defaultAddressState;
-        localStorage.setItem(ADDRESS_STORAGE_KEY, JSON.stringify(initial));
-        return initial;
+        localStorage.setItem(ADDRESS_STORAGE_KEY, JSON.stringify(defaultAddressState));
+        return defaultAddressState;
     }
 
     try {
         const parsed = JSON.parse(stored);
-
         if (
             Array.isArray(parsed) &&
             parsed.every((item) => typeof item === 'object' && item !== null && 'address' in item && 'region' in item)
@@ -184,14 +193,6 @@ const getInitialServices = (): ServiceItem[] => {
     }
 };
 
-const defaultServices: ServiceItem[] = [
-    {
-        title: 'Дизайн',
-        description: 'описание услуги',
-        price: '100',
-    },
-];
-
 const savedUser = localStorage.getItem(PROFILE_STORAGE_KEY);
 const parsedUser = savedUser ? JSON.parse(savedUser) : {};
 
@@ -210,39 +211,36 @@ const masterSlice = createSlice({
     name: 'master',
     initialState,
     reducers: {
-        updateProfile(
-            state,
-            action: PayloadAction<Omit<UserState, 'about' | 'education' | 'experience' | 'addressData'>>
-        ) {
-            const newState = { ...state, ...action.payload };
-            localStorage.setItem(
-                PROFILE_STORAGE_KEY,
-                JSON.stringify({
-                    name: newState.name,
-                    email: newState.email,
-                    phone: newState.phone,
-                })
-            );
-            state.name = newState.name;
-            state.email = newState.email;
-            state.phone = newState.phone;
+        updateProfile(state, action: PayloadAction<UserProfile>) {
+            const { name, email, phone } = action.payload;
+
+            state.name = name;
+            state.email = email;
+            state.phone = phone;
+
+            localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify({ name, email, phone }));
         },
+
         updateAbout(state, action: PayloadAction<string>) {
             state.about = action.payload;
             localStorage.setItem(ABOUT_STORAGE_KEY, action.payload);
         },
+
         updateEducation(state, action: PayloadAction<EducationItem[]>) {
             state.education = action.payload;
             localStorage.setItem(EDUCATION_STORAGE_KEY, JSON.stringify(action.payload));
         },
+
         updateExperience(state, action: PayloadAction<ExperienceItem[][]>) {
             state.experience = action.payload;
             localStorage.setItem(EXPERIENCE_STORAGE_KEY, JSON.stringify(action.payload));
         },
+
         updateAddress(state, action: PayloadAction<AddressState[]>) {
             state.addressData = action.payload;
             localStorage.setItem(ADDRESS_STORAGE_KEY, JSON.stringify(action.payload));
         },
+
         updateServices(state, action: PayloadAction<ServiceItem[]>) {
             state.services = action.payload;
             localStorage.setItem(SERVICES_STORAGE_KEY, JSON.stringify(action.payload));
@@ -250,7 +248,13 @@ const masterSlice = createSlice({
     },
 });
 
-export const { updateProfile, updateAbout, updateEducation, updateExperience, updateAddress, updateServices } =
-    masterSlice.actions;
+export const {
+    updateProfile,
+    updateAbout,
+    updateEducation,
+    updateExperience,
+    updateAddress,
+    updateServices,
+} = masterSlice.actions;
 
 export default masterSlice.reducer;

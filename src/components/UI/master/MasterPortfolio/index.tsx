@@ -1,6 +1,6 @@
 import React from 'react';
 import { ServiceCardSlider } from '@/components';
-import styles from '@/components/UI/master/MasterServices/masterServices.module.scss';
+import styles from './masterportfolio.module.scss';
 
 const MasterPortfolio: React.FC = () => {
     return (
