@@ -11,13 +11,7 @@ type BannerProps = {
     onUserTypeChange: (type: UserType) => void;
 };
 
-export const Banner: React.FC<BannerProps> = ({
-                                                  title,
-                                                  subtitle,
-                                                  description,
-                                                  activeUserType,
-                                                  onUserTypeChange,
-                                              }) => {
+export const Banner: React.FC<BannerProps> = ({ title, subtitle, description, activeUserType, onUserTypeChange }) => {
     return (
         <div className={styles.banner}>
             <h1 className={styles.title}>{title}</h1>

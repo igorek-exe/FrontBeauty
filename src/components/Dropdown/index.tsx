@@ -4,14 +4,14 @@ import { useDropdownContainer } from './model/useDropdownContainer';
 import { DropdownProps } from './model/dropdownTypes';
 
 const Dropdown: React.FC<DropdownProps> = ({
-                                                      items,
-                                                      buttonLabel,
-                                                      selectedLabel,
-                                                      onItemClick,
-                                                      classNames,
-                                                      iconName,
-                                                      iconClassName,
-                                                  }) => {
+    items,
+    buttonLabel,
+    selectedLabel,
+    onItemClick,
+    classNames,
+    iconName,
+    iconClassName,
+}) => {
     const { open, ref, label, toggle, handleItemClick } = useDropdownContainer({
         buttonLabel,
         selectedLabel,

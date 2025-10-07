@@ -7,16 +7,8 @@ type Props = {
 };
 
 const MasterExperienceContainer: React.FC<Props> = ({ index = 0 }) => {
-    const {
-        experience,
-        isEditing,
-        handleEdit,
-        handleCancel,
-        handleChange,
-        handleAdd,
-        handleRemove,
-        handleSave,
-    } = useMasterExperience(index);
+    const { experience, isEditing, handleEdit, handleCancel, handleChange, handleAdd, handleRemove, handleSave } =
+        useMasterExperience(index);
 
     return (
         <MasterExperience

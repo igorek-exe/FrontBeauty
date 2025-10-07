@@ -6,18 +6,18 @@ import styles from './index.module.scss';
 import { ServiceCardProps } from '../model/serviceCardTypes';
 
 export const ServiceCard: React.FC<ServiceCardProps> = ({
-                                                            formData,
-                                                            tempData,
-                                                            hovered,
-                                                            uploadMode,
-                                                            setHovered,
-                                                            setUploadMode,
-                                                            setTempData,
-                                                            onInputChange,
-                                                            onImageUpload,
-                                                            onSubmit,
-                                                            onClear,
-                                                        }) => {
+    formData,
+    tempData,
+    hovered,
+    uploadMode,
+    setHovered,
+    setUploadMode,
+    setTempData,
+    onInputChange,
+    onImageUpload,
+    onSubmit,
+    onClear,
+}) => {
     const hasImage = formData.image !== '';
 
     return (

@@ -5,15 +5,15 @@ import styles from './index.module.scss';
 import { MasterServicesProps } from '../model/masterServicesTypes';
 
 export const MasterServices: React.FC<MasterServicesProps> = ({
-                                                                  services,
-                                                                  isEditing,
-                                                                  onEdit,
-                                                                  onChange,
-                                                                  onAdd,
-                                                                  onRemove,
-                                                                  onSave,
-                                                                  onCancel,
-                                                              }) => {
+    services,
+    isEditing,
+    onEdit,
+    onChange,
+    onAdd,
+    onRemove,
+    onSave,
+    onCancel,
+}) => {
     return (
         <div className={styles.servicesCard}>
             <div className={styles.header}>

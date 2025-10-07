@@ -17,23 +17,19 @@ type DropdownUIProps = {
 };
 
 export const DropdownUI: React.FC<DropdownUIProps> = ({
-                                                          open,
-                                                          menuRef,
-                                                          items,
-                                                          buttonLabel,
-                                                          onItemClick,
-                                                          toggleDropdown,
-                                                          classNames = {},
-                                                          iconName,
-                                                          iconClassName,
-                                                      }) => {
+    open,
+    menuRef,
+    items,
+    buttonLabel,
+    onItemClick,
+    toggleDropdown,
+    classNames = {},
+    iconName,
+    iconClassName,
+}) => {
     return (
         <div ref={menuRef} className={cn(styles, 'dropMenuWrap', classNames.wrapper)}>
-            <button
-                type="button"
-                onClick={toggleDropdown}
-                className={cn(styles, 'dropMenuBtn', classNames.button)}
-            >
+            <button type="button" onClick={toggleDropdown} className={cn(styles, 'dropMenuBtn', classNames.button)}>
                 <span>{buttonLabel}</span>
                 <IconSprite name={iconName} classNames={{ iconClass: iconClassName }} />
             </button>

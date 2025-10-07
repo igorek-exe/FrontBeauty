@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react';
 import {
     CountrySelector,
-    Dropdown, Footer,
+    Dropdown,
+    Footer,
     FooterLegal,
     FooterNav,
     Header,
@@ -19,12 +20,12 @@ type AppLayoutProps = {
     children: ReactNode;
 };
 
-const AppLayout: React.FC<AppLayoutProps>= ({ children }) => {
+const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
     return (
         <>
-            <ScrollButton/>
+            <ScrollButton />
             <Header>
-                <div className={cn(styles, "bg-light-pink", "wrapper")}>
+                <div className={cn(styles, 'bg-light-pink', 'wrapper')}>
                     <div className="container">
                         <div className={styles.headerWrapp}>
                             <Logo icon={logoIcon} />
@@ -63,6 +64,6 @@ const AppLayout: React.FC<AppLayoutProps>= ({ children }) => {
             </Footer>
         </>
     );
-}
+};
 
 export { AppLayout };

@@ -5,14 +5,14 @@ import { MasterAboutForm, SvgIcon, Button } from '@/components';
 import { MasterAboutProps } from '../model/masterAboutTypes';
 
 export const MasterAbout: React.FC<MasterAboutProps> = ({
-                                                            aboutText,
-                                                            tempText,
-                                                            isEditing,
-                                                            onEdit,
-                                                            onChange,
-                                                            onSave,
-                                                            onCancel,
-                                                        }) => {
+    aboutText,
+    tempText,
+    isEditing,
+    onEdit,
+    onChange,
+    onSave,
+    onCancel,
+}) => {
     return (
         <div className={styles.aboutCard}>
             <div className={styles.header}>
@@ -27,12 +27,7 @@ export const MasterAbout: React.FC<MasterAboutProps> = ({
             {!isEditing ? (
                 <p className={styles.text}>{aboutText}</p>
             ) : (
-                <MasterAboutForm
-                    value={tempText}
-                    onChange={onChange}
-                    onSave={onSave}
-                    onCancel={onCancel}
-                />
+                <MasterAboutForm value={tempText} onChange={onChange} onSave={onSave} onCancel={onCancel} />
             )}
         </div>
     );

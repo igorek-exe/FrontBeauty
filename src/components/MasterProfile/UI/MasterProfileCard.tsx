@@ -6,15 +6,15 @@ import styles from './index.module.scss';
 import { MasterProfileCardProps } from '../model/masterProfileTypes';
 
 export const MasterProfileCard: React.FC<MasterProfileCardProps> = ({
-                                                                        photoUrl,
-                                                                        user,
-                                                                        formData,
-                                                                        isEditing,
-                                                                        onChange,
-                                                                        onEdit,
-                                                                        onSave,
-                                                                        onCancel,
-                                                                    }) => {
+    photoUrl,
+    user,
+    formData,
+    isEditing,
+    onChange,
+    onEdit,
+    onSave,
+    onCancel,
+}) => {
     return (
         <div className={styles.masterProfileCard}>
             <div className={styles.cardHeader}>
@@ -38,12 +38,7 @@ export const MasterProfileCard: React.FC<MasterProfileCardProps> = ({
                     <p className={styles.masterPhone}>{user.phone}</p>
                 </>
             ) : (
-                <ProfileEditForm
-                    formData={formData}
-                    onChange={onChange}
-                    onSave={onSave}
-                    onCancel={onCancel}
-                />
+                <ProfileEditForm formData={formData} onChange={onChange} onSave={onSave} onCancel={onCancel} />
             )}
         </div>
     );

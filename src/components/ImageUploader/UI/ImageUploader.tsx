@@ -6,15 +6,15 @@ import styles from './index.module.scss';
 import { ImageUploaderProps } from '../model/imageUploaderTypes';
 
 export const ImageUploader: React.FC<ImageUploaderProps> = ({
-                                                                preview,
-                                                                isHovered,
-                                                                onMouseEnter,
-                                                                onMouseLeave,
-                                                                onTriggerUpload,
-                                                                onRemoveImage,
-                                                                inputRef,
-                                                                onImageUpload,
-                                                            }) => (
+    preview,
+    isHovered,
+    onMouseEnter,
+    onMouseLeave,
+    onTriggerUpload,
+    onRemoveImage,
+    inputRef,
+    onImageUpload,
+}) => (
     <div
         className={styles.wrapper}
         onMouseEnter={onMouseEnter}

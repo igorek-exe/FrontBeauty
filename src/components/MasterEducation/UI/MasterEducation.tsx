@@ -5,15 +5,15 @@ import styles from './index.module.scss';
 import { MasterEducationProps } from '../model/masterEducationTypes';
 
 export const MasterEducation: React.FC<MasterEducationProps> = ({
-                                                                    education,
-                                                                    isEditing,
-                                                                    onEdit,
-                                                                    onChange,
-                                                                    onAdd,
-                                                                    onRemove,
-                                                                    onSave,
-                                                                    onCancel,
-                                                                }) => {
+    education,
+    isEditing,
+    onEdit,
+    onChange,
+    onAdd,
+    onRemove,
+    onSave,
+    onCancel,
+}) => {
     return (
         <div className={styles.educationCard}>
             <div className={styles.header}>

@@ -248,13 +248,7 @@ const masterSlice = createSlice({
     },
 });
 
-export const {
-    updateProfile,
-    updateAbout,
-    updateEducation,
-    updateExperience,
-    updateAddress,
-    updateServices,
-} = masterSlice.actions;
+export const { updateProfile, updateAbout, updateEducation, updateExperience, updateAddress, updateServices } =
+    masterSlice.actions;
 
 export default masterSlice.reducer;

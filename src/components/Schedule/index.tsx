@@ -16,4 +16,4 @@ const ScheduleContainer: React.FC = () => {
     );
 };
 
-export { ScheduleContainer }
+export { ScheduleContainer };

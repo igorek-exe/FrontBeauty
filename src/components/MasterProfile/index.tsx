@@ -7,15 +7,7 @@ type MasterProfileContainerProps = {
 };
 
 const MasterProfileContainer: React.FC<MasterProfileContainerProps> = ({ photoUrl }) => {
-    const {
-        user,
-        formData,
-        isEditing,
-        handleChange,
-        handleEdit,
-        handleSave,
-        handleCancel,
-    } = useMasterProfile();
+    const { user, formData, isEditing, handleChange, handleEdit, handleSave, handleCancel } = useMasterProfile();
 
     return (
         <MasterProfileCard

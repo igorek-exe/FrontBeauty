@@ -3,16 +3,8 @@ import { MasterServices } from './UI/MasterServices';
 import { useMasterServices } from './model/useMasterServices';
 
 const MasterServicesContainer: React.FC = () => {
-    const {
-        services,
-        isEditing,
-        handleEdit,
-        handleCancel,
-        handleChange,
-        handleAdd,
-        handleRemove,
-        handleSave,
-    } = useMasterServices();
+    const { services, isEditing, handleEdit, handleCancel, handleChange, handleAdd, handleRemove, handleSave } =
+        useMasterServices();
 
     return (
         <MasterServices

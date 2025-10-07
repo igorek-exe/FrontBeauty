@@ -7,15 +7,15 @@ import styles from './index.module.scss';
 import { MasterAddressesProps } from '../model/masterAddressesTypes';
 
 export const MasterAddresses: React.FC<MasterAddressesProps> = ({
-                                                                    addresses,
-                                                                    isEditing,
-                                                                    onEdit,
-                                                                    onChange,
-                                                                    onAdd,
-                                                                    onRemove,
-                                                                    onSave,
-                                                                    onCancel,
-                                                                }) => {
+    addresses,
+    isEditing,
+    onEdit,
+    onChange,
+    onAdd,
+    onRemove,
+    onSave,
+    onCancel,
+}) => {
     const hasVisibleData = addresses.some((item) => item.address.trim() || item.region.trim());
 
     return (
