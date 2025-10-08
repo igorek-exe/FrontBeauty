@@ -1,0 +1,70 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { SvgIcon } from '@/components';
+import { useAppSelector } from '@/hooks/reduxHooks';
+import type { MasterSidebarProps } from '@/components/MasterSidebar';
+import styles from './index.module.scss';
+
+// SVG-иконки
+import UserIcon from '@/assets/icons/colored/User.svg?react';
+import ChatIcon from '@/assets/icons/colored/Chat.svg?react';
+import OrdersIcon from '@/assets/icons/colored/Orders.svg?react';
+import NotificationIcon from '@/assets/icons/colored/Notification.svg?react';
+import SettingsIcon from '@/assets/icons/colored/Settings.svg?react';
+
+const MasterSidebar: React.FC<MasterSidebarProps> = ({ avatarUrl }) => {
+    const userName = useAppSelector((state) => state.master.name);
+
+    return (
+        <aside className={styles.masterSidebar}>
+            <div className={styles.masterInfoBox}>
+                {avatarUrl ? (
+                    <img
+                        src={avatarUrl}
+                        alt={`${userName} avatar`}
+                    />
+                ) : (
+                    <div className={styles.wrapperImg} />
+                )}
+                <p className={styles.userName}>{userName}</p>
+            </div>
+
+            <nav>
+                <ul>
+                    <li>
+                        <Link className={styles.item} to="/profile">
+                            <span>Мой профиль</span>
+                            <SvgIcon Icon={UserIcon} className="icon" />
+                        </Link>
+                    </li>
+                    <li>
+                        <Link className={styles.item} to="/messages">
+                            <span>Сообщения</span>
+                            <SvgIcon Icon={ChatIcon} className="icon" />
+                        </Link>
+                    </li>
+                    <li>
+                        <Link className={`${styles.item} ${styles.itemOrder}`} to="/orders">
+                            <span>Заказы</span>
+                            <SvgIcon Icon={OrdersIcon} className="icon" />
+                        </Link>
+                    </li>
+                    <li>
+                        <Link className={styles.item} to="/notifications">
+                            <span>Уведомления</span>
+                            <SvgIcon Icon={NotificationIcon} className="icon" />
+                        </Link>
+                    </li>
+                    <li>
+                        <Link className={styles.item} to="/settings">
+                            <span>Настройки</span>
+                            <SvgIcon Icon={SettingsIcon} className="icon" />
+                        </Link>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    );
+};
+
+export { MasterSidebar };
