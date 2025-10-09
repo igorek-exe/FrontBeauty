@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './footerNav.module.scss';
+import styles from './index.module.scss';
 import { LocalLink, SupportInfo } from '@/components';
 
 const FooterNav: React.FC = () => {

@@ -1,12 +1,7 @@
 import React from 'react';
-import styles from './footerLegal.module.scss';
+import styles from './index.module.scss';
+import type { FooterLegalProps } from '@/components/FooterLegal';
 import { IconSprite } from '@/components';
-
-interface FooterLegalProps {
-    companyName: string;
-    years: string;
-    activityCode?: string;
-}
 
 const FooterLegal: React.FC<FooterLegalProps> = ({ companyName, years, activityCode = '2.01' }) => {
     return (
@@ -22,6 +17,7 @@ const FooterLegal: React.FC<FooterLegalProps> = ({ companyName, years, activityC
             <p className={styles.footerCopyright}>
                 © {companyName}, {years}
             </p>
+
             <p className={styles.footerLegalInfo}>
                 ООО «{companyName}» осуществляет деятельность в области информационных технологий. Вид деятельности
                 (код): {activityCode}.<br />
