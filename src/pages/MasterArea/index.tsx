@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    Main,
     MasterSidebar,
     MasterProfileContainer,
     ScheduleContainer,
@@ -12,6 +11,7 @@ import {
     Diplomas,
     MasterPortfolio,
 } from '@/components';
+import { Main } from '@/layouts';
 import { useAppSelector } from '@/hooks/reduxHooks';
 import styles from './masterArea.module.scss';
 import { AppLayout } from '@/layouts';

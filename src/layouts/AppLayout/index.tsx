@@ -2,16 +2,13 @@ import React, { ReactNode } from 'react';
 import {
     CountrySelector,
     Dropdown,
-    Footer,
-    FooterLegal,
-    FooterNav,
-    Header,
     IconSprite,
     LinkButton,
     Logo,
     Menu,
     ScrollButton,
 } from '@/components';
+import { Header, Footer, FooterNav, FooterLegal } from '@/layouts';
 import logoIcon from '../../assets/icons/colored/Logo.svg?react';
 import styles from '@/layouts/AppLayout/appLayout.module.scss';
 import { cn } from '@/utils/cn.ts';

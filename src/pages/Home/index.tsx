@@ -1,9 +1,7 @@
 import {
     Dropdown,
-    Header,
     LinkButton,
     Logo,
-    Main,
     Menu,
     SearchPanel,
     MastersToolbar,
@@ -11,13 +9,11 @@ import {
     Slider,
     JoinSection,
     HelpSection,
-    Footer,
     IconSprite,
-    FooterNav,
-    FooterLegal,
     CountrySelector,
     BannerContainer,
 } from '@/components';
+import { Header, Footer, FooterNav, FooterLegal, Main } from '@/layouts';
 import React from 'react';
 import logoIcon from '../../assets/icons/colored/Logo.svg?react';
 import styles from './home.module.scss';
