@@ -1,0 +1,44 @@
+@use './../../../styles/variables' as *;
+@use './../../../styles/mixins' as *;
+
+.headerWrapp {
+  @include rowing(space-between, center);
+  min-height: $spacing-70;
+}
+
+.navbarMenu {
+  @include rowing();
+}
+
+.hero {
+  @include sizes(100%, 815px);
+  background: {
+    image: url('/images/manicure-process.png');
+    size: cover;
+    position: center;
+    repeat: no-repeat;
+  }
+}
+
+.wrappToolbar {
+  padding: 110px 0 15px;
+}
+
+.wrappFooter {
+  margin: $spacing-0 $spacing-100;
+  padding-bottom: $spacing-50;
+}
+
+.wrappFooterNav {
+  padding-bottom: $spacing-60;
+}
+
+.footerSeparator {
+  @include sizes(null, $spacing-2);
+  border: none;
+  background-color: $color-purple3;
+}
+
+.basement {
+  @include rowing(space-between);
+}
