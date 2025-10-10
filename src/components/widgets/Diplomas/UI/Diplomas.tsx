@@ -5,7 +5,7 @@ import styles from './index.module.scss';
 
 const Diplomas: React.FC<DiplomasProps> = ({ uploadSlots = 6 }) => {
     return (
-        <section className={styles.wrapper}>
+        <section className={styles.diplomasWrapper}>
             <h2 className={styles.title}>Сертификаты и дипломы</h2>
             <div className={styles.grid}>
                 {Array.from({ length: uploadSlots }).map((_, index) => (

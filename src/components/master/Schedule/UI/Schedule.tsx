@@ -22,15 +22,15 @@ const weekDays = [
 ];
 
 export const Schedule: React.FC<ScheduleProps> = ({
-    selectedDate,
-    startOfWeek,
-    schedule,
-    onDateChange,
-    onWeekChange,
-}) => {
+                                                      selectedDate,
+                                                      startOfWeek,
+                                                      schedule,
+                                                      onDateChange,
+                                                      onWeekChange,
+                                                  }) => {
     return (
-        <div className={styles.wrapper}>
-            <Row className={styles.header} justify="space-between">
+        <div className={styles.wrappShedule}>
+            <Row className={styles.headShedule} justify="space-between">
                 <Title level={3} className={styles.title}>
                     Мой график
                 </Title>
@@ -40,7 +40,7 @@ export const Schedule: React.FC<ScheduleProps> = ({
             </Row>
 
             <Row align="middle" justify="space-between" style={{ marginBottom: 16 }}>
-                <Col>
+                <Col className={styles.wrappBtnPrev}>
                     <Button
                         icon={<SvgIcon Icon={PrevCalendar} />}
                         onClick={() => onWeekChange('prev')}
@@ -54,9 +54,10 @@ export const Schedule: React.FC<ScheduleProps> = ({
                             const isSelected = day.isSame(selectedDate, 'day');
 
                             return (
-                                <Col key={offset} flex="1">
+                                <Col className={styles.wrappBtnDay} key={offset} flex="1">
                                     <Button
                                         block
+                                        type="default"
                                         className={`${styles.btnDay} ${isSelected ? styles.selected : ''}`}
                                         onClick={() => onDateChange(day)}
                                     >
@@ -68,7 +69,7 @@ export const Schedule: React.FC<ScheduleProps> = ({
                         })}
                     </Row>
                 </Col>
-                <Col>
+                <Col className={styles.wrappBtnNext}>
                     <Button
                         icon={<SvgIcon Icon={NextCalendar} />}
                         onClick={() => onWeekChange('next')}

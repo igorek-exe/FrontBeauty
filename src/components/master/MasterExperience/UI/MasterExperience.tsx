@@ -5,15 +5,15 @@ import styles from './index.module.scss';
 import { MasterExperienceProps } from '../model/masterExperienceTypes';
 
 export const MasterExperience: React.FC<MasterExperienceProps> = ({
-    experience,
-    isEditing,
-    onEdit,
-    onChange,
-    onAdd,
-    onRemove,
-    onSave,
-    onCancel,
-}) => {
+                                                                      experience,
+                                                                      isEditing,
+                                                                      onEdit,
+                                                                      onChange,
+                                                                      onAdd,
+                                                                      onRemove,
+                                                                      onSave,
+                                                                      onCancel,
+                                                                  }) => {
     return (
         <div className={styles.experienceCard}>
             <div className={styles.header}>
@@ -42,9 +42,9 @@ export const MasterExperience: React.FC<MasterExperienceProps> = ({
                             <p className={styles.text}>{item.title}</p>
                             <p className={styles.experienceYearBlock}>
                                 <span className={styles.label}>период работы</span>
-                                <span className={styles.year}>
+                                <p className={styles.year}>
                                     {item.yearStart} — {item.yearEnd}
-                                </span>
+                                </p>
                             </p>
                         </li>
                     ))}
