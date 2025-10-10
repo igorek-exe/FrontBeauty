@@ -1,9 +1,9 @@
-@use './../../../styles/variables' as *;
-@use './../../../styles/mixins' as *;
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
 
 @font-face {
     font-family: 'Manrope-Semibold';
-    src: url('./../../../assets/fonts/Manrope-SemiBold.ttf') format('truetype');
+    src: url('../../../../assets/fonts/Manrope-SemiBold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Input, Button } from '@/components';
+import type { MasterEditFormProps } from '@/components';
+import { Button, Input } from '@/components';
 import styles from './index.module.scss';
-import type { ProfileEditFormProps } from '@/components';
 
-export const ProfileEditForm: React.FC<ProfileEditFormProps> = ({ formData, onChange, onSave, onCancel }) => {
+export const MasterEditForm: React.FC<MasterEditFormProps> = ({ formData, onChange, onSave, onCancel }) => {
     return (
         <form className={styles.editForm} onSubmit={(e) => e.preventDefault()}>
             <Input type="text" name="name" value={formData.name} onChange={onChange} placeholder="Имя" />

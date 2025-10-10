@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, SvgIcon, ProfileEditForm } from '@/components';
+import { Button, SvgIcon, MasterEditForm } from '@/components';
 import Avatar from '@/assets/icons/colored/Avatar.svg?react';
 import Edit from '@/assets/icons/colored/Edit.svg?react';
 import styles from './index.module.scss';
@@ -38,7 +38,7 @@ export const MasterProfileCard: React.FC<MasterProfileCardProps> = ({
                     <p className={styles.masterPhone}>{user.phone}</p>
                 </>
             ) : (
-                <ProfileEditForm formData={formData} onChange={onChange} onSave={onSave} onCancel={onCancel} />
+                <MasterEditForm formData={formData} onChange={onChange} onSave={onSave} onCancel={onCancel} />
             )}
         </div>
     );
