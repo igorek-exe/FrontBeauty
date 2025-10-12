@@ -6,9 +6,9 @@ import styles from './index.module.scss';
 import type { SupportInfoProps } from '@/layouts';
 
 const SupportInfo: React.FC<SupportInfoProps> = ({
-                                                     email = 'support@dvesoroki.by',
-                                                     workHours = { weekdays: 'с 8 до 22', weekends: 'с 9 до 22' },
-                                                 }) => {
+    email = 'support@dvesoroki.by',
+    workHours = { weekdays: 'с 8 до 22', weekends: 'с 9 до 22' },
+}) => {
     return (
         <div className={styles.supportInfo}>
             <p className={styles.itemSupport}>Служба поддержки:</p>

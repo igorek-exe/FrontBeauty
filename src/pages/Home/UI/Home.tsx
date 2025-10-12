@@ -13,9 +13,12 @@ import {
     IconSprite,
     CountrySelector,
     BannerContainer,
+    SvgIcon,
 } from '@/components';
 import { Header, Footer, FooterNav, FooterLegal, Main } from '@/layouts';
 import logoIcon from '@/assets/icons/colored/Logo.svg?react';
+import LoginIcon from '@/assets/icons/colored/LoginRounded.svg?react';
+import AssignmentIcon from '@/assets/icons/colored/AssignmentIndRounded.svg?react';
 import styles from './index.module.scss';
 import type { HomeProps } from '@/pages';
 
@@ -37,7 +40,16 @@ const Home: React.FC<HomeProps> = () => {
                                 />
                                 <Menu />
                             </p>
-                            <LinkButton to="#">Вход</LinkButton>
+                            <p className={styles.btnWrapp}>
+                                <LinkButton to="#" className="linkButton-login">
+                                    Вход
+                                    <SvgIcon Icon={LoginIcon} />
+                                </LinkButton>
+                                <LinkButton to="#" className="linkButton-reg">
+                                    Регистрация
+                                    <SvgIcon Icon={AssignmentIcon} />
+                                </LinkButton>
+                            </p>
                         </div>
                     </div>
                 </div>

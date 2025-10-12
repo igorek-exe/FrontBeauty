@@ -1,18 +1,18 @@
 @use '../styles/variables' as *;
 
 .container {
-    max-width: 1440px;
-    margin: 0 auto;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .bg-light-pink {
-    background-color: $color-pink;
+  background-color: $color-pink;
 }
 
 .bg-white {
-    background-color: $color-white;
+  background-color: $color-white;
 }
 
 .bg-purple {
-    background-color: $color-purple3;
+  background-color: $color-purple3;
 }

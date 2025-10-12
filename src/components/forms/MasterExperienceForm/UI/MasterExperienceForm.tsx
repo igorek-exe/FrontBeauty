@@ -3,13 +3,13 @@ import styles from './index.module.scss';
 import type { MasterExperienceFormProps } from '@/components';
 
 const MasterExperienceForm: React.FC<MasterExperienceFormProps> = ({
-                                                                       experience,
-                                                                       onChange,
-                                                                       onAdd,
-                                                                       onRemove,
-                                                                       onSave,
-                                                                       onCancel,
-                                                                   }) => {
+    experience,
+    onChange,
+    onAdd,
+    onRemove,
+    onSave,
+    onCancel,
+}) => {
     return (
         <div className={styles.wrapper}>
             <h2 className={styles.title}>Редактировать опыт</h2>

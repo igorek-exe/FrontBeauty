@@ -12,3 +12,9 @@ printWidth: 120
 
 # добавлять завершающие запятые
 trailingComma: es5
+
+# два пробела перед  правилом в .scss
+overrides:
+    - files: '*.scss'
+      options:
+          tabWidth: 2

@@ -2,5 +2,5 @@
 @use '../../../../styles/mixins' as *;
 
 .itemFooterNav {
-    @include fonts($roboto-font, $font-weight-400, $font-size-17, $color-purple3);
+  @include fonts($roboto-font, $font-weight-400, $font-size-17, $color-purple3);
 }

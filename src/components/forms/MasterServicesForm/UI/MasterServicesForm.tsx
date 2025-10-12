@@ -3,13 +3,13 @@ import type { MasterServicesFormProps } from '@/components';
 import styles from './index.module.scss';
 
 const MasterServicesForm: React.FC<MasterServicesFormProps> = ({
-                                                                   services,
-                                                                   onChange,
-                                                                   onAdd,
-                                                                   onRemove,
-                                                                   onSave,
-                                                                   onCancel,
-                                                               }) => {
+    services,
+    onChange,
+    onAdd,
+    onRemove,
+    onSave,
+    onCancel,
+}) => {
     return (
         <div className={styles.form}>
             {services.map((item, index) => (
@@ -35,11 +35,7 @@ const MasterServicesForm: React.FC<MasterServicesFormProps> = ({
                         onChange={(e) => onChange(index, 'price', e.target.value)}
                         className={styles.priceInput}
                     />
-                    <button
-                        onClick={() => onRemove(index)}
-                        aria-label="Удалить услугу"
-                        className={styles.removeBtn}
-                    >
+                    <button onClick={() => onRemove(index)} aria-label="Удалить услугу" className={styles.removeBtn}>
                         ×
                     </button>
                 </div>

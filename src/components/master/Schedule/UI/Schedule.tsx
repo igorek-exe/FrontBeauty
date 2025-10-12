@@ -22,12 +22,12 @@ const weekDays = [
 ];
 
 export const Schedule: React.FC<ScheduleProps> = ({
-                                                      selectedDate,
-                                                      startOfWeek,
-                                                      schedule,
-                                                      onDateChange,
-                                                      onWeekChange,
-                                                  }) => {
+    selectedDate,
+    startOfWeek,
+    schedule,
+    onDateChange,
+    onWeekChange,
+}) => {
     return (
         <div className={styles.wrappShedule}>
             <Row className={styles.headShedule} justify="space-between">

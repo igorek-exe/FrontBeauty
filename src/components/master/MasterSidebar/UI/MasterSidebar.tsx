@@ -18,14 +18,7 @@ const MasterSidebar: React.FC<MasterSidebarProps> = ({ avatarUrl }) => {
     return (
         <aside className={styles.masterSidebar}>
             <div className={styles.masterInfoBox}>
-                {avatarUrl ? (
-                    <img
-                        src={avatarUrl}
-                        alt={`${userName} avatar`}
-                    />
-                ) : (
-                    <div className={styles.wrapperImg} />
-                )}
+                {avatarUrl ? <img src={avatarUrl} alt={`${userName} avatar`} /> : <div className={styles.wrapperImg} />}
                 <p className={styles.userName}>{userName}</p>
             </div>
 

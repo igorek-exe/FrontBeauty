@@ -43,12 +43,8 @@ const MasterAdressesForm: React.FC<Props> = ({ addresses, onChange, onAdd, onRem
             </button>
 
             <div>
-                <button onClick={onSave}>
-                    Сохранить
-                </button>
-                <button onClick={onCancel}>
-                    Отмена
-                </button>
+                <button onClick={onSave}>Сохранить</button>
+                <button onClick={onCancel}>Отмена</button>
             </div>
         </div>
     );

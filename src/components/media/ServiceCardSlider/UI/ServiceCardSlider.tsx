@@ -5,10 +5,7 @@ import type { ServiceCardSliderProps } from '@/components';
 import { ServiceCardContainer } from '@/components';
 import styles from './index.module.scss';
 
-const ServiceCardSlider: React.FC<ServiceCardSliderProps> = ({
-                                                                 slidesCount = 6,
-                                                                 spaceBetween = 42,
-                                                             }) => {
+const ServiceCardSlider: React.FC<ServiceCardSliderProps> = ({ slidesCount = 6, spaceBetween = 42 }) => {
     return (
         <div className={styles.sliderWrap}>
             <Swiper

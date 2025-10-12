@@ -3,13 +3,13 @@ import styles from './index.module.scss';
 import type { MasterEducationFormProps } from '@/components';
 
 const MasterEducationForm: React.FC<MasterEducationFormProps> = ({
-                                                                     education,
-                                                                     onChange,
-                                                                     onAdd,
-                                                                     onRemove,
-                                                                     onSave,
-                                                                     onCancel,
-                                                                 }) => {
+    education,
+    onChange,
+    onAdd,
+    onRemove,
+    onSave,
+    onCancel,
+}) => {
     return (
         <div className={styles.wrapper}>
             <h2 className={styles.title}>Редактировать образование</h2>

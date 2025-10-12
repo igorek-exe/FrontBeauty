@@ -5,5 +5,5 @@ export type LinkButtonClassNames = {
 export type LinkButtonProps = {
     to: string;
     children: React.ReactNode;
-    classNames?: LinkButtonClassNames;
+    className?: string;
 };

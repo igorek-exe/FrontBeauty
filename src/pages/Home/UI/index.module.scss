@@ -20,6 +20,11 @@
   }
 }
 
+.btnWrapp {
+  @include rowing(space-between, center);
+  gap: $spacing-16;
+}
+
 .wrappToolbar {
   padding: 110px 0 15px;
 }

@@ -5,15 +5,15 @@ import styles from './index.module.scss';
 import { MasterExperienceProps } from '../model/masterExperienceTypes';
 
 export const MasterExperience: React.FC<MasterExperienceProps> = ({
-                                                                      experience,
-                                                                      isEditing,
-                                                                      onEdit,
-                                                                      onChange,
-                                                                      onAdd,
-                                                                      onRemove,
-                                                                      onSave,
-                                                                      onCancel,
-                                                                  }) => {
+    experience,
+    isEditing,
+    onEdit,
+    onChange,
+    onAdd,
+    onRemove,
+    onSave,
+    onCancel,
+}) => {
     return (
         <div className={styles.experienceCard}>
             <div className={styles.header}>

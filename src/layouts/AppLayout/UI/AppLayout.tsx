@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-    CountrySelector,
-    Dropdown,
-    IconSprite,
-    LinkButton,
-    Logo,
-    Menu,
-    ScrollButton,
-} from '@/components';
+import { CountrySelector, Dropdown, IconSprite, LinkButton, Logo, Menu, ScrollButton } from '@/components';
 import { Header, Footer, FooterNav, FooterLegal } from '@/layouts';
 import logoIcon from '@/assets/icons/colored/Logo.svg?react';
 import styles from './index.module.scss';
