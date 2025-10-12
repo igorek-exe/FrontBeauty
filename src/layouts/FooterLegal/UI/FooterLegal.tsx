@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './index.module.scss';
-import type { FooterLegalProps } from '@/components/FooterLegal';
+import type { FooterLegalProps } from '@/layouts/FooterLegal';
 import { IconSprite } from '@/components';
 
 const FooterLegal: React.FC<FooterLegalProps> = ({ companyName, years, activityCode = '2.01' }) => {

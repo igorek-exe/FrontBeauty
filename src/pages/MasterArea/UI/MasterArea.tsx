@@ -14,7 +14,7 @@ import {
 import { Main, AppLayout } from '@/layouts';
 import { useAppSelector } from '@/hooks/reduxHooks';
 import styles from './index.module.scss';
-import type { MasterAreaProps } from '../model/masterAreaTypes';
+import type { MasterAreaProps } from '@/pages';
 
 const MasterArea: React.FC<MasterAreaProps> = () => {
     // Это вызов, чтобы подписаться на часть состояния (опыт мастера)

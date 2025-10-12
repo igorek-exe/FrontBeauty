@@ -1,5 +1,5 @@
 import React from 'react';
-import type { MainProps } from '@/components';
+import type { MainProps } from '@/layouts';
 import styles from './index.module.scss';
 import { cn } from '@/utils/cn';
 
