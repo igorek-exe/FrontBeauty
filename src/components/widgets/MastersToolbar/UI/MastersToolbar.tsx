@@ -13,8 +13,8 @@ const MastersToolbar: React.FC<MastersToolbarProps> = ({ onSortSelect }) => {
     };
 
     return (
-        <div className={styles.toolbar}>
-            <div className={styles.viewButtons}>
+        <div className={styles.wrapToolbar}>
+            <div className={styles.wrapBtnsToolbar}>
                 <Button classNames={{ buttonClass: 'listBtn' }}>
                     <span>Списком</span>
                 </Button>

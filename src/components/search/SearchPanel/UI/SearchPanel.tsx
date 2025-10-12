@@ -1,17 +1,13 @@
 import React from 'react';
 import { SearchForm } from '@/components';
-import type { SearchPanelProps } from '@/components/SearchPanel';
+import type { SearchPanelProps } from '@/components';
 import styles from './index.module.scss';
-import { cn } from '@/utils/cn';
 
-const SearchPanel: React.FC<SearchPanelProps> = ({ title, subtitle, className }) => {
+const SearchPanel: React.FC<SearchPanelProps> = ({ title }) => {
     return (
-        <section className={cn(styles, 'panel', className)}>
-            <div className={styles.content}>
-                <h1 className={styles.title}>{title}</h1>
-                {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
-                <SearchForm />
-            </div>
+        <section className={styles.searchPanel}>
+            <h1 className={styles.searchTitle}>{title}</h1>
+            <SearchForm />
         </section>
     );
 };
