@@ -1,0 +1,1 @@
+export { useMasterEducationForm } from './model/useMasterEducationForm';

@@ -1,0 +1,137 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.centred {
+  display: flex;
+  height: 100vh;
+}
+
+.leftSide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 520px;
+}
+
+.leftSIdeText {
+  display: flex;
+  line-height: 130%;
+  flex-direction: column;
+  gap: 24px;
+  color: white;
+  font-size: 20px;
+  width: 560px;
+  position: absolute;
+  bottom: -20%;
+  right: 0;
+  padding: 145px 40px 0 114px;
+  height: 560px;
+  background-color: $color-purple3;
+  border-radius: 50%;
+}
+
+.loginFormContainer {
+  @include rowing(space-between, stretch, column);
+  min-height: $spacing-70;
+  width: 500px;
+  margin: auto;
+  padding: $spacing-24 $spacing-48;
+  gap: $spacing-24;
+  border-radius: 20px;
+  background-color: $color-pink;
+  font-family: Manrope;
+}
+
+.loginHeader {
+  @include rowing(space-between, stretch, column);
+  gap: 12px;
+  max-width: 100%;
+}
+
+.loginTitle {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 44px;
+  letter-spacing: 0;
+  text-align: center;
+  color: $color-purple3;
+}
+
+.loginLinks {
+  @include rowing(space-between, center);
+  gap: 24px;
+  padding: 2.5px 22.5px;
+  font-size: 14px;
+}
+
+.form {
+  @include rowing(space-between, stretch, column);
+  gap: 8px;
+}
+
+.formGroup {
+  @include rowing(space-between, stretch, column);
+  padding: $spacing-0 $spacing-27;
+  gap: 8px;
+}
+
+.inputHint {
+  color: rgba(125, 121, 121, 1);
+  font-size: 14px;
+}
+
+.formBtnGroup {
+  padding-top: 16px;
+}
+
+.forgotPasswordLink {
+  text-align: end;
+  color: $color-purple4;
+}
+
+.formLabel {
+  font-size: 20px;
+  color: rgba(29, 27, 32, 1);
+}
+
+.agreeToPersonalData .formLabel {
+  // display: inline-block;
+  font-size: 12px;
+}
+.formInput {
+  width: 350px;
+  padding: 12px;
+  border: 1.5px solid rgba(234, 234, 234, 1);
+  font-size: 16px;
+  color: rgba(125, 121, 121, 1);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.passwordInputContainer {
+  position: relative;
+}
+
+.passwordToggleButton {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.eyeIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.agreeToPersonalData {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}

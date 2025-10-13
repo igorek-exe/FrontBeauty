@@ -169,3 +169,10 @@
   padding: $spacing-0;
   background-color: transparent;
 }
+
+.loginButton {
+  width: 100%;
+  font-size: $spacing-24;
+  color: $color-white;
+  background-color: rgba(127, 32, 123, 1);
+}

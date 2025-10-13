@@ -45,7 +45,7 @@ const Home: React.FC<HomeProps> = () => {
                                     Вход
                                     <SvgIcon Icon={LoginIcon} />
                                 </LinkButton>
-                                <LinkButton to="#" className="linkButton-reg">
+                                <LinkButton to="/register/master" className="linkButton-reg">
                                     Регистрация
                                     <SvgIcon Icon={AssignmentIcon} />
                                 </LinkButton>
@@ -64,9 +64,7 @@ const Home: React.FC<HomeProps> = () => {
 
                 <div className="bg-white">
                     <div className="container _relative">
-                        <SearchPanel
-                            title="Найди своего мастера ногтевого сервиса максимально быстро и удобно."
-                        />
+                        <SearchPanel title="Найди своего мастера ногтевого сервиса максимально быстро и удобно." />
                         <p className={styles.wrappToolbar}>
                             <MastersToolbar />
                         </p>

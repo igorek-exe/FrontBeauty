@@ -1,0 +1,1 @@
+export { useMasterCard } from './model/useMasterCard';

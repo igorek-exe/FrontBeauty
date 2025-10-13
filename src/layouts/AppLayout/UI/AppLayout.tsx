@@ -3,7 +3,7 @@ import { CountrySelector, Dropdown, IconSprite, LinkButton, Logo, Menu, ScrollBu
 import { Header, Footer, FooterNav, FooterLegal } from '@/layouts';
 import logoIcon from '@/assets/icons/colored/Logo.svg?react';
 import styles from './index.module.scss';
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils/UI/cn.ts';
 import type { AppLayoutProps } from '@/layouts';
 
 const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Card, Col, Row, Space, Typography } from 'antd';
 import { SvgIcon } from '@/components';
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils/UI/cn.ts';
 import styles from './index.module.scss';
 import PrevCalendar from '@/assets/icons/colored/PrevCalendar.svg?react';
 import NextCalendar from '@/assets/icons/colored/NextCalendar.svg?react';

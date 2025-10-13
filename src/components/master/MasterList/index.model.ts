@@ -1,0 +1,1 @@
+export { useMasterList } from './model/useMasterList';

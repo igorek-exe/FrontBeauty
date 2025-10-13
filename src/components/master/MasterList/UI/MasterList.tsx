@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, MasterCard } from '@/components';
-import { getMasterWord } from '@/utils/getWordForm';
+import { getMasterWord } from '@/utils/format/getWordForm.ts';
 import { useMasterList } from '@/components';
 import styles from './index.module.scss';
 

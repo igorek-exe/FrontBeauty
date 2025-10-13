@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './index.module.scss';
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils/UI/cn.ts';
 import type { PictureProps } from '@/components';
 
 export const Picture: React.FC<PictureProps> = ({ src, alt, className }) => {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { MenuProps } from '@/components';
 import styles from './index.module.scss';
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils/UI/cn.ts';
 
 const defaultItems = [
     { label: 'Главная', path: '/' },

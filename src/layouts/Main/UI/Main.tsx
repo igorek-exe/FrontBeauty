@@ -1,7 +1,7 @@
 import React from 'react';
 import type { MainProps } from '@/layouts';
 import styles from './index.module.scss';
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils/UI/cn.ts';
 
 const Main: React.FC<MainProps> = ({ children, className }) => {
     return <main className={cn(styles, 'main', className)}>{children}</main>;
