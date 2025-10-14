@@ -1,32 +1,36 @@
-import React, { RefObject } from 'react';
+import React from 'react';
 import { cn } from '@/utils/UI/cn.ts';
 import styles from './index.module.scss';
-import { ClassNames } from '../model/dropdownTypes';
+import type { DropdownClassNames } from '@/components';
 
 type DropdownUIProps = {
     open: boolean;
-    menuRef: RefObject<HTMLDivElement>;
+    menuRef: React.RefObject<HTMLDivElement>;
     items: string[];
     buttonLabel: string;
     onItemClick: (label: string) => void;
     toggleDropdown: () => void;
-    classNames?: ClassNames;
+    classNames?: DropdownClassNames;
     icon?: React.ReactNode;
 };
 
 export const DropdownUI: React.FC<DropdownUIProps> = ({
-    open,
-    menuRef,
-    items,
-    buttonLabel,
-    onItemClick,
-    toggleDropdown,
-    classNames = {},
-    icon,
-}) => {
+                                                          open,
+                                                          menuRef,
+                                                          items,
+                                                          buttonLabel,
+                                                          onItemClick,
+                                                          toggleDropdown,
+                                                          classNames = {},
+                                                          icon,
+                                                      }) => {
     return (
         <div ref={menuRef} className={cn(styles, 'dropMenuWrap', classNames.wrapper)}>
-            <button type="button" onClick={toggleDropdown} className={cn(styles, 'dropMenuBtn', classNames.button)}>
+            <button
+                type="button"
+                onClick={toggleDropdown}
+                className={cn(styles, 'dropMenuBtn', classNames.button)}
+            >
                 <span>{buttonLabel}</span>
                 {icon}
             </button>

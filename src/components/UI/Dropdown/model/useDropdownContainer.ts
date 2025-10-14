@@ -1,21 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useDropdown } from '@/hooks/useDropdown';
-import { DropdownProps } from './dropdownTypes';
+import type { DropdownProps } from '@/components';
 
 export const useDropdownContainer = ({
-    buttonLabel,
-    selectedLabel,
-    onItemClick,
-}: Pick<DropdownProps, 'buttonLabel' | 'selectedLabel' | 'onItemClick'>) => {
+                                         buttonLabel,
+                                         selectedLabel,
+                                         onItemClick,
+                                     }: Pick<DropdownProps, 'buttonLabel' | 'selectedLabel' | 'onItemClick'>) => {
     const { open, toggle, ref } = useDropdown<HTMLDivElement>();
     const [label, setLabel] = useState(buttonLabel);
 
     useEffect(() => {
-        if (selectedLabel) {
-            setLabel(selectedLabel);
-        } else {
-            setLabel(buttonLabel);
-        }
+        setLabel(selectedLabel || buttonLabel);
     }, [selectedLabel, buttonLabel]);
 
     const handleItemClick = (itemLabel: string) => {
