@@ -80,8 +80,14 @@ const RegisterMaster: React.FC = () => {
         try {
             await dispatch(register(credentials)).unwrap();
             navigate('/master');
-        } catch (error: never) {
-            setLoginError(error);
+        } catch (error) {
+            if (error instanceof Error) {
+                setLoginError(error.message);
+            } else if (typeof error === 'string') {
+                setLoginError(error);
+            } else {
+                setLoginError('Произошла неизвестная ошибка');
+            }
         }
     };
 

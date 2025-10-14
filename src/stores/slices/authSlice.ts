@@ -11,8 +11,12 @@ export const login = createAsyncThunk<{ user: User; token: string }, LoginCreden
             const { user, token } = await loginUser(credentials);
             localStorage.setItem('token', token);
             return { user, token };
-        } catch (error: never) {
-            return rejectWithValue(error.message || 'Ошибка авторизации');
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                return rejectWithValue(error.message);
+            } else {
+                return rejectWithValue('Ошибка авторизации');
+            }
         }
     }
 );
@@ -24,8 +28,12 @@ export const register = createAsyncThunk<{ user: User; token: string }, Register
             const { user, token } = await registerUser(credentials);
             localStorage.setItem('token', token);
             return { user, token };
-        } catch (error: never) {
-            return rejectWithValue(error.message || 'Ошибка регистрации');
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                return rejectWithValue(error.message);
+            } else {
+                return rejectWithValue('Ошибка авторизации');
+            }
         }
     }
 );
