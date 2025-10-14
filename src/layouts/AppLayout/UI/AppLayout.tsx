@@ -1,7 +1,9 @@
 import React from 'react';
-import { CountrySelector, Dropdown, IconSprite, LinkButton, Logo, Menu, ScrollButton } from '@/components';
+import { CountrySelector, Dropdown, LinkButton, Logo, Menu, ScrollButton, SvgIcon } from '@/components';
 import { Header, Footer, FooterNav, FooterLegal } from '@/layouts';
 import logoIcon from '@/assets/icons/colored/Logo.svg?react';
+import LogoFooter from '@/assets/icons/colored/LogoFooter.svg?react';
+import PurpleArrowDown from '@/assets/icons/colored/PurpleArrowDown.svg?react';
 import styles from './index.module.scss';
 import { cn } from '@/utils/UI/cn.ts';
 import type { AppLayoutProps } from '@/layouts';
@@ -20,8 +22,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                                 <Dropdown
                                     buttonLabel="Меню"
                                     items={['Пункт 1', 'Пункт 2', 'Пункт 3']}
-                                    iconName="PurpleArrowDown"
-                                    iconClassName="dropDownMenu"
+                                    icon={<SvgIcon Icon={PurpleArrowDown} className="dropDownMenu" />}
                                     onItemClick={(label) => alert(`Вы выбрали: ${label}`)}
                                 />
                                 <Menu />
@@ -38,7 +39,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                 <div className="bg-light-pink">
                     <div className="container">
                         <div className={styles.wrappFooter}>
-                            <IconSprite name="LogoFooter" classNames={{ iconClass: 'logoFooter' }} />
+                            <SvgIcon Icon={LogoFooter} className="logoFooter" />
 
                             <p className={styles.wrappFooterNav}>
                                 <FooterNav />

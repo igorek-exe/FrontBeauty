@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from './index.module.scss';
 import type { FooterLegalProps } from '@/layouts/FooterLegal';
-import { IconSprite } from '@/components';
+import AgeIcon from '@/assets/icons/colored/AgeIcon.svg?react';
+import { SvgIcon } from '@/components';
 
 const FooterLegal: React.FC<FooterLegalProps> = ({ companyName, years, activityCode = '2.01' }) => {
     return (
         <div className={styles.footerLegal}>
             <div className={styles.wrapAge}>
-                <IconSprite name="AgeIcon" classNames={{ iconClass: 'ageIcon' }} />
+                <SvgIcon Icon={AgeIcon} className="ageIcon" />
                 <p className={styles.footerLegalText}>
                     Информация, опубликованная на данном сайте, предназначена для любой аудитории, если иное не указано
                     дополнительно в отношении отдельных материалов.

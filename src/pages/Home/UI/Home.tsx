@@ -10,7 +10,6 @@ import {
     Slider,
     JoinSection,
     HelpSection,
-    IconSprite,
     CountrySelector,
     BannerContainer,
     SvgIcon,
@@ -18,6 +17,8 @@ import {
 import { Header, Footer, FooterNav, FooterLegal, Main } from '@/layouts';
 import logoIcon from '@/assets/icons/colored/Logo.svg?react';
 import LoginIcon from '@/assets/icons/colored/LoginRounded.svg?react';
+import LogoFooter from '@/assets/icons/colored/LogoFooter.svg?react';
+import PurpleArrowDown from '@/assets/icons/colored/PurpleArrowDown.svg?react';
 import AssignmentIcon from '@/assets/icons/colored/AssignmentIndRounded.svg?react';
 import styles from './index.module.scss';
 import type { HomeProps } from '@/pages';
@@ -34,8 +35,7 @@ const Home: React.FC<HomeProps> = () => {
                                 <Dropdown
                                     buttonLabel="Меню"
                                     items={['Пункт 1', 'Пункт 2', 'Пункт 3']}
-                                    iconName="PurpleArrowDown"
-                                    iconClassName="dropDownMenu"
+                                    icon={<SvgIcon Icon={PurpleArrowDown} className="dropDownMenu" />}
                                     onItemClick={(label) => alert(`Вы выбрали: ${label}`)}
                                 />
                                 <Menu />
@@ -97,7 +97,7 @@ const Home: React.FC<HomeProps> = () => {
                 <div className="bg-light-pink">
                     <div className="container">
                         <div className={styles.wrappFooter}>
-                            <IconSprite name="LogoFooter" classNames={{ iconClass: 'logoFooter' }} />
+                            <SvgIcon Icon={LogoFooter} className="logoFooter" />
 
                             <p className={styles.wrappFooterNav}>
                                 <FooterNav />

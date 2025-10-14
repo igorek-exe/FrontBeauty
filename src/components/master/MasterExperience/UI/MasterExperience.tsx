@@ -1,6 +1,7 @@
 import React from 'react';
 import Edit from '@/assets/icons/colored/Edit.svg?react';
-import { SvgIcon, Button, IconSprite, MasterExperienceForm } from '@/components';
+import Check from '@/assets/icons/colored/Check.svg?react';
+import { SvgIcon, Button, MasterExperienceForm } from '@/components';
 import styles from './index.module.scss';
 import { MasterExperienceProps } from '../model/masterExperienceTypes';
 
@@ -38,7 +39,7 @@ export const MasterExperience: React.FC<MasterExperienceProps> = ({
                 <ul>
                     {experience.map((item, index) => (
                         <li key={index} className={styles.experienceItem}>
-                            <IconSprite name="Check" classNames={{ iconClass: 'check' }} />
+                            <SvgIcon Icon={Check} className="check" />
                             <p className={styles.text}>{item.title}</p>
                             <p className={styles.experienceYearBlock}>
                                 <span className={styles.label}>период работы</span>

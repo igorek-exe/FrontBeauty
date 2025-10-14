@@ -1,3 +1,5 @@
+import React from 'react';
+
 export type ClassNames = {
     wrapper?: string;
     button?: string;
@@ -11,6 +13,5 @@ export type DropdownProps = {
     selectedLabel?: string | null;
     onItemClick?: (label: string) => void;
     classNames?: ClassNames;
-    iconName?: string;
-    iconClassName?: string;
+    icon?: React.ReactNode;
 };

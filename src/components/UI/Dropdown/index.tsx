@@ -9,8 +9,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     selectedLabel,
     onItemClick,
     classNames,
-    iconName,
-    iconClassName,
+    icon,
 }) => {
     const { open, ref, label, toggle, handleItemClick } = useDropdownContainer({
         buttonLabel,
@@ -27,8 +26,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             onItemClick={handleItemClick}
             toggleDropdown={toggle}
             classNames={classNames}
-            iconName={iconName}
-            iconClassName={iconClassName}
+            icon={icon}
         />
     );
 };

@@ -13,3 +13,62 @@
 .tagClose {
   margin-left: 5px;
 }
+
+.starOutIcon {
+  @include sizes($spacing-20, $spacing-19);
+  color: $color-orange;
+}
+
+.messageIcon {
+  @include sizes($spacing-20, $spacing-20);
+  color: $color-purple3;
+}
+
+.check {
+  @include sizes($spacing-48, $spacing-30);
+  margin-left: $spacing-5;
+  stroke: $color-purple3;
+  color: transparent;
+}
+
+.heartOutIcon {
+  @include sizes($spacing-30, $spacing-31);
+  color: $color-black3;
+}
+
+.magnifier {
+  @include sizes($spacing-16, $spacing-16);
+}
+
+.logoFooter {
+  @include sizes($spacing-100, $spacing-50);
+  margin: $spacing-36 $spacing-0;
+  color: $color-purple3;
+}
+
+.ageIcon {
+  @include sizes($spacing-35, $spacing-35);
+  color: $color-purple3;
+}
+
+.selectCountry {
+  @include sizes($spacing-16, $spacing-16);
+  stroke: $color-purple3;
+  color: transparent;
+}
+
+.dropDownMenu {
+  @include sizes($spacing-16, $spacing-16);
+  stroke: $color-purple;
+  color: transparent;
+}
+
+.searchFormIcon {
+  @include sizes($spacing-16, $spacing-16);
+  stroke: $color-gray2;
+  color: black;
+}
+
+.toolbarIcon {
+  @include sizes($spacing-16, $spacing-16);
+}

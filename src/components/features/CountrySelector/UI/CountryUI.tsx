@@ -1,6 +1,7 @@
 import React, { RefObject } from 'react';
 import styles from './index.module.scss';
-import { IconSprite } from '@/components';
+import { SvgIcon } from '@/components';
+import PurpleArrowDown from '@/assets/icons/colored/PurpleArrowDown.svg?react';
 import { Country } from '../model/countryTypes';
 
 type Props = {
@@ -25,7 +26,7 @@ export const CountryUI: React.FC<Props> = ({ wrapperRef, open, current, countrie
                     <span>
                         {current.name} — <span className={styles.changeText}>сменить страну</span>
                     </span>
-                    <IconSprite name="PurpleArrowDown" classNames={{ iconClass: 'selectCountry' }} />
+                    <SvgIcon Icon={PurpleArrowDown} className="selectCountry" />
                 </div>
             )}
             {open && (

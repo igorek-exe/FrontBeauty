@@ -1,6 +1,7 @@
 import React from 'react';
+import Check from '@/assets/icons/colored/Check.svg?react';
 import Edit from '@/assets/icons/colored/Edit.svg?react';
-import { SvgIcon, Button, IconSprite, MasterEducationForm } from '@/components';
+import { SvgIcon, Button, MasterEducationForm } from '@/components';
 import styles from './index.module.scss';
 import { MasterEducationProps } from '../model/masterEducationTypes';
 
@@ -38,7 +39,7 @@ export const MasterEducation: React.FC<MasterEducationProps> = ({
                 <ul>
                     {education.map((item, index) => (
                         <li key={index} className={styles.educationItem}>
-                            <IconSprite name="Check" classNames={{ iconClass: 'check' }} />
+                            <SvgIcon Icon={Check} className="check" />
                             <p className={styles.educationText}>{item.title}</p>
                             <p className={styles.educationYearBlock}>
                                 <span className={styles.label}>год окончания</span>

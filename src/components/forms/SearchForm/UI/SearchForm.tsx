@@ -1,8 +1,10 @@
 import React from 'react';
-import { Dropdown, IconSprite, Button, SvgIcon } from '@/components';
+import { Dropdown, Button, SvgIcon } from '@/components';
 import { useSearchForm } from '../model/useSearchForm';
 import { streets, specialties } from '@/data/masters';
+import Magnifier from '@/assets/icons/colored/Magnifier.svg?react';
 import tagClose from '@/assets/icons/colored/tagClose.svg?react';
+import GrayArrowDown from '@/assets/icons/colored/GrayArrowDown.svg?react';
 import styles from './index.module.scss';
 
 const SearchForm: React.FC = () => {
@@ -30,8 +32,7 @@ const SearchForm: React.FC = () => {
                         wrapper: 'searchWrap',
                         button: 'searchPanelBtn',
                     }}
-                    iconName="GrayArrowDown"
-                    iconClassName="searchFormIcon"
+                    icon={<SvgIcon Icon={GrayArrowDown} className="searchFormIcon" />}
                 />
 
                 <Dropdown
@@ -43,8 +44,7 @@ const SearchForm: React.FC = () => {
                         wrapper: 'searchWrap',
                         button: 'searchPanelBtn',
                     }}
-                    iconName="GrayArrowDown"
-                    iconClassName="searchFormIcon"
+                    icon={<SvgIcon Icon={GrayArrowDown} className="searchFormIcon" />}
                 />
 
                 <Dropdown
@@ -54,8 +54,7 @@ const SearchForm: React.FC = () => {
                         wrapper: 'searchWrap',
                         button: 'searchPanelBtn',
                     }}
-                    iconName="GrayArrowDown"
-                    iconClassName="searchFormIcon"
+                    icon={<SvgIcon Icon={GrayArrowDown} className="searchFormIcon" />}
                 />
 
                 <Dropdown
@@ -65,8 +64,7 @@ const SearchForm: React.FC = () => {
                         wrapper: 'searchWrap',
                         button: 'searchPanelBtn',
                     }}
-                    iconName="GrayArrowDown"
-                    iconClassName="searchFormIcon"
+                    icon={<SvgIcon Icon={GrayArrowDown} className="searchFormIcon" />}
                 />
 
                 <Dropdown
@@ -76,13 +74,12 @@ const SearchForm: React.FC = () => {
                         wrapper: 'lastItemWrap',
                         button: 'searchPanelBtn',
                     }}
-                    iconName="GrayArrowDown"
-                    iconClassName="searchFormIcon"
+                    icon={<SvgIcon Icon={GrayArrowDown} className="searchFormIcon" />}
                 />
 
                 <Button type="submit" classNames={{ buttonClass: 'searchBtn' }}>
                     <span>Найти</span>
-                    <IconSprite name="Magnifier" classNames={{ iconClass: 'magnifier' }} />
+                    <SvgIcon Icon={Magnifier} className="magnifier" />
                 </Button>
             </div>
 

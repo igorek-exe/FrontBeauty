@@ -1,6 +1,9 @@
 import React from 'react';
 import styles from './index.module.scss';
-import { Picture, Button, IconSprite } from '@/components';
+import { Picture, Button, SvgIcon } from '@/components';
+import StarOutline from '@/assets/icons/colored/StarOutline.svg?react';
+import Message from '@/assets/icons/colored/Message.svg?react';
+import HeartOutline from '@/assets/icons/colored/HeartOutline.svg?react';
 import { useMasterCard, MasterCardProps } from '@/components/master/MasterCard/index.model';
 
 const MasterCard: React.FC<MasterCardProps> = (props) => {
@@ -11,9 +14,9 @@ const MasterCard: React.FC<MasterCardProps> = (props) => {
             <div className={styles.masterWrapp}>
                 <Picture src={'/images/masterPhoto.png'} alt={'фото мастера'} />
                 <div className={styles.masterInfo}>
-                    <IconSprite name="StarOutline" classNames={{ iconClass: 'starOutIcon' }} />
+                    <SvgIcon Icon={StarOutline} className="starOutIcon" />
                     <span className={styles.evalMaster}>{rating}</span>
-                    <IconSprite name="Message" classNames={{ iconClass: 'messageIcon' }} />
+                    <SvgIcon Icon={Message} className="messageIcon" />
                     <span>
                         {reviewsCount} {reviewWord}
                     </span>
@@ -27,7 +30,7 @@ const MasterCard: React.FC<MasterCardProps> = (props) => {
                         <p className={styles.specialty}>{specialty}</p>
                         <p className={styles.address}>{address}</p>
                     </div>
-                    <IconSprite name="HeartOutline" classNames={{ iconClass: 'heartOutIcon' }} />
+                    <SvgIcon Icon={HeartOutline} className="heartOutIcon" />
                 </div>
 
                 <Button classNames={{ buttonClass: 'bookBtn' }}>Записаться</Button>

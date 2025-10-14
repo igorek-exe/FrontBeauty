@@ -1,5 +1,4 @@
 import React, { RefObject } from 'react';
-import { IconSprite } from '@/components';
 import { cn } from '@/utils/UI/cn.ts';
 import styles from './index.module.scss';
 import { ClassNames } from '../model/dropdownTypes';
@@ -12,8 +11,7 @@ type DropdownUIProps = {
     onItemClick: (label: string) => void;
     toggleDropdown: () => void;
     classNames?: ClassNames;
-    iconName?: string;
-    iconClassName?: string;
+    icon?: React.ReactNode;
 };
 
 export const DropdownUI: React.FC<DropdownUIProps> = ({
@@ -24,14 +22,13 @@ export const DropdownUI: React.FC<DropdownUIProps> = ({
     onItemClick,
     toggleDropdown,
     classNames = {},
-    iconName,
-    iconClassName,
+    icon,
 }) => {
     return (
         <div ref={menuRef} className={cn(styles, 'dropMenuWrap', classNames.wrapper)}>
             <button type="button" onClick={toggleDropdown} className={cn(styles, 'dropMenuBtn', classNames.button)}>
                 <span>{buttonLabel}</span>
-                <IconSprite name={iconName} classNames={{ iconClass: iconClassName }} />
+                {icon}
             </button>
 
             {open && (
