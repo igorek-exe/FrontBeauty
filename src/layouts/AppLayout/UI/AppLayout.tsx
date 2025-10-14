@@ -1,9 +1,9 @@
 import React from 'react';
 import { CountrySelector, Dropdown, LinkButton, Logo, Menu, ScrollButton, SvgIcon } from '@/components';
 import { Header, Footer, FooterNav, FooterLegal } from '@/layouts';
-import logoIcon from '@/assets/icons/colored/Logo.svg?react';
-import LogoFooter from '@/assets/icons/colored/LogoFooter.svg?react';
-import PurpleArrowDown from '@/assets/icons/colored/PurpleArrowDown.svg?react';
+import logoIcon from '@/assets/icons/Logo.svg?react';
+import LogoFooter from '@/assets/icons/LogoFooter.svg?react';
+import PurpleArrowDown from '@/assets/icons/PurpleArrowDown.svg?react';
 import styles from './index.module.scss';
 import { cn } from '@/utils/UI/cn.ts';
 import type { AppLayoutProps } from '@/layouts';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, SvgIcon, MasterEditForm } from '@/components';
-import Avatar from '@/assets/icons/colored/Avatar.svg?react';
-import Edit from '@/assets/icons/colored/Edit.svg?react';
+import Avatar from '@/assets/icons/Avatar.svg?react';
+import Edit from '@/assets/icons/Edit.svg?react';
 import styles from './index.module.scss';
 import { MasterProfileCardProps } from '../model/masterProfileTypes';
 

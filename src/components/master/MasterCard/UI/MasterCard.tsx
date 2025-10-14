@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './index.module.scss';
 import { Picture, Button, SvgIcon } from '@/components';
-import StarOutline from '@/assets/icons/colored/StarOutline.svg?react';
-import Message from '@/assets/icons/colored/Message.svg?react';
-import HeartOutline from '@/assets/icons/colored/HeartOutline.svg?react';
+import StarOutline from '@/assets/icons/StarOutline.svg?react';
+import Message from '@/assets/icons/Message.svg?react';
+import HeartOutline from '@/assets/icons/HeartOutline.svg?react';
 import { useMasterCard, MasterCardProps } from '@/components/master/MasterCard/index.model';
 
 const MasterCard: React.FC<MasterCardProps> = (props) => {

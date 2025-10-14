@@ -3,10 +3,10 @@ import { Button, Card, Col, Row, Space, Typography } from 'antd';
 import { SvgIcon } from '@/components';
 import { cn } from '@/utils/UI/cn.ts';
 import styles from './index.module.scss';
-import PrevCalendar from '@/assets/icons/colored/PrevCalendar.svg?react';
-import NextCalendar from '@/assets/icons/colored/NextCalendar.svg?react';
-import FreeIcon from '@/assets/icons/colored/FreeIcon.svg?react';
-import BusyIcon from '@/assets/icons/colored/BusyIcon.svg?react';
+import PrevCalendar from '@/assets/icons/PrevCalendar.svg?react';
+import NextCalendar from '@/assets/icons/NextCalendar.svg?react';
+import FreeIcon from '@/assets/icons/FreeIcon.svg?react';
+import BusyIcon from '@/assets/icons/BusyIcon.svg?react';
 import type { ScheduleProps } from '../model/scheduleTypes';
 
 const { Title, Text } = Typography;

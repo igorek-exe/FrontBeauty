@@ -1,7 +1,7 @@
 import React from 'react';
-import Edit from '@/assets/icons/colored/Edit.svg?react';
-import Home from '@/assets/icons/colored/Home.svg?react';
-import Car from '@/assets/icons/colored/Car.svg?react';
+import Edit from '@/assets/icons/Edit.svg?react';
+import Home from '@/assets/icons/Home.svg?react';
+import Car from '@/assets/icons/Car.svg?react';
 import { SvgIcon, Button, MasterAdressesForm } from '@/components';
 import styles from './index.module.scss';
 import { MasterAddressesProps } from '../model/masterAddressesTypes';

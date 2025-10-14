@@ -6,11 +6,11 @@ import type { MasterSidebarProps } from '@/components/MasterSidebar';
 import styles from './index.module.scss';
 
 // SVG-иконки
-import UserIcon from '@/assets/icons/colored/User.svg?react';
-import ChatIcon from '@/assets/icons/colored/Chat.svg?react';
-import OrdersIcon from '@/assets/icons/colored/Orders.svg?react';
-import NotificationIcon from '@/assets/icons/colored/Notification.svg?react';
-import SettingsIcon from '@/assets/icons/colored/Settings.svg?react';
+import UserIcon from '@/assets/icons/User.svg?react';
+import ChatIcon from '@/assets/icons/Chat.svg?react';
+import OrdersIcon from '@/assets/icons/Orders.svg?react';
+import NotificationIcon from '@/assets/icons/Notification.svg?react';
+import SettingsIcon from '@/assets/icons/Settings.svg?react';
 
 const MasterSidebar: React.FC<MasterSidebarProps> = ({ avatarUrl }) => {
     const userName = useAppSelector((state) => state.master.name);

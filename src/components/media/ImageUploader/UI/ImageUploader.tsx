@@ -1,6 +1,6 @@
 import React from 'react';
-import Upload from '@/assets/icons/colored/Upload.svg?react';
-import Edit from '@/assets/icons/colored/Edit.svg?react';
+import Upload from '@/assets/icons/Upload.svg?react';
+import Edit from '@/assets/icons/Edit.svg?react';
 import { SvgIcon, Button, Input } from '@/components';
 import styles from './index.module.scss';
 import { ImageUploaderProps } from '../model/imageUploaderTypes';

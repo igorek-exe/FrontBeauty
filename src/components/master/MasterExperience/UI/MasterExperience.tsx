@@ -1,6 +1,6 @@
 import React from 'react';
-import Edit from '@/assets/icons/colored/Edit.svg?react';
-import Check from '@/assets/icons/colored/Check.svg?react';
+import Edit from '@/assets/icons/Edit.svg?react';
+import Check from '@/assets/icons/Check.svg?react';
 import { SvgIcon, Button, MasterExperienceForm } from '@/components';
 import styles from './index.module.scss';
 import { MasterExperienceProps } from '../model/masterExperienceTypes';

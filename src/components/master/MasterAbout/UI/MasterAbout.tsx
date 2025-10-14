@@ -1,5 +1,5 @@
 import React from 'react';
-import Edit from '@/assets/icons/colored/Edit.svg?react';
+import Edit from '@/assets/icons/Edit.svg?react';
 import styles from './index.module.scss';
 import { MasterAboutForm, SvgIcon, Button } from '@/components';
 import { MasterAboutProps } from '../model/masterAboutTypes';

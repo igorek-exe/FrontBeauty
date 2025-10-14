@@ -1,7 +1,7 @@
 import React from 'react';
 import { SvgIcon, ExternalLink } from '@/components';
-import VK from './../../../assets/icons/colored/VK.svg?react';
-import Youtube from './../../../assets/icons/colored/Youtube.svg?react';
+import VK from '../../../assets/icons/VK.svg?react';
+import Youtube from '../../../assets/icons/Youtube.svg?react';
 import styles from './index.module.scss';
 import type { SupportInfoProps } from '@/layouts';
 

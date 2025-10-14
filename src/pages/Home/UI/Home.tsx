@@ -15,11 +15,11 @@ import {
     SvgIcon,
 } from '@/components';
 import { Header, Footer, FooterNav, FooterLegal, Main } from '@/layouts';
-import logoIcon from '@/assets/icons/colored/Logo.svg?react';
-import LoginIcon from '@/assets/icons/colored/LoginRounded.svg?react';
-import LogoFooter from '@/assets/icons/colored/LogoFooter.svg?react';
-import PurpleArrowDown from '@/assets/icons/colored/PurpleArrowDown.svg?react';
-import AssignmentIcon from '@/assets/icons/colored/AssignmentIndRounded.svg?react';
+import logoIcon from '@/assets/icons/Logo.svg?react';
+import LoginIcon from '@/assets/icons/LoginRounded.svg?react';
+import LogoFooter from '@/assets/icons/LogoFooter.svg?react';
+import PurpleArrowDown from '@/assets/icons/PurpleArrowDown.svg?react';
+import AssignmentIcon from '@/assets/icons/AssignmentIndRounded.svg?react';
 import styles from './index.module.scss';
 import type { HomeProps } from '@/pages';
 

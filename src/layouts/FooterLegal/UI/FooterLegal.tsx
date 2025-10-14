@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './index.module.scss';
 import type { FooterLegalProps } from '@/layouts/FooterLegal';
-import AgeIcon from '@/assets/icons/colored/AgeIcon.svg?react';
+import AgeIcon from '@/assets/icons/AgeIcon.svg?react';
 import { SvgIcon } from '@/components';
 
 const FooterLegal: React.FC<FooterLegalProps> = ({ companyName, years, activityCode = '2.01' }) => {

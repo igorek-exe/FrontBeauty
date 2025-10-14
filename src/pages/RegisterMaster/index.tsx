@@ -5,7 +5,7 @@ import { RegisterMasterCredentials } from '@/stores/types/authTypes';
 import { AppDispatch } from '@/stores/store.ts';
 import { useNavigate } from 'react-router-dom';
 import styles from './index.module.scss';
-import EyeEmpty from '@/assets/icons/colored/EyeEmpty.svg?react';
+import EyeEmpty from '@/assets/icons/EyeEmpty.svg?react';
 import masterImage from '/images/master.png';
 import { validateLogin } from '@/utils';
 import { Button, LinkButton, SvgIcon } from '@/components';

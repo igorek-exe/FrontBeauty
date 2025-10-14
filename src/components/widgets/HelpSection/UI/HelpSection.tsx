@@ -1,7 +1,7 @@
 import React from 'react';
 import { SvgIcon, ExternalLink } from '@/components';
-import Viber from '../../../../assets/icons/colored/Viber.svg?react';
-import WhatsApp from '../../../../assets/icons/colored/WhatsApp.svg?react';
+import Viber from '../../../../assets/icons/Viber.svg?react';
+import WhatsApp from '../../../../assets/icons/WhatsApp.svg?react';
 import styles from './inedx.module.scss';
 
 const HelpSection: React.FC = () => {

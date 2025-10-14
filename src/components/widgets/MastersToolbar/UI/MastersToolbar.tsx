@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Dropdown, SvgIcon } from '@/components';
 import type { MastersToolbarProps } from '@/components';
-import PlusIcon from '@/assets/icons/colored/PlusIcon.svg?react';
+import PlusIcon from '@/assets/icons/PlusIcon.svg?react';
 import styles from './index.module.scss';
 
 const MastersToolbar: React.FC<MastersToolbarProps> = ({ onSortSelect }) => {
