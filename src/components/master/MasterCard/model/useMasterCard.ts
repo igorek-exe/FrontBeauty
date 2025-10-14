@@ -1,5 +1,5 @@
 import { getReviewWord } from '@/utils/format/getWordForm.ts';
-import type { MasterCardProps } from '@/components';
+import type { MasterCardProps } from '@/components/master/MasterCard/index.model';
 
 export const useMasterCard = (props: MasterCardProps) => {
     const { name, rating = 0, reviewsCount = 0, specialty, address } = props;

@@ -1,41 +1,34 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { loginUser, registerUser } from '@/utils';
-import {
-    AuthState,
-    User,
-    LoginCredentials,
-    RegisterCredentials,
-} from '@/stores/types/authTypes';
+import { AuthState, User, LoginCredentials, RegisterCredentials } from '@/stores/types/authTypes';
 
 // --- Асинхронные экшены ---
 
-export const login = createAsyncThunk<
-    { user: User; token: string },
-    LoginCredentials,
-    { rejectValue: string }
->('auth/login', async (credentials, { rejectWithValue }) => {
-    try {
-        const { user, token } = await loginUser(credentials);
-        localStorage.setItem('token', token);
-        return { user, token };
-    } catch (error: never) {
-        return rejectWithValue(error.message || 'Ошибка авторизации');
+export const login = createAsyncThunk<{ user: User; token: string }, LoginCredentials, { rejectValue: string }>(
+    'auth/login',
+    async (credentials, { rejectWithValue }) => {
+        try {
+            const { user, token } = await loginUser(credentials);
+            localStorage.setItem('token', token);
+            return { user, token };
+        } catch (error: never) {
+            return rejectWithValue(error.message || 'Ошибка авторизации');
+        }
     }
-});
+);
 
-export const register = createAsyncThunk<
-    { user: User; token: string },
-    RegisterCredentials,
-    { rejectValue: string }
->('auth/register', async (credentials, { rejectWithValue }) => {
-    try {
-        const { user, token } = await registerUser(credentials);
-        localStorage.setItem('token', token);
-        return { user, token };
-    } catch (error: never) {
-        return rejectWithValue(error.message || 'Ошибка регистрации');
+export const register = createAsyncThunk<{ user: User; token: string }, RegisterCredentials, { rejectValue: string }>(
+    'auth/register',
+    async (credentials, { rejectWithValue }) => {
+        try {
+            const { user, token } = await registerUser(credentials);
+            localStorage.setItem('token', token);
+            return { user, token };
+        } catch (error: never) {
+            return rejectWithValue(error.message || 'Ошибка регистрации');
+        }
     }
-});
+);
 
 export const logout = createAsyncThunk('auth/logout', async () => {
     localStorage.removeItem('token');

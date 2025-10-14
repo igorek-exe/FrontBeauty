@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './index.module.scss';
 import { Picture, Button, IconSprite } from '@/components';
-import { useMasterCard } from '@/components';
-import type { MasterCardProps } from '@/components';
+import { useMasterCard, MasterCardProps } from '@/components/master/MasterCard/index.model';
 
 const MasterCard: React.FC<MasterCardProps> = (props) => {
     const { name, rating, reviewsCount, specialty, address, reviewWord } = useMasterCard(props);

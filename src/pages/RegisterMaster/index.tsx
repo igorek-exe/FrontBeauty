@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './index.module.scss';
 import EyeEmpty from '@/assets/icons/colored/EyeEmpty.svg?react';
 import masterImage from '/images/master.png';
-import { validateLogin } from '@/utils'
+import { validateLogin } from '@/utils';
 import { Button, LinkButton, SvgIcon } from '@/components';
 
 interface Errors {
@@ -26,10 +26,9 @@ interface Errors {
 const RegisterMaster: React.FC = () => {
     const [credentials, setCredentials] = useState<RegisterMasterCredentials>({
         role: 'master',
-        login: '',
+        username: '',
         email: '',
         password: '',
-        passwordConfirmation: '',
     });
 
     const [errors, setErrors] = useState<Errors>({
@@ -66,7 +65,7 @@ const RegisterMaster: React.FC = () => {
         e.preventDefault();
 
         if (!agreeToPersonalData) {
-            setErrors(prev => ({
+            setErrors((prev) => ({
                 ...prev,
                 agreeToPersonalData: 'Необходимо подтвердить согласие на обработку персональных данных.',
             }));
@@ -122,7 +121,7 @@ const RegisterMaster: React.FC = () => {
             return lowerPassword.includes(lowerLogin);
         };
         if (name === 'email') {
-            const emailRegex = /^[A-Za-z0-9!?\@#\$%\^&*\-_\+\(\)\[\]\{\}><\/\\\|"'\.,:]+\.[^\s@]+$/;
+            const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
             if (!emailRegex.test(value)) {
                 errorMessage = 'Адрес электронной почты введен некорректно';
             }
@@ -136,7 +135,7 @@ const RegisterMaster: React.FC = () => {
                 if (!passwordRegex.test(value)) {
                     errorMessage =
                         'Пароль должен содержать минимум 1 букву, 1 цифру, 1 спец. символ и быть длиной от 6 до 15 символов без пробелов.';
-                } else if (credentials.login && isPasswordContainsLogin(value, credentials.login)) {
+                } else if (credentials.username && isPasswordContainsLogin(value, credentials.username)) {
                     errorMessage = 'Пароль не должен содержать логин.';
                 }
             }
@@ -192,12 +191,12 @@ const RegisterMaster: React.FC = () => {
                                 type="text"
                                 id="login"
                                 name="login"
-                                value={credentials.login}
+                                value={credentials.username}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 placeholder="логин"
                                 className={styles.formInput}
-                                style={{ ...getInputStyle(credentials.login, errors.login) }}
+                                style={{ ...getInputStyle(credentials.username, errors.login) }}
                             />
                             {errors.login ? (
                                 <span className={styles.errorMessage + ' ' + styles.inputHint}>{errors.login}</span>
@@ -268,13 +267,13 @@ const RegisterMaster: React.FC = () => {
                                     type={passwordConfirmationVisible ? 'text' : 'password'}
                                     id="passwordConfirmation"
                                     name="passwordConfirmation"
-                                    value={credentials.passwordConfirmation}
+                                    value={'test'}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     placeholder="повторите пароль"
                                     className={styles.formInput + ' ' + styles.passwordInput}
                                     style={{
-                                        ...getInputStyle(credentials.passwordConfirmation, errors.passwordConfirmation),
+                                        ...getInputStyle('test', errors.passwordConfirmation),
                                     }}
                                 />
                                 <button
@@ -316,11 +315,7 @@ const RegisterMaster: React.FC = () => {
                             {loginError && (
                                 <div className={styles.errorMessage + ' ' + styles.inputHint}>{loginError}</div>
                             )}
-                            <Button
-                                children="Продолжить"
-                                type="submit"
-                                classNames={{ buttonClass: 'loginButton' }}
-                            />
+                            <Button children="Продолжить" type="submit" classNames={{ buttonClass: 'loginButton' }} />
                         </div>
                     </form>
                 </div>

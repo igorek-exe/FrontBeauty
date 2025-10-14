@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, MasterCard } from '@/components';
 import { getMasterWord } from '@/utils/format/getWordForm.ts';
-import { useMasterList } from '@/components';
+import { useMasterList } from '@/components/master/MasterList/index.model';
 import styles from './index.module.scss';
 
 const MasterList: React.FC = () => {

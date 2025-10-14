@@ -53,19 +53,16 @@ export enum Role {
 
 export interface RegisterMasterCredentials {
     role: 'master';
-    login: string;
+    username: string;
     email: string;
     password: string;
-    passwordConfirmation: string;
 }
 
 export interface RegisterClientCredentials {
     role: 'client';
-    login: string;
+    username: string;
     email: string;
     password: string;
-    passwordConfirmation: string;
-    agreeToPersonalData: boolean;
 }
 
 export type RegisterCredentials = RegisterClientCredentials | RegisterMasterCredentials;
