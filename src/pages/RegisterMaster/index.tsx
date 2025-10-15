@@ -7,11 +7,11 @@ import { useNavigate } from 'react-router-dom';
 import styles from './index.module.scss';
 import EyeEmpty from '@/assets/icons/EyeEmpty.svg?react';
 import masterImage from '/images/master.png';
-import { validateLogin } from '@/utils';
+import { validateLogin, validatePassword } from '@/utils';
 import { Button, LinkButton, SvgIcon } from '@/components';
 
 interface Errors {
-    login: string;
+    username: string;
     email: string;
     password: string;
     passwordConfirmation: string;
@@ -29,10 +29,12 @@ const RegisterMaster: React.FC = () => {
         username: '',
         email: '',
         password: '',
+        phone: '+375299600661',
+        about_master: 'desc',
     });
 
     const [errors, setErrors] = useState<Errors>({
-        login: '',
+        username: '',
         email: '',
         password: '',
         passwordConfirmation: '',
@@ -73,9 +75,9 @@ const RegisterMaster: React.FC = () => {
         }
 
         setLoginError(
-            errors.email || errors.login || errors.password || errors.passwordConfirmation || errors.agreeToPersonalData
+            errors.email || errors.username || errors.password || errors.passwordConfirmation || errors.agreeToPersonalData
         );
-        console.log(errors.email || errors.login || errors.password || errors.passwordConfirmation);
+        console.log(errors.email || errors.username || errors.password || errors.passwordConfirmation);
 
         try {
             await dispatch(register(credentials)).unwrap();
@@ -116,16 +118,19 @@ const RegisterMaster: React.FC = () => {
         let errorMessage = '';
 
         switch (name) {
-            case 'login':
+            case 'username':
                 errorMessage = validateLogin(value);
+                break;
+            case 'password':
+                errorMessage = validatePassword(value);
                 break;
         }
 
-        const isPasswordContainsLogin = (password, login) => {
+        /*const isPasswordContainsLogin = (password, login) => {
             const lowerPassword = password.toLowerCase();
             const lowerLogin = login.toLowerCase();
             return lowerPassword.includes(lowerLogin);
-        };
+        };*/
         if (name === 'email') {
             const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
             if (!emailRegex.test(value)) {
@@ -133,7 +138,7 @@ const RegisterMaster: React.FC = () => {
             }
         }
 
-        if (name === 'password') {
+        /*if (name === 'password') {
             if (value.length < 6) {
                 errorMessage = 'Пароль должен содержать не менее 6 символов';
             } else {
@@ -145,7 +150,7 @@ const RegisterMaster: React.FC = () => {
                     errorMessage = 'Пароль не должен содержать логин.';
                 }
             }
-        }
+        }*/
 
         if (name === 'passwordConfirmation') {
             if (value !== credentials.password) {
@@ -190,22 +195,22 @@ const RegisterMaster: React.FC = () => {
 
                     <form onSubmit={handleSubmit} className={styles.form}>
                         <div className={styles.formGroup}>
-                            <label htmlFor="login" className={styles.formLabel}>
+                            <label htmlFor="username" className={styles.formLabel}>
                                 Логин
                             </label>
                             <input
                                 type="text"
-                                id="login"
-                                name="login"
-                                value={credentials.username}
+                                id="username"
+                                name="username"
+                                /*value={credentials.username}*/
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 placeholder="логин"
                                 className={styles.formInput}
-                                style={{ ...getInputStyle(credentials.username, errors.login) }}
+                                style={{ ...getInputStyle(credentials.username, errors.username) }}
                             />
-                            {errors.login ? (
-                                <span className={styles.errorMessage + ' ' + styles.inputHint}>{errors.login}</span>
+                            {errors.username ? (
+                                <span className={styles.errorMessage + ' ' + styles.inputHint}>{errors.username}</span>
                             ) : (
                                 <span className={styles.inputHint}>придумайте логин</span>
                             )}
@@ -221,7 +226,7 @@ const RegisterMaster: React.FC = () => {
                                 name="email"
                                 value={credentials.email}
                                 onChange={handleChange}
-                                onBlur={handleBlur}
+                                /*onBlur={handleBlur}*/
                                 placeholder="email"
                                 className={styles.formInput}
                                 style={{ ...getInputStyle(credentials.email, errors.email) }}
@@ -273,9 +278,9 @@ const RegisterMaster: React.FC = () => {
                                     type={passwordConfirmationVisible ? 'text' : 'password'}
                                     id="passwordConfirmation"
                                     name="passwordConfirmation"
-                                    value={'test'}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
+                                    /*value={'test'}*/
+                                    /*onChange={handleChange}*/
+                                    /*onBlur={handleBlur}*/
                                     placeholder="повторите пароль"
                                     className={styles.formInput + ' ' + styles.passwordInput}
                                     style={{

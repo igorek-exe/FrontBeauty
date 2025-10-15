@@ -1,6 +1,6 @@
 import { LoginCredentials, RegisterCredentials, User } from '@/stores/types/authTypes';
 
-const API_BASE_URL = 'http://127.0.0.1:8000/auth'; // Можно вынести в .env ping 100.81.55.90
+const API_BASE_URL = 'http://100.108.1.26:8000/auth'; // Можно вынести в .env
 
 // --- Авторизация ---
 export const loginUser = async (credentials: LoginCredentials): Promise<{ user: User; token: string }> => {
@@ -20,13 +20,13 @@ export const loginUser = async (credentials: LoginCredentials): Promise<{ user: 
 
 // --- Регистрация ---
 export const registerUser = async (credentials: RegisterCredentials): Promise<{ user: User; token: string }> => {
-    const response = await fetch(`${API_BASE_URL}/register`, {
+    const response = await fetch(`${API_BASE_URL}/register/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(credentials),
     });
 
-    console.log(response);
+    /*console.log(response);*/
 
     if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));

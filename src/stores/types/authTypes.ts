@@ -56,6 +56,8 @@ export interface RegisterMasterCredentials {
     username: string;
     email: string;
     password: string;
+    "phone": string,
+    "about_master": string,
 }
 
 export interface RegisterClientCredentials {
