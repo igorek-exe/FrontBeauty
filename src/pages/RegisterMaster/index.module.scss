@@ -3,33 +3,31 @@
 
 .centred {
   display: flex;
-  height: 100vh;
 }
 
 .leftSide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include sizes(null, 100vh);
   position: relative;
   overflow: hidden;
-  width: 520px;
 }
 
 .leftSIdeText {
-  display: flex;
-  line-height: 130%;
-  flex-direction: column;
-  gap: 24px;
-  color: white;
-  font-size: 20px;
-  width: 560px;
+  @include sizes(570px, 570px);
   position: absolute;
-  bottom: -20%;
+  top: 60%;
   right: 0;
-  padding: 145px 40px 0 114px;
-  height: 560px;
-  background-color: $color-purple3;
   border-radius: 50%;
+  padding: 27.5% 8% 0 21.5%;;
+  background-color: $color-purple3;
+}
+
+.leftSideTitle {
+  @include fonts($manroupe-font, $font-weight-600, $spacing-20, $color-white, $spacing-33);
+  padding-bottom: 24px;
+}
+
+.leftSideDesc {
+  @include fonts($manroupe-font, $font-weight-400, $spacing-20, $color-white, $spacing-26);
 }
 
 .loginFormContainer {
@@ -41,7 +39,7 @@
   gap: $spacing-24;
   border-radius: 20px;
   background-color: $color-pink;
-  font-family: Manrope;
+  font-family: Manrope, serif;
 }
 
 .loginHeader {

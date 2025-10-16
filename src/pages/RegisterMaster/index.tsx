@@ -6,14 +6,13 @@ import { AppDispatch } from '@/stores/store.ts';
 import { useNavigate } from 'react-router-dom';
 import styles from './index.module.scss';
 import EyeEmpty from '@/assets/icons/EyeEmpty.svg?react';
-import masterImage from '/images/master.png';
 import {
     validateLogin,
     passwordValidator,
     validatePasswordConfirmation,
     validateEmail,
 } from '@/utils';
-import { Button, LinkButton, SvgIcon } from '@/components';
+import { Button, LinkButton, Picture, SvgIcon } from '@/components';
 
 interface Errors {
     username: string;
@@ -149,11 +148,11 @@ const RegisterMaster: React.FC = () => {
         <div className="container">
             <div className={styles.centred}>
                 <div className={styles.leftSide}>
-                    <img src={masterImage} alt="master" />
+                    <Picture src={'/images/master-reg.png'} alt={'маникюр мастера'}/>
                     <div className={styles.leftSIdeText}>
-                        <h4>Профиль мастеров</h4>
-                        <p>
-                            Создайте свою страницу специалиста и получайте дополнительный поток
+                        <h3 className={styles.leftSideTitle}>Профиль мастеров</h3>
+                        <p className={styles.leftSideDesc}>
+                            Создайте свою страницу специалиста<br />и получайте дополнительный поток
                             клиентов. 3 миллиона человек ищут услуги и специалистов каждый месяц.
                         </p>
                     </div>
