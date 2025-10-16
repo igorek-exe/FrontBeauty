@@ -35,7 +35,11 @@ const MasterServicesForm: React.FC<MasterServicesFormProps> = ({
                         onChange={(e) => onChange(index, 'price', e.target.value)}
                         className={styles.priceInput}
                     />
-                    <button onClick={() => onRemove(index)} aria-label="Удалить услугу" className={styles.removeBtn}>
+                    <button
+                        onClick={() => onRemove(index)}
+                        aria-label="Удалить услугу"
+                        className={styles.removeBtn}
+                    >
                         ×
                     </button>
                 </div>

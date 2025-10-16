@@ -38,7 +38,12 @@ export const MasterProfileCard: React.FC<MasterProfileCardProps> = ({
                     <p className={styles.masterPhone}>{user.phone}</p>
                 </>
             ) : (
-                <MasterEditForm formData={formData} onChange={onChange} onSave={onSave} onCancel={onCancel} />
+                <MasterEditForm
+                    formData={formData}
+                    onChange={onChange}
+                    onSave={onSave}
+                    onCancel={onCancel}
+                />
             )}
         </div>
     );

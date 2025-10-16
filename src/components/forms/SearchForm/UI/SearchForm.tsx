@@ -85,14 +85,22 @@ const SearchForm: React.FC = () => {
 
             <div className={styles.selectedFilters}>
                 {district && (
-                    <Button type="button" classNames={{ buttonClass: 'filterTag' }} onClick={handleRemoveDistrict}>
+                    <Button
+                        type="button"
+                        classNames={{ buttonClass: 'filterTag' }}
+                        onClick={handleRemoveDistrict}
+                    >
                         {district}
                         <SvgIcon Icon={tagClose} className="tagClose" />
                     </Button>
                 )}
 
                 {specialty && (
-                    <Button type="button" classNames={{ buttonClass: 'filterTag' }} onClick={handleRemoveSpecialty}>
+                    <Button
+                        type="button"
+                        classNames={{ buttonClass: 'filterTag' }}
+                        onClick={handleRemoveSpecialty}
+                    >
                         {specialty}
                         <SvgIcon Icon={tagClose} className="tagClose" />
                     </Button>

@@ -27,7 +27,12 @@ export const MasterAbout: React.FC<MasterAboutProps> = ({
             {!isEditing ? (
                 <p className={styles.text}>{aboutText}</p>
             ) : (
-                <MasterAboutForm value={tempText} onChange={onChange} onSave={onSave} onCancel={onCancel} />
+                <MasterAboutForm
+                    value={tempText}
+                    onChange={onChange}
+                    onSave={onSave}
+                    onCancel={onCancel}
+                />
             )}
         </div>
     );

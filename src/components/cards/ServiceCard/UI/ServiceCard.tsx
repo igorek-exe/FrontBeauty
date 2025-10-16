@@ -32,7 +32,10 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
                         <Picture src={formData.image} alt="preview" className="picture" />
                         {hovered && (
                             <>
-                                <Button onClick={onClear} classNames={{ buttonClass: 'actionIcon' }}>
+                                <Button
+                                    onClick={onClear}
+                                    classNames={{ buttonClass: 'actionIcon' }}
+                                >
                                     <SvgIcon Icon={Edit} className="editUpload" />
                                 </Button>
                                 <Button

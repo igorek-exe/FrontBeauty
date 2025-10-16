@@ -39,7 +39,11 @@ interface LogoutAction {
     type: typeof LOGOUT;
 }
 
-export type AuthActionTypes = LoginRequestAction | LoginSuccessAction | LoginFailureAction | LogoutAction;
+export type AuthActionTypes =
+    | LoginRequestAction
+    | LoginSuccessAction
+    | LoginFailureAction
+    | LogoutAction;
 
 export interface LoginCredentials {
     login: string;
@@ -56,8 +60,6 @@ export interface RegisterMasterCredentials {
     username: string;
     email: string;
     password: string;
-    "phone": string,
-    "about_master": string,
 }
 
 export interface RegisterClientCredentials {

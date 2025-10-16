@@ -26,7 +26,11 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
                 <img src={preview} alt="Preview" className={styles.thumbnail} />
                 {isHovered && (
                     <>
-                        <Button onClick={onTriggerUpload} type="button" classNames={{ buttonClass: 'iconButton' }}>
+                        <Button
+                            onClick={onTriggerUpload}
+                            type="button"
+                            classNames={{ buttonClass: 'iconButton' }}
+                        >
                             <SvgIcon Icon={Edit} className="editUpload" />
                         </Button>
                         <Button
@@ -45,6 +49,12 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
                 {isHovered && <div className={styles.tooltip}>загрузите файл</div>}
             </div>
         )}
-        <Input type="file" accept="image/*" onChange={onImageUpload} ref={inputRef} style={{ display: 'none' }} />
+        <Input
+            type="file"
+            accept="image/*"
+            onChange={onImageUpload}
+            ref={inputRef}
+            style={{ display: 'none' }}
+        />
     </div>
 );

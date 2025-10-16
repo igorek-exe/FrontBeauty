@@ -1,4 +1,3 @@
-export * from './UI/IconSprite';
 export * from './UI/Logo';
 export * from './navigation/Menu';
 export * from './UI/LinkButton';

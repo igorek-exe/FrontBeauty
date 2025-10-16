@@ -92,7 +92,9 @@ export const Schedule: React.FC<ScheduleProps> = ({
                         >
                             <Row className={styles.slotRow}>
                                 <Col className={styles.iconCol}>
-                                    <SvgIcon Icon={slot.status === 'Свободно' ? FreeIcon : BusyIcon} />
+                                    <SvgIcon
+                                        Icon={slot.status === 'Свободно' ? FreeIcon : BusyIcon}
+                                    />
                                 </Col>
                                 <Col flex="auto" className={styles.statusCol}>
                                     <Text

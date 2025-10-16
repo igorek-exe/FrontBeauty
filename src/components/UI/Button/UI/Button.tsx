@@ -11,7 +11,12 @@ export const Button: React.FC<ButtonProps> = ({
     classNames = {},
 }) => {
     return (
-        <button type={type} onClick={onClick} disabled={disabled} className={cn(styles, 'btn', classNames.buttonClass)}>
+        <button
+            type={type}
+            onClick={onClick}
+            disabled={disabled}
+            className={cn(styles, 'btn', classNames.buttonClass)}
+        >
             {children}
         </button>
     );

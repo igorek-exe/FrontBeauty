@@ -11,7 +11,12 @@ export const ExternalLink: React.FC<ExternalLinkProps> = ({
     rel = 'noopener noreferrer',
 }) => {
     return (
-        <a href={href} className={cn(styles, 'link', classNames.linkClass)} target={target} rel={rel}>
+        <a
+            href={href}
+            className={cn(styles, 'link', classNames.linkClass)}
+            target={target}
+            rel={rel}
+        >
             {children}
         </a>
     );

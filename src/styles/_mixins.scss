@@ -12,7 +12,13 @@
   margin: $fourth-numb;
 }
 
-@mixin fonts($font-family: null, $font-weigth: null, $font-size: null, $color: null, $line-height: null) {
+@mixin fonts(
+  $font-family: null,
+  $font-weigth: null,
+  $font-size: null,
+  $color: null,
+  $line-height: null
+) {
   font: {
     family: $font-family;
     weight: $font-weigth;

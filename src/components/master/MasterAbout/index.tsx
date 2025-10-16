@@ -3,7 +3,8 @@ import { MasterAbout } from './UI/MasterAbout';
 import { useMasterAbout } from './model/useMasterAbout';
 
 const MasterAboutContainer: React.FC = () => {
-    const { aboutText, tempText, setTempText, isEditing, handleEdit, handleCancel, saveAbout } = useMasterAbout();
+    const { aboutText, tempText, setTempText, isEditing, handleEdit, handleCancel, saveAbout } =
+        useMasterAbout();
 
     return (
         <MasterAbout

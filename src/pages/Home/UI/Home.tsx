@@ -35,7 +35,9 @@ const Home: React.FC<HomeProps> = () => {
                                 <Dropdown
                                     buttonLabel="Меню"
                                     items={['Пункт 1', 'Пункт 2', 'Пункт 3']}
-                                    icon={<SvgIcon Icon={PurpleArrowDown} className="dropDownMenu" />}
+                                    icon={
+                                        <SvgIcon Icon={PurpleArrowDown} className="dropDownMenu" />
+                                    }
                                     onItemClick={(label) => alert(`Вы выбрали: ${label}`)}
                                 />
                                 <Menu />

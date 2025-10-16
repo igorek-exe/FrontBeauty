@@ -5,7 +5,9 @@ export const useMasterEducationForm = (initialEducation: EducationItem[]) => {
     const [education, setEducation] = useState<EducationItem[]>(initialEducation);
 
     const handleChange = (index: number, field: keyof EducationItem, value: string) => {
-        setEducation((prev) => prev.map((item, i) => (i === index ? { ...item, [field]: value } : item)));
+        setEducation((prev) =>
+            prev.map((item, i) => (i === index ? { ...item, [field]: value } : item))
+        );
     };
 
     const handleAdd = () => {

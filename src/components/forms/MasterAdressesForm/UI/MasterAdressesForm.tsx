@@ -11,7 +11,14 @@ type Props = {
     onCancel: () => void;
 };
 
-const MasterAdressesForm: React.FC<Props> = ({ addresses, onChange, onAdd, onRemove, onSave, onCancel }) => {
+const MasterAdressesForm: React.FC<Props> = ({
+    addresses,
+    onChange,
+    onAdd,
+    onRemove,
+    onSave,
+    onCancel,
+}) => {
     return (
         <div>
             {addresses.map((item, index) => (

@@ -6,7 +6,11 @@ import { DiscountCard } from '@/components';
 import styles from './index.module.scss';
 import './slider.css';
 
-const Slider: React.FC<SliderProps> = ({ slides = [1, 2, 3, 4, 5, 6], discountPercent = 20, spaceBetween = 8 }) => {
+const Slider: React.FC<SliderProps> = ({
+    slides = [1, 2, 3, 4, 5, 6],
+    discountPercent = 20,
+    spaceBetween = 8,
+}) => {
     return (
         <div className={styles.sliderWrap}>
             <Swiper

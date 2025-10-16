@@ -7,7 +7,8 @@ export const useScrollButton = (threshold: number = 50, offset: number = 10) => 
     useEffect(() => {
         const handleScroll = () => {
             const scrolled = window.scrollY > threshold;
-            const atBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - offset;
+            const atBottom =
+                window.innerHeight + window.scrollY >= document.body.offsetHeight - offset;
 
             setVisible(scrolled);
             setIsAtBottom(atBottom);

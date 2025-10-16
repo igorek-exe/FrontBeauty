@@ -15,15 +15,15 @@ type DropdownUIProps = {
 };
 
 export const DropdownUI: React.FC<DropdownUIProps> = ({
-                                                          open,
-                                                          menuRef,
-                                                          items,
-                                                          buttonLabel,
-                                                          onItemClick,
-                                                          toggleDropdown,
-                                                          classNames = {},
-                                                          icon,
-                                                      }) => {
+    open,
+    menuRef,
+    items,
+    buttonLabel,
+    onItemClick,
+    toggleDropdown,
+    classNames = {},
+    icon,
+}) => {
     return (
         <div ref={menuRef} className={cn(styles, 'dropMenuWrap', classNames.wrapper)}>
             <button

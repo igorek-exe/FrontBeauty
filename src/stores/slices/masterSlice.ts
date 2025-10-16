@@ -145,7 +145,13 @@ const getInitialAddress = (): AddressState[] => {
         const parsed = JSON.parse(stored);
         if (
             Array.isArray(parsed) &&
-            parsed.every((item) => typeof item === 'object' && item !== null && 'address' in item && 'region' in item)
+            parsed.every(
+                (item) =>
+                    typeof item === 'object' &&
+                    item !== null &&
+                    'address' in item &&
+                    'region' in item
+            )
         ) {
             return parsed.map((item) => ({
                 address: item.address ?? '',
@@ -248,7 +254,13 @@ const masterSlice = createSlice({
     },
 });
 
-export const { updateProfile, updateAbout, updateEducation, updateExperience, updateAddress, updateServices } =
-    masterSlice.actions;
+export const {
+    updateProfile,
+    updateAbout,
+    updateEducation,
+    updateExperience,
+    updateAddress,
+    updateServices,
+} = masterSlice.actions;
 
 export default masterSlice.reducer;

@@ -1,6 +1,7 @@
 import React from 'react';
 import Edit from '@/assets/icons/Edit.svg?react';
-import { SvgIcon, Button, IconSprite, MasterServicesForm } from '@/components';
+import Check from '@/assets/icons/Check.svg?react';
+import { SvgIcon, Button, MasterServicesForm } from '@/components';
 import styles from './index.module.scss';
 import { MasterServicesProps } from '../model/masterServicesTypes';
 
@@ -39,7 +40,7 @@ export const MasterServices: React.FC<MasterServicesProps> = ({
                     {services.map((item, index) => (
                         <li key={index} className={styles.servicesItem}>
                             <div className={styles.itemContent}>
-                                <IconSprite name="Check" classNames={{ iconClass: 'checkServices' }} />
+                                <SvgIcon Icon={Check} className="checkServices" />
                                 <div className={styles.serviceInfo}>
                                     <p className={styles.serviceTitle}>{item.title}</p>
                                     <p className={styles.serviceDesc}>{item.description}</p>

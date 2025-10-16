@@ -3,10 +3,10 @@ import { useDropdown } from '@/hooks/useDropdown';
 import type { DropdownProps } from '@/components';
 
 export const useDropdownContainer = ({
-                                         buttonLabel,
-                                         selectedLabel,
-                                         onItemClick,
-                                     }: Pick<DropdownProps, 'buttonLabel' | 'selectedLabel' | 'onItemClick'>) => {
+    buttonLabel,
+    selectedLabel,
+    onItemClick,
+}: Pick<DropdownProps, 'buttonLabel' | 'selectedLabel' | 'onItemClick'>) => {
     const { open, toggle, ref } = useDropdown<HTMLDivElement>();
     const [label, setLabel] = useState(buttonLabel);
 

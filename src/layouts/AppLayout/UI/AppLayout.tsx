@@ -1,5 +1,13 @@
 import React from 'react';
-import { CountrySelector, Dropdown, LinkButton, Logo, Menu, ScrollButton, SvgIcon } from '@/components';
+import {
+    CountrySelector,
+    Dropdown,
+    LinkButton,
+    Logo,
+    Menu,
+    ScrollButton,
+    SvgIcon,
+} from '@/components';
 import { Header, Footer, FooterNav, FooterLegal } from '@/layouts';
 import logoIcon from '@/assets/icons/Logo.svg?react';
 import LogoFooter from '@/assets/icons/LogoFooter.svg?react';
@@ -22,7 +30,9 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                                 <Dropdown
                                     buttonLabel="Меню"
                                     items={['Пункт 1', 'Пункт 2', 'Пункт 3']}
-                                    icon={<SvgIcon Icon={PurpleArrowDown} className="dropDownMenu" />}
+                                    icon={
+                                        <SvgIcon Icon={PurpleArrowDown} className="dropDownMenu" />
+                                    }
                                     onItemClick={(label) => alert(`Вы выбрали: ${label}`)}
                                 />
                                 <Menu />

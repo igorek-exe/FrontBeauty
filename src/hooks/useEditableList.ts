@@ -22,7 +22,9 @@ export function useEditableList<T>({ initialList, emptyItem, onSave }: UseEditab
     };
 
     const handleChange = (index: number, field: keyof T, value: string) => {
-        setItems((prev) => prev.map((item, i) => (i === index ? { ...item, [field]: value } : item)));
+        setItems((prev) =>
+            prev.map((item, i) => (i === index ? { ...item, [field]: value } : item))
+        );
     };
 
     const handleAdd = () => {

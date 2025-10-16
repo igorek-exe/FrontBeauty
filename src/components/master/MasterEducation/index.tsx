@@ -3,8 +3,16 @@ import { MasterEducation } from './UI/MasterEducation';
 import { useMasterEducation } from './model/useMasterEducation';
 
 const MasterEducationContainer: React.FC = () => {
-    const { education, isEditing, handleEdit, handleCancel, handleChange, handleAdd, handleRemove, handleSave } =
-        useMasterEducation();
+    const {
+        education,
+        isEditing,
+        handleEdit,
+        handleCancel,
+        handleChange,
+        handleAdd,
+        handleRemove,
+        handleSave,
+    } = useMasterEducation();
 
     return (
         <MasterEducation

@@ -3,8 +3,15 @@ import { ImageUploader } from './UI/ImageUploader';
 import { useImageUploader } from './model/useImageUploader';
 
 const ImageUploaderContainer: React.FC = () => {
-    const { preview, isHovered, inputRef, setIsHovered, handleImageUpload, handleRemoveImage, triggerUpload } =
-        useImageUploader();
+    const {
+        preview,
+        isHovered,
+        inputRef,
+        setIsHovered,
+        handleImageUpload,
+        handleRemoveImage,
+        triggerUpload,
+    } = useImageUploader();
 
     return (
         <ImageUploader

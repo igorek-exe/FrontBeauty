@@ -7,7 +7,12 @@
   padding: $spacing-40 $spacing-20 $spacing-20;
   background: {
     image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 1) 100%),
+      linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.7) 50%,
+        rgba(255, 255, 255, 1) 100%
+      ),
       url('/images/manicureNature.png');
     repeat: no-repeat, no-repeat;
     color: $color-white;

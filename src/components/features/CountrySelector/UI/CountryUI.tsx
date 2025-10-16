@@ -13,7 +13,14 @@ type Props = {
     selectCountry: (code: string) => void;
 };
 
-export const CountryUI: React.FC<Props> = ({ wrapperRef, open, current, countries, toggleDropdown, selectCountry }) => {
+export const CountryUI: React.FC<Props> = ({
+    wrapperRef,
+    open,
+    current,
+    countries,
+    toggleDropdown,
+    selectCountry,
+}) => {
     return (
         <div className={styles.wrapper} ref={wrapperRef}>
             {current && (

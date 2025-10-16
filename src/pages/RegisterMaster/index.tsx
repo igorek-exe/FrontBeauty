@@ -7,7 +7,12 @@ import { useNavigate } from 'react-router-dom';
 import styles from './index.module.scss';
 import EyeEmpty from '@/assets/icons/EyeEmpty.svg?react';
 import masterImage from '/images/master.png';
-import { validateLogin, validatePassword } from '@/utils';
+import {
+    validateLogin,
+    passwordValidator,
+    validatePasswordConfirmation,
+    validateEmail,
+} from '@/utils';
 import { Button, LinkButton, SvgIcon } from '@/components';
 
 interface Errors {
@@ -29,8 +34,6 @@ const RegisterMaster: React.FC = () => {
         username: '',
         email: '',
         password: '',
-        phone: '+375299600661',
-        about_master: 'desc',
     });
 
     const [errors, setErrors] = useState<Errors>({
@@ -69,15 +72,22 @@ const RegisterMaster: React.FC = () => {
         if (!agreeToPersonalData) {
             setErrors((prev) => ({
                 ...prev,
-                agreeToPersonalData: 'Необходимо подтвердить согласие на обработку персональных данных.',
+                agreeToPersonalData:
+                    'Необходимо подтвердить согласие на обработку персональных данных.',
             }));
             return;
         }
 
         setLoginError(
-            errors.email || errors.username || errors.password || errors.passwordConfirmation || errors.agreeToPersonalData
+            errors.email ||
+                errors.username ||
+                errors.password ||
+                errors.passwordConfirmation ||
+                errors.agreeToPersonalData
         );
-        console.log(errors.email || errors.username || errors.password || errors.passwordConfirmation);
+        console.log(
+            errors.email || errors.username || errors.password || errors.passwordConfirmation
+        );
 
         try {
             await dispatch(register(credentials)).unwrap();
@@ -122,47 +132,14 @@ const RegisterMaster: React.FC = () => {
                 errorMessage = validateLogin(value);
                 break;
             case 'password':
-                errorMessage = validatePassword(value);
+                errorMessage = passwordValidator(value);
                 break;
-        }
-
-        /*const isPasswordContainsLogin = (password, login) => {
-            const lowerPassword = password.toLowerCase();
-            const lowerLogin = login.toLowerCase();
-            return lowerPassword.includes(lowerLogin);
-        };*/
-        if (name === 'email') {
-            const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-            if (!emailRegex.test(value)) {
-                errorMessage = 'Адрес электронной почты введен некорректно';
-            }
-        }
-
-        /*if (name === 'password') {
-            if (value.length < 6) {
-                errorMessage = 'Пароль должен содержать не менее 6 символов';
-            } else {
-                const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!?@#$%^])[A-Za-z\d!?@#$%^]{6,15}$/;
-                if (!passwordRegex.test(value)) {
-                    errorMessage =
-                        'Пароль должен содержать минимум 1 букву, 1 цифру, 1 спец. символ и быть длиной от 6 до 15 символов без пробелов.';
-                } else if (credentials.username && isPasswordContainsLogin(value, credentials.username)) {
-                    errorMessage = 'Пароль не должен содержать логин.';
-                }
-            }
-        }*/
-
-        if (name === 'passwordConfirmation') {
-            if (value !== credentials.password) {
-                errorMessage = 'Пароли не совпадают';
-            }
-        }
-
-        if (name === 'phoneNumber') {
-            const phoneRegex = /^\+?\d{10,15}$/;
-            if (!phoneRegex.test(value)) {
-                errorMessage = 'Номер телефона введен некорректно.';
-            }
+            case 'passwordConfirmation':
+                errorMessage = validatePasswordConfirmation(value, credentials.password);
+                break;
+            case 'email':
+                errorMessage = validateEmail(value);
+                break;
         }
 
         setErrors((prev) => ({ ...prev, [name]: errorMessage }));
@@ -176,8 +153,8 @@ const RegisterMaster: React.FC = () => {
                     <div className={styles.leftSIdeText}>
                         <h4>Профиль мастеров</h4>
                         <p>
-                            Создайте свою страницу специалиста и получайте дополнительный поток клиентов. 3 миллиона
-                            человек ищут услуги и специалистов каждый месяц.
+                            Создайте свою страницу специалиста и получайте дополнительный поток
+                            клиентов. 3 миллиона человек ищут услуги и специалистов каждый месяц.
                         </p>
                     </div>
                 </div>
@@ -210,7 +187,9 @@ const RegisterMaster: React.FC = () => {
                                 style={{ ...getInputStyle(credentials.username, errors.username) }}
                             />
                             {errors.username ? (
-                                <span className={styles.errorMessage + ' ' + styles.inputHint}>{errors.username}</span>
+                                <span className={styles.errorMessage + ' ' + styles.inputHint}>
+                                    {errors.username}
+                                </span>
                             ) : (
                                 <span className={styles.inputHint}>придумайте логин</span>
                             )}
@@ -226,13 +205,15 @@ const RegisterMaster: React.FC = () => {
                                 name="email"
                                 value={credentials.email}
                                 onChange={handleChange}
-                                /*onBlur={handleBlur}*/
+                                onBlur={handleBlur}
                                 placeholder="email"
                                 className={styles.formInput}
                                 style={{ ...getInputStyle(credentials.email, errors.email) }}
                             />
                             {errors.email ? (
-                                <span className={styles.errorMessage + ' ' + styles.inputHint}>{errors.email}</span>
+                                <span className={styles.errorMessage + ' ' + styles.inputHint}>
+                                    {errors.email}
+                                </span>
                             ) : (
                                 <span className={styles.inputHint}>введите email</span>
                             )}
@@ -252,7 +233,9 @@ const RegisterMaster: React.FC = () => {
                                     onBlur={handleBlur}
                                     placeholder="пароль"
                                     className={styles.formInput + ' ' + styles.passwordInput}
-                                    style={{ ...getInputStyle(credentials.password, errors.password) }}
+                                    style={{
+                                        ...getInputStyle(credentials.password, errors.password),
+                                    }}
                                 />
                                 <button
                                     type="button"
@@ -263,9 +246,13 @@ const RegisterMaster: React.FC = () => {
                                 </button>
                             </div>
                             {!errors.password ? (
-                                <span className={styles.errorMessage + ' ' + styles.inputHint}>придумайте пароль</span>
+                                <span className={styles.errorMessage + ' ' + styles.inputHint}>
+                                    придумайте пароль
+                                </span>
                             ) : (
-                                <span className={styles.errorMessage + ' ' + styles.inputHint}>{errors.password}</span>
+                                <span className={styles.errorMessage + ' ' + styles.inputHint}>
+                                    {errors.password}
+                                </span>
                             )}
                         </div>
 
@@ -280,7 +267,7 @@ const RegisterMaster: React.FC = () => {
                                     name="passwordConfirmation"
                                     /*value={'test'}*/
                                     /*onChange={handleChange}*/
-                                    /*onBlur={handleBlur}*/
+                                    onBlur={handleBlur}
                                     placeholder="повторите пароль"
                                     className={styles.formInput + ' ' + styles.passwordInput}
                                     style={{
@@ -306,7 +293,9 @@ const RegisterMaster: React.FC = () => {
 
                         <div className={styles.formGroup}>
                             <label className={styles.checkboxLabel}>
-                                <span className={styles.checkboxText}>Согласие на обработку персональных данных</span>
+                                <span className={styles.checkboxText}>
+                                    Согласие на обработку персональных данных
+                                </span>
                                 <input
                                     type="checkbox"
                                     checked={agreeToPersonalData}
@@ -324,9 +313,15 @@ const RegisterMaster: React.FC = () => {
 
                         <div className={styles.formBtnGroup}>
                             {loginError && (
-                                <div className={styles.errorMessage + ' ' + styles.inputHint}>{loginError}</div>
+                                <div className={styles.errorMessage + ' ' + styles.inputHint}>
+                                    {loginError}
+                                </div>
                             )}
-                            <Button children="Продолжить" type="submit" classNames={{ buttonClass: 'loginButton' }} />
+                            <Button
+                                children="Продолжить"
+                                type="submit"
+                                classNames={{ buttonClass: 'loginButton' }}
+                            />
                         </div>
                     </form>
                 </div>

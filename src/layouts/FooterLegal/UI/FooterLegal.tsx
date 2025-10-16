@@ -10,8 +10,8 @@ const FooterLegal: React.FC<FooterLegalProps> = ({ companyName, years, activityC
             <div className={styles.wrapAge}>
                 <SvgIcon Icon={AgeIcon} className="ageIcon" />
                 <p className={styles.footerLegalText}>
-                    Информация, опубликованная на данном сайте, предназначена для любой аудитории, если иное не указано
-                    дополнительно в отношении отдельных материалов.
+                    Информация, опубликованная на данном сайте, предназначена для любой аудитории,
+                    если иное не указано дополнительно в отношении отдельных материалов.
                 </p>
             </div>
 
@@ -20,8 +20,8 @@ const FooterLegal: React.FC<FooterLegalProps> = ({ companyName, years, activityC
             </p>
 
             <p className={styles.footerLegalInfo}>
-                ООО «{companyName}» осуществляет деятельность в области информационных технологий. Вид деятельности
-                (код): {activityCode}.<br />
+                ООО «{companyName}» осуществляет деятельность в области информационных технологий.
+                Вид деятельности (код): {activityCode}.<br />
                 На информационном ресурсе применяются рекомендательные технологии.
             </p>
         </div>

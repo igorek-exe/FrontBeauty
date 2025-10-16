@@ -5,7 +5,9 @@ export const useMasterExperienceForm = (initialExperience: ExperienceItem[]) => 
     const [experience, setExperience] = useState<ExperienceItem[]>(initialExperience);
 
     const handleChange = (index: number, field: keyof ExperienceItem, value: string) => {
-        setExperience((prev) => prev.map((item, i) => (i === index ? { ...item, [field]: value } : item)));
+        setExperience((prev) =>
+            prev.map((item, i) => (i === index ? { ...item, [field]: value } : item))
+        );
     };
 
     const handleAdd = () => {

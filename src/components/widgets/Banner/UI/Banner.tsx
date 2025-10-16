@@ -11,7 +11,13 @@ type BannerProps = {
     onUserTypeChange: (type: UserType) => void;
 };
 
-export const Banner: React.FC<BannerProps> = ({ title, subtitle, description, activeUserType, onUserTypeChange }) => {
+export const Banner: React.FC<BannerProps> = ({
+    title,
+    subtitle,
+    description,
+    activeUserType,
+    onUserTypeChange,
+}) => {
     return (
         <div className={styles.banner}>
             <h1 className={styles.title}>{title}</h1>
@@ -20,7 +26,8 @@ export const Banner: React.FC<BannerProps> = ({ title, subtitle, description, ac
             <div className={styles.bannerActions}>
                 <Button
                     classNames={{
-                        buttonClass: activeUserType === 'master' ? 'activeButton' : 'inactiveButton',
+                        buttonClass:
+                            activeUserType === 'master' ? 'activeButton' : 'inactiveButton',
                     }}
                     onClick={() => onUserTypeChange('master')}
                 >
@@ -28,7 +35,8 @@ export const Banner: React.FC<BannerProps> = ({ title, subtitle, description, ac
                 </Button>
                 <Button
                     classNames={{
-                        buttonClass: activeUserType === 'client' ? 'activeButton' : 'inactiveButton',
+                        buttonClass:
+                            activeUserType === 'client' ? 'activeButton' : 'inactiveButton',
                     }}
                     onClick={() => onUserTypeChange('client')}
                 >

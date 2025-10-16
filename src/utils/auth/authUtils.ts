@@ -3,7 +3,9 @@ import { LoginCredentials, RegisterCredentials, User } from '@/stores/types/auth
 const API_BASE_URL = 'http://100.108.1.26:8000/auth'; // Можно вынести в .env
 
 // --- Авторизация ---
-export const loginUser = async (credentials: LoginCredentials): Promise<{ user: User; token: string }> => {
+export const loginUser = async (
+    credentials: LoginCredentials
+): Promise<{ user: User; token: string }> => {
     const response = await fetch(`${API_BASE_URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -19,19 +21,30 @@ export const loginUser = async (credentials: LoginCredentials): Promise<{ user: 
 };
 
 // --- Регистрация ---
-export const registerUser = async (credentials: RegisterCredentials): Promise<{ user: User; token: string }> => {
+export const registerUser = async (
+    credentials: RegisterCredentials
+): Promise<{ user: User; token: string }> => {
     const response = await fetch(`${API_BASE_URL}/register/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(credentials),
     });
 
-    /*console.log(response);*/
+    const data = await response.json().catch(() => ({}));
 
     if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.message || 'Ошибка регистрации');
+        let message = 'Ошибка регистрации. Попробуйте позже.';
+
+        if (data.email) {
+            message = 'Данная почта уже используется.';
+        } else if (data.username) {
+            message = 'Данный логин уже существует.';
+        } else if (data.detail) {
+            message = 'Ошибка: ' + data.detail;
+        }
+
+        throw new Error(message);
     }
 
-    return await response.json(); // ожидаем { user, token }
+    return data;
 };

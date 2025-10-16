@@ -3,8 +3,16 @@ import { MasterAddresses } from './UI/MasterAddresses';
 import { useMasterAddresses } from './model/useMasterAddresses';
 
 const MasterAddressesContainer: React.FC = () => {
-    const { addresses, isEditing, handleEdit, handleCancel, handleChange, handleAdd, handleRemove, handleSave } =
-        useMasterAddresses();
+    const {
+        addresses,
+        isEditing,
+        handleEdit,
+        handleCancel,
+        handleChange,
+        handleAdd,
+        handleRemove,
+        handleSave,
+    } = useMasterAddresses();
 
     return (
         <MasterAddresses

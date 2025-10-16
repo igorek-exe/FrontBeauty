@@ -4,39 +4,41 @@ import { AuthState, User, LoginCredentials, RegisterCredentials } from '@/stores
 
 // --- Асинхронные экшены ---
 
-export const login = createAsyncThunk<{ user: User; token: string }, LoginCredentials, { rejectValue: string }>(
-    'auth/login',
-    async (credentials, { rejectWithValue }) => {
-        try {
-            const { user, token } = await loginUser(credentials);
-            localStorage.setItem('token', token);
-            return { user, token };
-        } catch (error: unknown) {
-            if (error instanceof Error) {
-                return rejectWithValue(error.message);
-            } else {
-                return rejectWithValue('Ошибка авторизации');
-            }
+export const login = createAsyncThunk<
+    { user: User; token: string },
+    LoginCredentials,
+    { rejectValue: string }
+>('auth/login', async (credentials, { rejectWithValue }) => {
+    try {
+        const { user, token } = await loginUser(credentials);
+        localStorage.setItem('token', token);
+        return { user, token };
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            return rejectWithValue(error.message);
+        } else {
+            return rejectWithValue('Ошибка авторизации');
         }
     }
-);
+});
 
-export const register = createAsyncThunk<{ user: User; token: string }, RegisterCredentials, { rejectValue: string }>(
-    'auth/register',
-    async (credentials, { rejectWithValue }) => {
-        try {
-            const { user, token } = await registerUser(credentials);
-            localStorage.setItem('token', token);
-            return { user, token };
-        } catch (error: unknown) {
-            if (error instanceof Error) {
-                return rejectWithValue(error.message);
-            } else {
-                return rejectWithValue('Ошибка авторизации');
-            }
+export const register = createAsyncThunk<
+    { user: User; token: string },
+    RegisterCredentials,
+    { rejectValue: string }
+>('auth/register', async (credentials, { rejectWithValue }) => {
+    try {
+        const { user, token } = await registerUser(credentials);
+        localStorage.setItem('token', token);
+        return { user, token };
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            return rejectWithValue(error.message);
+        } else {
+            return rejectWithValue('Ошибка авторизации');
         }
     }
-);
+});
 
 export const logout = createAsyncThunk('auth/logout', async () => {
     localStorage.removeItem('token');
@@ -64,12 +66,15 @@ const authSlice = createSlice({
             state.loading = true;
             state.error = null;
         });
-        builder.addCase(login.fulfilled, (state, action: PayloadAction<{ user: User; token: string }>) => {
-            state.loading = false;
-            state.isAuthenticated = true;
-            state.user = action.payload.user;
-            state.token = action.payload.token;
-        });
+        builder.addCase(
+            login.fulfilled,
+            (state, action: PayloadAction<{ user: User; token: string }>) => {
+                state.loading = false;
+                state.isAuthenticated = true;
+                state.user = action.payload.user;
+                state.token = action.payload.token;
+            }
+        );
         builder.addCase(login.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload || 'Ошибка входа';
@@ -81,12 +86,15 @@ const authSlice = createSlice({
             state.loading = true;
             state.error = null;
         });
-        builder.addCase(register.fulfilled, (state, action: PayloadAction<{ user: User; token: string }>) => {
-            state.loading = false;
-            state.isAuthenticated = true;
-            state.user = action.payload.user;
-            state.token = action.payload.token;
-        });
+        builder.addCase(
+            register.fulfilled,
+            (state, action: PayloadAction<{ user: User; token: string }>) => {
+                state.loading = false;
+                state.isAuthenticated = true;
+                state.user = action.payload.user;
+                state.token = action.payload.token;
+            }
+        );
         builder.addCase(register.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload || 'Ошибка регистрации';

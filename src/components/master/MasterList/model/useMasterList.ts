@@ -11,7 +11,9 @@ const INITIAL_VISIBLE_COUNT = 6;
 const ITEMS_PER_PAGE = 12;
 
 export const useMasterList = () => {
-    const { district, specialty, searchTriggered } = useSelector((state: RootState) => state.filters);
+    const { district, specialty, searchTriggered } = useSelector(
+        (state: RootState) => state.filters
+    );
 
     const [hasClickedShowMore, setHasClickedShowMore] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
