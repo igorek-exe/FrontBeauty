@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { cn } from '@/utils/UI/cn.ts';
 import styles from './index.module.scss';
 import type { InputProps } from '@/components';
 
@@ -7,7 +8,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         return (
             <input
                 ref={ref}
-                className={`${styles.input} ${className}`}
+                className={cn(styles, 'input', className)}
                 type={type}
                 name={name}
                 value={type !== 'file' ? value : undefined}

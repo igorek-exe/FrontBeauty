@@ -67,8 +67,8 @@
   @include fonts($manroupe-font, $font-weight-400, $spacing-16, $color-gray2, $spacing-24);
   padding: $spacing-12;
   border: 1.5px solid $color-gray6;
-  border-radius: $spacing-12;
   background-color: $color-gray7;
+  border-radius: $spacing-12;
   cursor: pointer;
 }
 
@@ -102,7 +102,8 @@
   padding-top: $spacing-24;
 }
 
-.formGroup, .formAgreeGroup {
+.formGroup,
+.formAgreeGroup {
   margin: $spacing-0 $spacing-45;
 }
 

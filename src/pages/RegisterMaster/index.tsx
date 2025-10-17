@@ -102,16 +102,18 @@ const RegisterMaster: React.FC = () => {
         }
     };
 
-    const getInputStyle = (fieldValue: string, error?: string) => {
+    const getInputStyle = (fieldValue: string, error?: string, nameValue?: string) => {
+        const lengthName = fieldValue.length;
+
         if (error) {
             return {
-                borderColor: 'red',
-                backgroundColor: '#ffe6e6',
+                border: '2px solid #EE443F',
+                backgroundColor: '#FDECEC',
             };
-        } else if (fieldValue.length > 6) {
+        } else if ((nameValue == 'username' && lengthName > 4) || lengthName > 5) {
             return {
-                borderColor: 'green',
-                backgroundColor: '#e6ffe6',
+                border: '2px solid #C5E9CD',
+                background: '#ECF8EF',
             };
         } else {
             return {
@@ -175,14 +177,19 @@ const RegisterMaster: React.FC = () => {
                             </label>
                             <input
                                 type="text"
-                                id="username"
                                 name="username"
-                                /*value={credentials.username}*/
+                                id="username"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 placeholder="логин"
                                 className={styles.formInput}
-                                style={{ ...getInputStyle(credentials.username, errors.username) }}
+                                style={{
+                                    ...getInputStyle(
+                                        credentials.username,
+                                        errors.username,
+                                        'username'
+                                    ),
+                                }}
                             />
                             {errors.username ? (
                                 <span className={styles.errorMessage + ' ' + styles.inputHint}>
