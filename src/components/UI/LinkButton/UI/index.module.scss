@@ -22,3 +22,11 @@
   color: $color-white;
   background-color: $color-purple3;
 }
+
+.linkEnter {
+  @include rowing(center, center);
+  @include fonts($manroupe-font, $font-weight-400, $spacing-16, $color-purple, $spacing-0);
+  @include sizes(109px, $spacing-20);
+  padding: $spacing-0;
+  border-radius: $spacing-0;
+}

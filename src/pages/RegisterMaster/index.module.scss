@@ -6,7 +6,7 @@
 }
 
 .leftSide {
-  @include sizes(null, 100vh);
+  @include sizes(36.7%, 100vh);
   position: relative;
   overflow: hidden;
 }
@@ -17,7 +17,7 @@
   top: 60%;
   right: 0;
   border-radius: 50%;
-  padding: 27.5% 8% 0 21.5%;;
+  padding: 27.5% 8% 0 21.5%;
   background-color: $color-purple3;
 }
 
@@ -31,105 +31,98 @@
 }
 
 .loginFormContainer {
-  @include rowing(space-between, stretch, column);
-  min-height: $spacing-70;
-  width: 500px;
+  @include sizes(630px);
   margin: auto;
   padding: $spacing-24 $spacing-48;
-  gap: $spacing-24;
   border-radius: 20px;
   background-color: $color-pink;
-  font-family: Manrope, serif;
-}
-
-.loginHeader {
-  @include rowing(space-between, stretch, column);
-  gap: 12px;
-  max-width: 100%;
 }
 
 .loginTitle {
-  font-weight: 600;
-  font-size: 30px;
-  line-height: 44px;
-  letter-spacing: 0;
+  @include fonts($manroupe-font, $font-weight-500, $spacing-30, $color-purple3, $spacing-44);
   text-align: center;
-  color: $color-purple3;
+  padding-bottom: $spacing-12;
 }
 
 .loginLinks {
-  @include rowing(space-between, center);
-  gap: 24px;
-  padding: 2.5px 22.5px;
-  font-size: 14px;
+  @include rowing(center);
+}
+
+.noAccount {
+  @include fonts($manroupe-font, $font-weight-300, $spacing-14, $color-black, $spacing-14);
+  @include sizes(209px, $spacing-17);
 }
 
 .form {
-  @include rowing(space-between, stretch, column);
-  gap: 8px;
+  margin: $spacing-16 $spacing-0 $spacing-24;
 }
 
 .formGroup {
-  @include rowing(space-between, stretch, column);
-  padding: $spacing-0 $spacing-27;
-  gap: 8px;
+  @include rowing(null, null, column);
+  gap: $spacing-8;
+  padding-top: $spacing-8;
+}
+
+.formInput {
+  @include fonts($manroupe-font, $font-weight-400, $spacing-16, $color-gray2, $spacing-24);
+  padding: $spacing-12;
+  border: 1.5px solid $color-gray6;
+  border-radius: $spacing-12;
+  background-color: $color-gray7;
+  cursor: pointer;
 }
 
 .inputHint {
-  color: rgba(125, 121, 121, 1);
-  font-size: 14px;
-}
-
-.formBtnGroup {
-  padding-top: 16px;
-}
-
-.forgotPasswordLink {
-  text-align: end;
-  color: $color-purple4;
+  @include fonts($manroupe-font, $font-weight-400, $spacing-14, $color-gray2, $spacing-20);
 }
 
 .formLabel {
-  font-size: 20px;
-  color: rgba(29, 27, 32, 1);
-}
-
-.agreeToPersonalData .formLabel {
-  // display: inline-block;
-  font-size: 12px;
-}
-.formInput {
-  width: 350px;
-  padding: 12px;
-  border: 1.5px solid rgba(234, 234, 234, 1);
-  font-size: 16px;
-  color: rgba(125, 121, 121, 1);
-  border-radius: 12px;
-  cursor: pointer;
+  @include fonts($manroupe-font, $font-weight-500, $spacing-20, $color-black3, $spacing-24);
 }
 
 .passwordInputContainer {
   position: relative;
 }
 
+.passwordInput {
+  @include sizes(100%);
+}
+
 .passwordToggleButton {
   position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
+  right: $spacing-12;
+  padding: $spacing-0;
+  top: 28%;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
 }
 
-.eyeIcon {
-  width: 24px;
-  height: 24px;
+.formAgreeGroup {
+  padding-top: $spacing-24;
 }
 
-.agreeToPersonalData {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
+.formGroup, .formAgreeGroup {
+  margin: $spacing-0 $spacing-45;
+}
+
+.checkboxLabel {
+  @include rowing(space-between, center);
+  padding: $spacing-0 $spacing-12;
+}
+
+.checkboxText {
+  @include fonts($manroupe-font, $font-weight-400, $spacing-12, $color-gray8, $spacing-16);
+}
+
+.checkboxInput {
+  @include sizes($spacing-16, $spacing-16);
+  -webkit-appearance: none;
+  margin: $spacing-0;
+  border: 1px solid $color-purple3;
+  border-radius: $spacing-4;
+}
+
+.formBtnGroup {
+  padding-top: $spacing-24;
 }

@@ -145,28 +145,27 @@ const RegisterMaster: React.FC = () => {
     };
 
     return (
-        <div className="container">
+        <div>
             <div className={styles.centred}>
                 <div className={styles.leftSide}>
-                    <Picture src={'/images/master-reg.png'} alt={'маникюр мастера'}/>
+                    <Picture src={'/images/master-reg.png'} alt={'маникюр мастера'} />
                     <div className={styles.leftSIdeText}>
                         <h3 className={styles.leftSideTitle}>Профиль мастеров</h3>
                         <p className={styles.leftSideDesc}>
-                            Создайте свою страницу специалиста<br />и получайте дополнительный поток
-                            клиентов. 3 миллиона человек ищут услуги и специалистов каждый месяц.
+                            Создайте свою страницу специалиста
+                            <br />и получайте дополнительный поток клиентов. 3 миллиона человек ищут
+                            услуги и специалистов каждый месяц.
                         </p>
                     </div>
                 </div>
 
                 <div className={styles.loginFormContainer}>
-                    <div className={styles.loginHeader}>
-                        <h2 className={styles.loginTitle}>Регистрация для Мастеров</h2>
-                        <div className={styles.loginLinks}>
-                            <span className="noAccount">Уже есть Личный Профиль?</span>
-                            <LinkButton to="/login" className="registerLink">
-                                Вход
-                            </LinkButton>
-                        </div>
+                    <h2 className={styles.loginTitle}>Регистрация для Мастеров</h2>
+                    <div className={styles.loginLinks}>
+                        <span className={styles.noAccount}>Уже есть Личный Профиль?</span>
+                        <LinkButton to="/login" className="linkEnter">
+                            Войти
+                        </LinkButton>
                     </div>
 
                     <form onSubmit={handleSubmit} className={styles.form}>
@@ -190,7 +189,7 @@ const RegisterMaster: React.FC = () => {
                                     {errors.username}
                                 </span>
                             ) : (
-                                <span className={styles.inputHint}>придумайте логин</span>
+                                <span className={styles.inputHint}>введите логин</span>
                             )}
                         </div>
 
@@ -244,13 +243,13 @@ const RegisterMaster: React.FC = () => {
                                     <SvgIcon Icon={EyeEmpty} className="" />
                                 </button>
                             </div>
-                            {!errors.password ? (
+                            {errors.password ? (
                                 <span className={styles.errorMessage + ' ' + styles.inputHint}>
-                                    придумайте пароль
+                                    {errors.password}
                                 </span>
                             ) : (
                                 <span className={styles.errorMessage + ' ' + styles.inputHint}>
-                                    {errors.password}
+                                    придумайте пароль
                                 </span>
                             )}
                         </div>
@@ -281,22 +280,23 @@ const RegisterMaster: React.FC = () => {
                                     <SvgIcon Icon={EyeEmpty} className="" />
                                 </button>
                             </div>
-                            {!errors.passwordConfirmation ? (
-                                <span className={styles.inputHint}>повторите пароль</span>
-                            ) : (
+                            {errors.passwordConfirmation ? (
                                 <span className={styles.errorMessage + ' ' + styles.inputHint}>
                                     {errors.passwordConfirmation}
                                 </span>
+                            ) : (
+                                <span className={styles.inputHint}>повторите пароль</span>
                             )}
                         </div>
 
-                        <div className={styles.formGroup}>
+                        <div className={styles.formAgreeGroup}>
                             <label className={styles.checkboxLabel}>
                                 <span className={styles.checkboxText}>
                                     Согласие на обработку персональных данных
                                 </span>
                                 <input
                                     type="checkbox"
+                                    name="agree"
                                     checked={agreeToPersonalData}
                                     onChange={() => setAgreeToPersonalData(!agreeToPersonalData)}
                                     className={styles.checkboxInput}
@@ -319,7 +319,7 @@ const RegisterMaster: React.FC = () => {
                             <Button
                                 children="Продолжить"
                                 type="submit"
-                                classNames={{ buttonClass: 'loginButton' }}
+                                classNames={{ buttonClass: 'registerButton' }}
                             />
                         </div>
                     </form>
