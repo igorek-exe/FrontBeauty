@@ -247,7 +247,7 @@ const RegisterMaster: React.FC = () => {
                                     className={styles.passwordToggleButton}
                                     onClick={togglePasswordVisibility}
                                 >
-                                    <SvgIcon Icon={EyeEmpty} className="" />
+                                    <SvgIcon Icon={EyeEmpty} className="test" />
                                 </button>
                             </div>
                             {errors.password ? (
