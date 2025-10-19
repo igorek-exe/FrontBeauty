@@ -14,6 +14,7 @@ import {
 } from '@/utils';
 import { Button, LinkButton, Picture, SvgIcon } from '@/components';
 import { Input } from '@/components';
+import RoleSelect from '@/components/UI/RoleSelect';
 
 interface Errors {
     username: string;
@@ -204,162 +205,166 @@ const RegisterMaster: React.FC = () => {
                         </p>
                     </div>
                 </div>
+                <div className={styles.rightSide}>
+                    <div className={styles.loginFormContainer}>
+                        <h2 className={styles.loginTitle}>Регистрация</h2>
+                        <div className={styles.wrappRoleSelect}>
+                            <RoleSelect />
+                        </div>
+                        <div className={styles.loginLinks}>
+                            <span className={styles.noAccount}>Уже есть Личный Профиль?</span>
+                            <LinkButton to="/login" className="linkEnter">
+                                Войти
+                            </LinkButton>
+                        </div>
 
-                <div className={styles.loginFormContainer}>
-                    <h2 className={styles.loginTitle}>Регистрация для Мастеров</h2>
-                    <div className={styles.loginLinks}>
-                        <span className={styles.noAccount}>Уже есть Личный Профиль?</span>
-                        <LinkButton to="/login" className="linkEnter">
-                            Войти
-                        </LinkButton>
-                    </div>
-
-                    <form onSubmit={handleSubmit} className={styles.form}>
-                        <div className={styles.formGroup}>
-                            <label htmlFor="username" className={styles.formLabel}>
-                                Логин
-                            </label>
-                            <Input
-                                type="text"
-                                name="username"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                placeholder="логин"
-                                className={styles.formInput}
-                                style={getInputStyle('username')}
-                            />
-                            {errors.username ? (
-                                <span className={styles.errorMessage + ' ' + styles.inputHint}>
+                        <form onSubmit={handleSubmit} className={styles.form}>
+                            <div className={styles.formGroup}>
+                                <label htmlFor="username" className={styles.formLabel}>
+                                    Логин
+                                </label>
+                                <Input
+                                    type="text"
+                                    name="username"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    placeholder="логин"
+                                    className={styles.formInput}
+                                    style={getInputStyle('username')}
+                                />
+                                {errors.username ? (
+                                    <span className={styles.errorMessage + ' ' + styles.inputHint}>
                                     {errors.username}
                                 </span>
-                            ) : (
-                                <span className={styles.inputHint}>введите логин</span>
-                            )}
-                        </div>
+                                ) : (
+                                    <span className={styles.inputHint}>введите логин</span>
+                                )}
+                            </div>
 
-                        <div className={styles.formGroup}>
-                            <label htmlFor="email" className={styles.formLabel}>
-                                Email
-                            </label>
-                            <Input
-                                type="text"
-                                name="email"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                placeholder="email"
-                                className={styles.formInput}
-                                style={getInputStyle('email')}
-                            />
-                            {errors.email ? (
-                                <span className={styles.errorMessage + ' ' + styles.inputHint}>
+                            <div className={styles.formGroup}>
+                                <label htmlFor="email" className={styles.formLabel}>
+                                    Email
+                                </label>
+                                <Input
+                                    type="text"
+                                    name="email"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    placeholder="email"
+                                    className={styles.formInput}
+                                    style={getInputStyle('email')}
+                                />
+                                {errors.email ? (
+                                    <span className={styles.errorMessage + ' ' + styles.inputHint}>
                                     {errors.email}
                                 </span>
-                            ) : (
-                                <span className={styles.inputHint}>введите email</span>
-                            )}
-                        </div>
-
-                        <div className={styles.formGroup}>
-                            <label htmlFor="password" className={styles.formLabel}>
-                                Пароль
-                            </label>
-                            <div className={styles.passwordInputContainer}>
-                                <Input
-                                    type={passwordVisible ? 'text' : 'password'}
-                                    name="password"
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    placeholder="пароль"
-                                    className={styles.formInput + ' ' + styles.passwordInput}
-                                    style={getInputStyle('password')}
-                                />
-                                <button
-                                    type="button"
-                                    className={styles.passwordToggleButton}
-                                    onClick={togglePasswordVisibility}
-                                >
-                                    <SvgIcon Icon={EyeEmpty} className={iconClass.password} />
-                                </button>
+                                ) : (
+                                    <span className={styles.inputHint}>введите email</span>
+                                )}
                             </div>
-                            {errors.password ? (
-                                <span className={styles.errorMessage + ' ' + styles.inputHint}>
+
+                            <div className={styles.formGroup}>
+                                <label htmlFor="password" className={styles.formLabel}>
+                                    Пароль
+                                </label>
+                                <div className={styles.passwordInputContainer}>
+                                    <Input
+                                        type={passwordVisible ? 'text' : 'password'}
+                                        name="password"
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        placeholder="пароль"
+                                        className={styles.formInput + ' ' + styles.passwordInput}
+                                        style={getInputStyle('password')}
+                                    />
+                                    <button
+                                        type="button"
+                                        className={styles.passwordToggleButton}
+                                        onClick={togglePasswordVisibility}
+                                    >
+                                        <SvgIcon Icon={EyeEmpty} className={iconClass.password} />
+                                    </button>
+                                </div>
+                                {errors.password ? (
+                                    <span className={styles.errorMessage + ' ' + styles.inputHint}>
                                     {errors.password}
                                 </span>
-                            ) : (
-                                <span className={styles.errorMessage + ' ' + styles.inputHint}>
+                                ) : (
+                                    <span className={styles.errorMessage + ' ' + styles.inputHint}>
                                     придумайте пароль
                                 </span>
-                            )}
-                        </div>
-
-                        <div className={styles.formGroup}>
-                            <label htmlFor="passwordConfirmation" className={styles.formLabel}>
-                                Пароль
-                            </label>
-                            <div className={styles.passwordInputContainer}>
-                                <Input
-                                    type={passwordConfirmationVisible ? 'text' : 'password'}
-                                    name="passwordConfirmation"
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    placeholder="повторите пароль"
-                                    className={styles.formInput + ' ' + styles.passwordInput}
-                                    style={getInputStyle('passwordConfirmation')}
-                                />
-                                <button
-                                    type="button"
-                                    className={styles.passwordToggleButton}
-                                    onClick={togglePasswordConfirmationVisibility}
-                                >
-                                    <SvgIcon
-                                        Icon={EyeEmpty}
-                                        className={iconClass.passwordConfirmation}
-                                    />
-                                </button>
+                                )}
                             </div>
-                            {errors.passwordConfirmation ? (
-                                <span className={styles.errorMessage + ' ' + styles.inputHint}>
+
+                            <div className={styles.formGroup}>
+                                <label htmlFor="passwordConfirmation" className={styles.formLabel}>
+                                    Пароль
+                                </label>
+                                <div className={styles.passwordInputContainer}>
+                                    <Input
+                                        type={passwordConfirmationVisible ? 'text' : 'password'}
+                                        name="passwordConfirmation"
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        placeholder="повторите пароль"
+                                        className={styles.formInput + ' ' + styles.passwordInput}
+                                        style={getInputStyle('passwordConfirmation')}
+                                    />
+                                    <button
+                                        type="button"
+                                        className={styles.passwordToggleButton}
+                                        onClick={togglePasswordConfirmationVisibility}
+                                    >
+                                        <SvgIcon
+                                            Icon={EyeEmpty}
+                                            className={iconClass.passwordConfirmation}
+                                        />
+                                    </button>
+                                </div>
+                                {errors.passwordConfirmation ? (
+                                    <span className={styles.errorMessage + ' ' + styles.inputHint}>
                                     {errors.passwordConfirmation}
                                 </span>
-                            ) : (
-                                <span className={styles.inputHint}>повторите пароль</span>
-                            )}
-                        </div>
+                                ) : (
+                                    <span className={styles.inputHint}>повторите пароль</span>
+                                )}
+                            </div>
 
-                        <div className={styles.formAgreeGroup}>
-                            <label className={styles.checkboxLabel}>
+                            <div className={styles.formAgreeGroup}>
+                                <label className={styles.checkboxLabel}>
                                 <span className={styles.checkboxText}>
                                     Согласие на обработку персональных данных
                                 </span>
-                                <Input
-                                    type="checkbox"
-                                    name="agree"
-                                    checked={agreeToPersonalData}
-                                    onChange={() => setAgreeToPersonalData(!agreeToPersonalData)}
-                                    className={styles.checkboxInput}
-                                />
-                            </label>
+                                    <Input
+                                        type="checkbox"
+                                        name="agree"
+                                        checked={agreeToPersonalData}
+                                        onChange={() => setAgreeToPersonalData(!agreeToPersonalData)}
+                                        className={styles.checkboxInput}
+                                    />
+                                </label>
 
-                            {errors.agreeToPersonalData && (
-                                <span className={styles.errorMessage + ' ' + styles.inputHint}>
+                                {errors.agreeToPersonalData && (
+                                    <span className={styles.errorMessage + ' ' + styles.inputHint}>
                                     {errors.agreeToPersonalData}
                                 </span>
-                            )}
-                        </div>
+                                )}
+                            </div>
 
-                        <div className={styles.formBtnGroup}>
-                            {loginError && (
-                                <div className={styles.errorMessage + ' ' + styles.inputHint}>
-                                    {loginError}
-                                </div>
-                            )}
-                            <Button
-                                children="Продолжить"
-                                type="submit"
-                                classNames={{ buttonClass: 'registerButton' }}
-                            />
-                        </div>
-                    </form>
+                            <div className={styles.formBtnGroup}>
+                                {loginError && (
+                                    <div className={styles.errorMessage + ' ' + styles.inputHint}>
+                                        {loginError}
+                                    </div>
+                                )}
+                                <Button
+                                    children="Продолжить"
+                                    type="submit"
+                                    classNames={{ buttonClass: 'registerButton' }}
+                                />
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

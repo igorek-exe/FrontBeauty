@@ -82,3 +82,11 @@
 .passwordConfirmValid > path:first-of-type {
   stroke: #2ecc71;
 }
+
+.selectRole {
+  @include sizes($spacing-24, $spacing-24);
+  position: absolute;
+  right: 8px;
+  color: $color-purple3;
+  pointer-events: none;
+}

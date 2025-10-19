@@ -11,6 +11,12 @@
   overflow: hidden;
 }
 
+.rightSide {
+  @include rowing(center, center);
+  flex-grow: 1;
+  background-color: $color-gray10;
+}
+
 .leftSIdeText {
   @include sizes(570px, 570px);
   position: absolute;
@@ -32,7 +38,6 @@
 
 .loginFormContainer {
   @include sizes(630px);
-  margin: auto;
   padding: $spacing-24 $spacing-48;
   border-radius: 20px;
   background-color: $color-pink;
@@ -41,7 +46,12 @@
 .loginTitle {
   @include fonts($manroupe-font, $font-weight-500, $spacing-30, $color-purple3, $spacing-44);
   text-align: center;
-  padding-bottom: $spacing-12;
+  padding-bottom: $spacing-6;
+}
+
+.wrappRoleSelect {
+  text-align: center;
+  padding-bottom: $spacing-18;
 }
 
 .loginLinks {
