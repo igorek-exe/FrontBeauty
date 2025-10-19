@@ -73,6 +73,12 @@
   @include sizes($spacing-16, $spacing-16);
 }
 
-.test > path:first-of-type {
-  stroke: red;
+.passwordErr > path:first-of-type,
+.passwordConfirmErr > path:first-of-type {
+  stroke: #EE443F;
+}
+
+.passwordValid > path:first-of-type,
+.passwordConfirmValid > path:first-of-type {
+  stroke: #2ecc71;
 }

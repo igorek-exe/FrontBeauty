@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '@/stores/slices/authSlice.ts';
 import { RegisterMasterCredentials } from '@/stores/types/authTypes';
@@ -48,10 +48,38 @@ const RegisterMaster: React.FC = () => {
     const [agreeToPersonalData, setAgreeToPersonalData] = useState(false);
 
     /*const [isLoading, setIsLoading] = useState(false);*/
-    const [loginError, setLoginError] = useState('');
+    const [loginError, setLoginError] = useState<string | null>(null);
+    const [blurredField, setBlurredField] = useState<string | null>(null);
+    const [validFields, setValidFields] = useState<string[]>([]);
+    const [invalidFields, setInvalidFields] = useState<string[]>([]);
+
+    const [iconClass, setIconClass] = useState({
+        password: '',
+        passwordConfirmation: '',
+    });
+
 
     const dispatch: AppDispatch = useDispatch();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (blurredField === 'password') {
+            setIconClass((prev) => ({
+                ...prev,
+                password: errors.password ? 'passwordErr' : 'passwordValid',
+            }));
+        }
+
+        if (blurredField === 'passwordConfirmation') {
+            setIconClass((prev) => ({
+                ...prev,
+                passwordConfirmation: errors.passwordConfirmation
+                    ? 'passwordConfirmErr'
+                    : 'passwordConfirmValid',
+            }));
+        }
+    }, [blurredField, errors.password, errors.passwordConfirmation]);
+
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
@@ -79,10 +107,10 @@ const RegisterMaster: React.FC = () => {
 
         setLoginError(
             errors.email ||
-                errors.username ||
-                errors.password ||
-                errors.passwordConfirmation ||
-                errors.agreeToPersonalData
+            errors.username ||
+            errors.password ||
+            errors.passwordConfirmation ||
+            errors.agreeToPersonalData
         );
         console.log(
             errors.email || errors.username || errors.password || errors.passwordConfirmation
@@ -102,30 +130,27 @@ const RegisterMaster: React.FC = () => {
         }
     };
 
-    const getInputStyle = (fieldValue: string, error?: string, nameValue?: string) => {
-        const lengthName = fieldValue.length;
-
-        if (error) {
+    const getInputStyle = (name: string) => {
+        if (invalidFields.includes(name)) {
             return {
                 border: '2px solid #EE443F',
-                backgroundColor: '#FDECEC',
-            };
-        } else if ((nameValue == 'username' && lengthName > 4) || lengthName > 5) {
-            return {
-                border: '2px solid #C5E9CD',
-                background: '#ECF8EF',
-            };
-        } else {
-            return {
-                borderColor: '#ccc',
-                backgroundColor: 'white',
             };
         }
+
+        if (validFields.includes(name)) {
+            return {
+                border: '2px solid #C5E9CD',
+            };
+        }
+
+        return {
+            border: '1.5px solid #ccc',
+        };
     };
+
 
     const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-
         let errorMessage = '';
 
         switch (name) {
@@ -143,7 +168,28 @@ const RegisterMaster: React.FC = () => {
                 break;
         }
 
-        setErrors((prev) => ({ ...prev, [name]: errorMessage }));
+        setErrors(prev => ({ ...prev, [name]: errorMessage }));
+        setBlurredField(name);
+
+        setValidFields(prev => {
+            if (!errorMessage && !prev.includes(name)) {
+                return [...prev, name];
+            }
+            if (errorMessage && prev.includes(name)) {
+                return prev.filter(f => f !== name);
+            }
+            return prev;
+        });
+
+        setInvalidFields(prev => {
+            if (errorMessage && !prev.includes(name)) {
+                return [...prev, name];
+            }
+            if (!errorMessage && prev.includes(name)) {
+                return prev.filter(f => f !== name);
+            }
+            return prev;
+        });
     };
 
     return (
@@ -178,18 +224,11 @@ const RegisterMaster: React.FC = () => {
                             <input
                                 type="text"
                                 name="username"
-                                id="username"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 placeholder="логин"
                                 className={styles.formInput}
-                                style={{
-                                    ...getInputStyle(
-                                        credentials.username,
-                                        errors.username,
-                                        'username'
-                                    ),
-                                }}
+                                style={getInputStyle('username')}
                             />
                             {errors.username ? (
                                 <span className={styles.errorMessage + ' ' + styles.inputHint}>
@@ -206,14 +245,12 @@ const RegisterMaster: React.FC = () => {
                             </label>
                             <input
                                 type="text"
-                                id="email"
                                 name="email"
-                                value={credentials.email}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 placeholder="email"
                                 className={styles.formInput}
-                                style={{ ...getInputStyle(credentials.email, errors.email) }}
+                                style={getInputStyle('email')}
                             />
                             {errors.email ? (
                                 <span className={styles.errorMessage + ' ' + styles.inputHint}>
@@ -231,23 +268,19 @@ const RegisterMaster: React.FC = () => {
                             <div className={styles.passwordInputContainer}>
                                 <input
                                     type={passwordVisible ? 'text' : 'password'}
-                                    id="password"
                                     name="password"
-                                    value={credentials.password}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     placeholder="пароль"
                                     className={styles.formInput + ' ' + styles.passwordInput}
-                                    style={{
-                                        ...getInputStyle(credentials.password, errors.password),
-                                    }}
+                                    style={getInputStyle('password')}
                                 />
                                 <button
                                     type="button"
                                     className={styles.passwordToggleButton}
                                     onClick={togglePasswordVisibility}
                                 >
-                                    <SvgIcon Icon={EyeEmpty} className="test" />
+                                    <SvgIcon Icon={EyeEmpty} className={iconClass.password} />
                                 </button>
                             </div>
                             {errors.password ? (
@@ -268,23 +301,19 @@ const RegisterMaster: React.FC = () => {
                             <div className={styles.passwordInputContainer}>
                                 <input
                                     type={passwordConfirmationVisible ? 'text' : 'password'}
-                                    id="passwordConfirmation"
                                     name="passwordConfirmation"
-                                    /*value={'test'}*/
-                                    /*onChange={handleChange}*/
+                                    onChange={handleChange}
                                     onBlur={handleBlur}
                                     placeholder="повторите пароль"
                                     className={styles.formInput + ' ' + styles.passwordInput}
-                                    style={{
-                                        ...getInputStyle('test', errors.passwordConfirmation),
-                                    }}
+                                    style={getInputStyle('passwordConfirmation')}
                                 />
                                 <button
                                     type="button"
                                     className={styles.passwordToggleButton}
                                     onClick={togglePasswordConfirmationVisibility}
                                 >
-                                    <SvgIcon Icon={EyeEmpty} className="" />
+                                    <SvgIcon Icon={EyeEmpty} className={iconClass.passwordConfirmation} />
                                 </button>
                             </div>
                             {errors.passwordConfirmation ? (
