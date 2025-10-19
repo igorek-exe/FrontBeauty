@@ -117,11 +117,31 @@
 }
 
 .checkboxInput {
-  @include sizes($spacing-16, $spacing-16);
+  appearance: none;
   -webkit-appearance: none;
-  margin: $spacing-0;
-  border: 1px solid $color-purple3;
-  border-radius: $spacing-4;
+  width: 18px;
+  height: 18px;
+  border: 2px solid $color-purple3;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:checked {
+    background-color: $color-purple3;
+  }
+
+  &:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
 }
 
 .formBtnGroup {

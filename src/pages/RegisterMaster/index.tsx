@@ -13,6 +13,7 @@ import {
     validateEmail,
 } from '@/utils';
 import { Button, LinkButton, Picture, SvgIcon } from '@/components';
+import { Input } from '@/components';
 
 interface Errors {
     username: string;
@@ -58,7 +59,6 @@ const RegisterMaster: React.FC = () => {
         passwordConfirmation: '',
     });
 
-
     const dispatch: AppDispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -79,7 +79,6 @@ const RegisterMaster: React.FC = () => {
             }));
         }
     }, [blurredField, errors.password, errors.passwordConfirmation]);
-
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
@@ -107,10 +106,10 @@ const RegisterMaster: React.FC = () => {
 
         setLoginError(
             errors.email ||
-            errors.username ||
-            errors.password ||
-            errors.passwordConfirmation ||
-            errors.agreeToPersonalData
+                errors.username ||
+                errors.password ||
+                errors.passwordConfirmation ||
+                errors.agreeToPersonalData
         );
         console.log(
             errors.email || errors.username || errors.password || errors.passwordConfirmation
@@ -148,7 +147,6 @@ const RegisterMaster: React.FC = () => {
         };
     };
 
-
     const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         let errorMessage = '';
@@ -168,25 +166,25 @@ const RegisterMaster: React.FC = () => {
                 break;
         }
 
-        setErrors(prev => ({ ...prev, [name]: errorMessage }));
+        setErrors((prev) => ({ ...prev, [name]: errorMessage }));
         setBlurredField(name);
 
-        setValidFields(prev => {
+        setValidFields((prev) => {
             if (!errorMessage && !prev.includes(name)) {
                 return [...prev, name];
             }
             if (errorMessage && prev.includes(name)) {
-                return prev.filter(f => f !== name);
+                return prev.filter((f) => f !== name);
             }
             return prev;
         });
 
-        setInvalidFields(prev => {
+        setInvalidFields((prev) => {
             if (errorMessage && !prev.includes(name)) {
                 return [...prev, name];
             }
             if (!errorMessage && prev.includes(name)) {
-                return prev.filter(f => f !== name);
+                return prev.filter((f) => f !== name);
             }
             return prev;
         });
@@ -221,7 +219,7 @@ const RegisterMaster: React.FC = () => {
                             <label htmlFor="username" className={styles.formLabel}>
                                 Логин
                             </label>
-                            <input
+                            <Input
                                 type="text"
                                 name="username"
                                 onChange={handleChange}
@@ -243,7 +241,7 @@ const RegisterMaster: React.FC = () => {
                             <label htmlFor="email" className={styles.formLabel}>
                                 Email
                             </label>
-                            <input
+                            <Input
                                 type="text"
                                 name="email"
                                 onChange={handleChange}
@@ -266,7 +264,7 @@ const RegisterMaster: React.FC = () => {
                                 Пароль
                             </label>
                             <div className={styles.passwordInputContainer}>
-                                <input
+                                <Input
                                     type={passwordVisible ? 'text' : 'password'}
                                     name="password"
                                     onChange={handleChange}
@@ -299,7 +297,7 @@ const RegisterMaster: React.FC = () => {
                                 Пароль
                             </label>
                             <div className={styles.passwordInputContainer}>
-                                <input
+                                <Input
                                     type={passwordConfirmationVisible ? 'text' : 'password'}
                                     name="passwordConfirmation"
                                     onChange={handleChange}
@@ -313,7 +311,10 @@ const RegisterMaster: React.FC = () => {
                                     className={styles.passwordToggleButton}
                                     onClick={togglePasswordConfirmationVisibility}
                                 >
-                                    <SvgIcon Icon={EyeEmpty} className={iconClass.passwordConfirmation} />
+                                    <SvgIcon
+                                        Icon={EyeEmpty}
+                                        className={iconClass.passwordConfirmation}
+                                    />
                                 </button>
                             </div>
                             {errors.passwordConfirmation ? (
@@ -330,7 +331,7 @@ const RegisterMaster: React.FC = () => {
                                 <span className={styles.checkboxText}>
                                     Согласие на обработку персональных данных
                                 </span>
-                                <input
+                                <Input
                                     type="checkbox"
                                     name="agree"
                                     checked={agreeToPersonalData}
