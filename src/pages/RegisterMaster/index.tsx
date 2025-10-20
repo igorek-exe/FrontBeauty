@@ -12,9 +12,8 @@ import {
     validatePasswordConfirmation,
     validateEmail,
 } from '@/utils';
-import { Button, LinkButton, Picture, SvgIcon } from '@/components';
+import { Button, LinkButton, Picture, SvgIcon, RoleSelect } from '@/components';
 import { Input } from '@/components';
-import RoleSelect from '@/components/UI/RoleSelect';
 
 interface Errors {
     username: string;

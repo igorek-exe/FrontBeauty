@@ -40,3 +40,4 @@ export * from './features/CountrySelector';
 export * from './widgets/MasterProfile';
 export * from './media/ImageUploader';
 export * from './widgets/Banner';
+export * from './UI/RoleSelect';
