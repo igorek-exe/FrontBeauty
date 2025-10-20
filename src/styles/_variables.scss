@@ -13,7 +13,7 @@ $color-gray6: #eaeaea !default;
 $color-gray7: #f9fafb !default;
 $color-gray8: #272727 !default;
 $color-gray9: #cccccc !default;
-$color-gray10: #D9D9D9 !default;
+$color-gray10: #d9d9d9 !default;
 $color-pink: #fff2f1 !default;
 $color-pink2: #fde2ee !default;
 $color-pink3: #f8e4f7 !default;
@@ -28,11 +28,15 @@ $color-red: #ee443f !default;
 $color-light-green: #c5e9cd !default;
 $color-light-green2: #ecf8ef !default;
 $color-green: #3da755 !default;
+$color-green2: #81cf92 !default;
 
 /*FONTS*/
 $manroupe-font: Manroupe, sans-serif !default;
 $playfair-font: Playfair, sans-serif !default;
 $roboto-font: Roboto, sans-serif !default;
+$roboto-flex-font:
+  Roboto Flex,
+  sans-serif !default;
 
 /*FONT WEIGHTS*/
 $font-weight-200: 200 !default;

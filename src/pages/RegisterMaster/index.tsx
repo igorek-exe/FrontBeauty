@@ -24,11 +24,6 @@ interface Errors {
     agreeToPersonalData?: string;
 }
 
-/*interface LoginFormProps {
-    onSuccess?: (token: string) => void;
-    onError?: (error: string) => void;
-}*/
-
 const RegisterMaster: React.FC = () => {
     const [credentials, setCredentials] = useState<RegisterMasterCredentials>({
         role: 'master',
@@ -93,6 +88,15 @@ const RegisterMaster: React.FC = () => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
     };
 
+    const handleAgreeChange = () => {
+        const newValue = !agreeToPersonalData;
+        setAgreeToPersonalData(newValue);
+
+        if (newValue) {
+            setErrors((prev) => ({ ...prev, agreeToPersonalData: '' }));
+        }
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -111,9 +115,6 @@ const RegisterMaster: React.FC = () => {
                 errors.password ||
                 errors.passwordConfirmation ||
                 errors.agreeToPersonalData
-        );
-        console.log(
-            errors.email || errors.username || errors.password || errors.passwordConfirmation
         );
 
         try {
@@ -191,6 +192,20 @@ const RegisterMaster: React.FC = () => {
         });
     };
 
+    const getHintText = (name: string, validText: string, defaultText: string) => {
+        return validFields.includes(name) ? validText : defaultText;
+    };
+
+    const getHintClass = (name: string) => {
+        if (validFields.includes(name)) {
+            return `${styles.inputHint} ${styles.validHint}`;
+        }
+        if (invalidFields.includes(name)) {
+            return `${styles.inputHint}`;
+        }
+        return styles.inputHint;
+    };
+
     return (
         <div>
             <div className={styles.centred}>
@@ -233,11 +248,13 @@ const RegisterMaster: React.FC = () => {
                                     style={getInputStyle('username')}
                                 />
                                 {errors.username ? (
-                                    <span className={styles.errorMessage + ' ' + styles.inputHint}>
-                                    {errors.username}
-                                </span>
+                                    <span className={`${styles.errorMessage} ${styles.inputHint}`}>
+                                        {errors.username}
+                                    </span>
                                 ) : (
-                                    <span className={styles.inputHint}>введите логин</span>
+                                    <span className={getHintClass('username')}>
+                                        {getHintText('username', 'логин', 'введите логин')}
+                                    </span>
                                 )}
                             </div>
 
@@ -256,10 +273,12 @@ const RegisterMaster: React.FC = () => {
                                 />
                                 {errors.email ? (
                                     <span className={styles.errorMessage + ' ' + styles.inputHint}>
-                                    {errors.email}
-                                </span>
+                                        {errors.email}
+                                    </span>
                                 ) : (
-                                    <span className={styles.inputHint}>введите email</span>
+                                    <span className={getHintClass('email')}>
+                                        {getHintText('email', 'email', 'введите email')}
+                                    </span>
                                 )}
                             </div>
 
@@ -287,12 +306,12 @@ const RegisterMaster: React.FC = () => {
                                 </div>
                                 {errors.password ? (
                                     <span className={styles.errorMessage + ' ' + styles.inputHint}>
-                                    {errors.password}
-                                </span>
+                                        {errors.password}
+                                    </span>
                                 ) : (
-                                    <span className={styles.errorMessage + ' ' + styles.inputHint}>
-                                    придумайте пароль
-                                </span>
+                                    <span className={getHintClass('password')}>
+                                        {getHintText('password', 'пароль', 'придумайте пароль')}
+                                    </span>
                                 )}
                             </div>
 
@@ -323,37 +342,44 @@ const RegisterMaster: React.FC = () => {
                                 </div>
                                 {errors.passwordConfirmation ? (
                                     <span className={styles.errorMessage + ' ' + styles.inputHint}>
-                                    {errors.passwordConfirmation}
-                                </span>
+                                        {errors.passwordConfirmation}
+                                    </span>
                                 ) : (
-                                    <span className={styles.inputHint}>повторите пароль</span>
+                                    <span className={getHintClass('passwordConfirmation')}>
+                                        {getHintText(
+                                            'passwordConfirmation',
+                                            'пароль',
+                                            'повторите пароль'
+                                        )}
+                                    </span>
                                 )}
                             </div>
 
                             <div className={styles.formAgreeGroup}>
                                 <label className={styles.checkboxLabel}>
-                                <span className={styles.checkboxText}>
-                                    Согласие на обработку персональных данных
-                                </span>
+                                    <span className={styles.checkboxText}>
+                                        Согласие на обработку персональных данных
+                                    </span>
                                     <Input
                                         type="checkbox"
                                         name="agree"
                                         checked={agreeToPersonalData}
-                                        onChange={() => setAgreeToPersonalData(!agreeToPersonalData)}
-                                        className={styles.checkboxInput}
+                                        onChange={handleAgreeChange}
+                                        className={`${styles.checkboxInput} 
+                                        ${errors.agreeToPersonalData ? styles.checkboxError : ''}`}
                                     />
                                 </label>
 
                                 {errors.agreeToPersonalData && (
-                                    <span className={styles.errorMessage + ' ' + styles.inputHint}>
-                                    {errors.agreeToPersonalData}
-                                </span>
+                                    <span className={styles.errorAgree}>
+                                        {errors.agreeToPersonalData}
+                                    </span>
                                 )}
                             </div>
 
                             <div className={styles.formBtnGroup}>
                                 {loginError && (
-                                    <div className={styles.errorMessage + ' ' + styles.inputHint}>
+                                    <div className={styles.errorServer}>
                                         {loginError}
                                     </div>
                                 )}
