@@ -16,6 +16,11 @@
   @include rowing();
 }
 
+.btnWrapp {
+  @include rowing(space-between, center);
+  gap: $spacing-16;
+}
+
 .wrappFooter {
   margin: $spacing-0 $spacing-100;
   padding-bottom: $spacing-50;

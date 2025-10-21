@@ -4,10 +4,7 @@ import { SvgIcon } from '@/components';
 import styles from './index.module.scss';
 import type { RoleSelectProps } from '@/components';
 
-export const RoleSelect: React.FC<RoleSelectProps> = ({
-                                                          defaultRole = 'master',
-                                                          onChange,
-                                                      }) => {
+export const RoleSelect: React.FC<RoleSelectProps> = ({ defaultRole = 'master', onChange }) => {
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         onChange?.(e.target.value as 'master' | 'client');
     };

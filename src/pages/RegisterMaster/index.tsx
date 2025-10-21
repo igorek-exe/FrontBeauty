@@ -378,9 +378,7 @@ const RegisterMaster: React.FC = () => {
 
                             <div className={styles.formBtnGroup}>
                                 {loginError && (
-                                    <div className={styles.errorServer}>
-                                        {loginError}
-                                    </div>
+                                    <div className={styles.errorServer}>{loginError}</div>
                                 )}
                                 <Button
                                     children="Продолжить"

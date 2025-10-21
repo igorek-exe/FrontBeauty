@@ -1,0 +1,15 @@
+@use './../../../styles/variables' as *;
+@use './../../../styles/mixins' as *;
+
+.promoContent {
+  @include rowing(null, null, column);
+  @include sizes(848px);
+  gap: $spacing-49;
+  padding: $spacing-0 $spacing-30;
+}
+
+.title {
+  @include rowing(null, center);
+  @include sizes(null, 60px);
+  @include fonts($playfair-font, $font-weight-700, $font-size-40, $color-purple4, $spacing-40);
+}

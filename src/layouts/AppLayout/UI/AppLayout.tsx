@@ -12,8 +12,9 @@ import { Header, Footer, FooterNav, FooterLegal } from '@/layouts';
 import logoIcon from '@/assets/icons/Logo.svg?react';
 import LogoFooter from '@/assets/icons/LogoFooter.svg?react';
 import PurpleArrowDown from '@/assets/icons/PurpleArrowDown.svg?react';
+import LoginIcon from '@/assets/icons/LoginRounded.svg?react';
+import AssignmentIcon from '@/assets/icons/AssignmentIndRounded.svg?react';
 import styles from './index.module.scss';
-import { cn } from '@/utils/UI/cn.ts';
 import type { AppLayoutProps } from '@/layouts';
 
 const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
@@ -22,7 +23,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
             <ScrollButton />
 
             <Header>
-                <div className={cn(styles, 'bg-light-pink', 'wrapper')}>
+                <div className="bg-light-pink">
                     <div className="container">
                         <div className={styles.headerWrapp}>
                             <Logo icon={logoIcon} />
@@ -37,7 +38,16 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                                 />
                                 <Menu />
                             </p>
-                            <LinkButton to="#">Вход</LinkButton>
+                            <p className={styles.btnWrapp}>
+                                <LinkButton to="#" className="linkButton-login">
+                                    Вход
+                                    <SvgIcon Icon={LoginIcon} />
+                                </LinkButton>
+                                <LinkButton to="/register/master" className="linkButton-reg">
+                                    Регистрация
+                                    <SvgIcon Icon={AssignmentIcon} />
+                                </LinkButton>
+                            </p>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,7 @@
+@use './../../../styles/variables' as *;
+@use './../../../styles/mixins' as *;
+
+.wrapperSection {
+  @include rowing(space-between);
+  padding: $spacing-40 $spacing-0;
+}
