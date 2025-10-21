@@ -55,7 +55,7 @@ createRoot(document.getElementById('root')!).render(
 > 📍 Использует компонент `Logo`, `Dropdown`, `LinkButton`, `CountrySelector`, `IconSprite` и др.
 
 **Расположение:**  
-`src/layouts/AppLayout/index.tsx`
+`src/layouts/AppLayout/MasterPromoSection.tsx`
 
 ---
 
@@ -66,7 +66,7 @@ createRoot(document.getElementById('root')!).render(
 Можно переиспользовать как самостоятельный layout для страниц с разной структурой.
 
 **Расположение:**  
-`src/layouts/Header/index.tsx`
+`src/layouts/Header/MasterPromoSection.tsx`
 
 ---
 
@@ -76,7 +76,7 @@ createRoot(document.getElementById('root')!).render(
 Используется в составе `AppLayout` и может принимать дочерние элементы (`FooterNav`, `FooterLegal` и т.п.).
 
 **Расположение:**  
-`src/layouts/Footer/index.tsx`
+`src/layouts/Footer/MasterPromoSection.tsx`
 
 ---
 
@@ -86,7 +86,7 @@ createRoot(document.getElementById('root')!).render(
 Включает ссылки через `LocalLink` и компонент `SupportInfo`.
 
 **Расположение:**  
-`src/layouts/FooterNav/index.tsx`
+`src/layouts/FooterNav/MasterPromoSection.tsx`
 
 ---
 
@@ -96,7 +96,7 @@ createRoot(document.getElementById('root')!).render(
 Содержит описание компании, годы работы, вид деятельности, возрастные ограничения.
 
 **Расположение:**  
-`src/layouts/FooterLegal/index.tsx`
+`src/layouts/FooterLegal/MasterPromoSection.tsx`
 
 ---
 
@@ -110,7 +110,7 @@ createRoot(document.getElementById('root')!).render(
 - ссылки на социальные сети (YouTube, VK).
 
 **Расположение:**  
-`src/layouts/SupportInfo/index.tsx`
+`src/layouts/SupportInfo/MasterPromoSection.tsx`
 
 ---
 
@@ -120,7 +120,7 @@ createRoot(document.getElementById('root')!).render(
 Используется внутри `AppLayout` или `MasterArea`.
 
 **Расположение:**  
-`src/layouts/Main/index.tsx`
+`src/layouts/Main/MasterPromoSection.tsx`
 
 ---
 
@@ -176,7 +176,7 @@ export \* from './Main';
   `Header`, `Main`, `Footer`, `FooterNav`, `FooterLegal`.
 
 **Расположение:**  
-`src/pages/Home/index.tsx`
+`src/pages/Home/MasterPromoSection.tsx`
 
 ---
 
@@ -213,7 +213,7 @@ export \* from './Main';
   `AppLayout`, `Main`.
 
 **Расположение:**  
-`src/pages/MasterArea/index.tsx`
+`src/pages/MasterArea/MasterPromoSection.tsx`
 
 ---
 
