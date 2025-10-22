@@ -84,8 +84,6 @@
     @include rowing(center, center);
     @include sizes(267px, 257px, 200px);
     content: '';
-    gap: 20px;
-    flex-shrink: 0;
     border: 3px solid $color-gray2;
     background-color: $color-white;
   }
@@ -118,8 +116,6 @@
     position: absolute;
     bottom: 0;
     content: '';
-    gap: 20px;
-    flex-shrink: 0;
     border: 3px solid $color-gray2;
     background-color: $color-white;
   }

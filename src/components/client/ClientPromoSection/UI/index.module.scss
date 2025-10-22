@@ -1,0 +1,17 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.promoCircle {
+  @include rowing(center, center);
+  @include sizes(396px, 387px, 200px);
+  position: relative;
+  border: $spacing-3 solid $color-gray2;
+  background-color: $color-white;
+}
+
+.textPromoClient {
+  @include fonts($manroupe-font, $font-weight-700, $font-size-22, $color-black3, $spacing-28);
+  @include sizes(90%);
+  position: absolute;
+  text-align: center;
+}

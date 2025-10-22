@@ -1,4 +1,5 @@
 @use '../styles/variables' as *;
+@use '../styles/mixins' as *;
 
 .container {
   max-width: 1440px;
@@ -15,4 +16,9 @@
 
 .bg-purple {
   background-color: $color-purple3;
+}
+
+.wrapperSection {
+  @include rowing(space-between);
+  padding: $spacing-40 $spacing-0;
 }

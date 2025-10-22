@@ -1,14 +1,20 @@
 import styles from '@/components/master/MasterClientIntro/UI/index.module.scss';
-import {
-    desc,
-    textDomen,
-    textLink,
-    title,
-} from '@/components/master/MasterClientIntro/model/masterClientIntroContent.tsx';
 import { LinkButton } from '@/components';
 import React from 'react';
 
-const MasterClientIntro = () => {
+type MasterClientIntroProps = {
+    title: string;
+    desc: React.ReactNode;
+    textLink: string;
+    textDomen: string;
+}
+
+const MasterClientIntro: React.FC<MasterClientIntroProps> = ({
+                                                                 title,
+                                                                 desc,
+                                                                 textLink,
+                                                                 textDomen,
+                                                             }) => {
     return (
         <div className={styles.promoContent}>
             <h2 className={styles.title}>{title}</h2>

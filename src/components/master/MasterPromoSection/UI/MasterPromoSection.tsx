@@ -1,13 +1,13 @@
-import styles from './index.module.scss';
 import { Picture } from '@/components';
 import React from 'react';
 import { MasterClientIntro } from '@/components/master/MasterClientIntro';
+import { masterIntroContent } from '@/components/master/MasterClientIntro/model/masterClientIntroContent.tsx';
 
 const MasterPromoSection = () => {
     return (
-        <section className={styles.wrapperSection}>
+        <section className="wrapperSection">
             <Picture src={'/images/masterPromo.png'} alt={'мастер'} />
-            <MasterClientIntro />
+            <MasterClientIntro {...masterIntroContent} />
         </section>
     );
 };

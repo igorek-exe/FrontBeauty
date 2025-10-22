@@ -132,3 +132,7 @@
 .heartBottom3 {
   position: absolute;
 }
+
+.heartPromoClient {
+  @include sizes(230px, 240px);
+}
