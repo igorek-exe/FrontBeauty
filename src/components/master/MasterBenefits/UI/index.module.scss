@@ -1,0 +1,136 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.wrapper {
+  @include rowing(space-between, null, column);
+  @include sizes(null, 485px);
+  margin: $spacing-28 $spacing-0 $spacing-12;
+  padding: $spacing-12;
+  border-radius: $spacing-20;
+  background-color: $color-purple3;
+}
+
+.bottomWrapper {
+  flex-direction: row-reverse;
+}
+
+.topWrapper,
+.bottomWrapper {
+  @include rowing();
+}
+
+.benefit1 {
+  @include sizes(55%);
+  top: 30%;
+}
+
+.benefit2 {
+  @include sizes(55%);
+  top: 40%;
+  left: -3%;
+}
+
+.benefit3 {
+  @include sizes(45%);
+  top: 35%;
+  left: -1%;
+}
+
+.benefit4 {
+  @include sizes(45%);
+  bottom: 80px;
+  right: 40px;
+}
+
+.benefit5 {
+  @include sizes(50%);
+  bottom: 66px;
+  right: 12px;
+}
+
+.benefit6 {
+  @include sizes(50%);
+  bottom: 63px;
+  right: 2px;
+}
+
+.benefit1,
+.benefit2,
+.benefit3,
+.benefit4,
+.benefit5,
+.benefit6 {
+  @include fonts($manroupe-font, $font-weight-600, $font-size-22, $color-black3, $spacing-28);
+  position: absolute;
+  text-align: center;
+}
+
+.blockTop2 {
+  &::after {
+    margin-left: -4%;
+  }
+}
+
+.blockTop3 {
+  &::after {
+    margin-left: -8%;
+  }
+}
+
+.blockTop1,
+.blockTop2,
+.blockTop3 {
+  &::after {
+    @include rowing(center, center);
+    @include sizes(267px, 257px, 200px);
+    content: '';
+    gap: 20px;
+    flex-shrink: 0;
+    border: 3px solid $color-gray2;
+    background-color: $color-white;
+  }
+}
+
+.blockBottom1 {
+  &::before {
+    right: 2%;
+  }
+}
+
+.blockBottom2 {
+  &::before {
+    right: -2%;
+  }
+}
+
+.blockBottom3 {
+  &::before {
+    right: -4%;
+  }
+}
+
+.blockBottom1,
+.blockBottom2,
+.blockBottom3 {
+  &::before {
+    @include rowing(center, center);
+    @include sizes(267px, 257px, 200px);
+    position: absolute;
+    bottom: 0;
+    content: '';
+    gap: 20px;
+    flex-shrink: 0;
+    border: 3px solid $color-gray2;
+    background-color: $color-white;
+  }
+}
+
+.blockTop1,
+.blockTop2,
+.blockTop3,
+.blockBottom1,
+.blockBottom2,
+.blockBottom3 {
+  position: relative;
+  flex: 1;
+}

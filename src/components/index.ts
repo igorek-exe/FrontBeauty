@@ -41,4 +41,5 @@ export * from './widgets/MasterProfile';
 export * from './media/ImageUploader';
 export * from './widgets/Banner';
 export * from './UI/RoleSelect';
-export * from './master/MasterPromoSection/UI/MasterPromoSection.tsx';
+export * from './master/MasterPromoSection';
+export * from './master/MasterBenefits/UI';

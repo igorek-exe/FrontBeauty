@@ -1,15 +1,18 @@
-import { Main } from '@/layouts';
-import { MasterPromoSection } from '@/components';
+import { AppLayout, Main } from '@/layouts';
+import { MasterBenefits, MasterPromoSection } from '@/components';
 
 const MasterPreLogin = () => {
     return (
-        <Main>
-            <div className="bg-white">
-                <div className="container">
-                    <MasterPromoSection />
+        <AppLayout>
+            <Main>
+                <div className="bg-white">
+                    <div className="container">
+                        <MasterPromoSection />
+                        <MasterBenefits />
+                    </div>
                 </div>
-            </div>
-        </Main>
+            </Main>
+        </AppLayout>
     );
 };
 

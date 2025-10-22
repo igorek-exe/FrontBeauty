@@ -1,5 +1,10 @@
 import styles from '@/components/master/MasterClientIntro/UI/index.module.scss';
-import { desc, textDomen, textLink, title } from '@/components/master/MasterClientIntro/model/masterClientIntroContent.tsx';
+import {
+    desc,
+    textDomen,
+    textLink,
+    title,
+} from '@/components/master/MasterClientIntro/model/masterClientIntroContent.tsx';
 import { LinkButton } from '@/components';
 import React from 'react';
 

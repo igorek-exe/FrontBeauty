@@ -90,3 +90,45 @@
   color: $color-purple3;
   pointer-events: none;
 }
+
+.heartTop1 {
+  left: 12%;
+}
+
+.heartTop2 {
+  left: 8%;
+}
+
+.heartTop3 {
+  left: 4%;
+}
+
+.heartBottom1 {
+  bottom: $spacing-40;
+  right: $spacing-66;
+}
+
+.heartBottom2 {
+  bottom: $spacing-40;
+  right: $spacing-48;
+}
+
+.heartBottom3 {
+  bottom: $spacing-40;
+  right: $spacing-38;
+}
+
+.heartTop1,
+.heartTop2,
+.heartTop3 {
+  top: 20%;
+}
+
+.heartTop1,
+.heartTop2,
+.heartTop3,
+.heartBottom1,
+.heartBottom2,
+.heartBottom3 {
+  position: absolute;
+}
