@@ -7,14 +7,14 @@ type MasterClientIntroProps = {
     desc: React.ReactNode;
     textLink: string;
     textDomen: string;
-}
+};
 
 const MasterClientIntro: React.FC<MasterClientIntroProps> = ({
-                                                                 title,
-                                                                 desc,
-                                                                 textLink,
-                                                                 textDomen,
-                                                             }) => {
+    title,
+    desc,
+    textLink,
+    textDomen,
+}) => {
     return (
         <div className={styles.promoContent}>
             <h2 className={styles.title}>{title}</h2>

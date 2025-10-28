@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { UseMasterAboutFormReturn } from '@/components';
+import type { UseMasterAboutFormReturn } from '@/components/forms/MasterAboutForm/index.model.ts';
 
 export const useMasterAboutForm = (initialValue: string): UseMasterAboutFormReturn => {
     const [value, setValue] = useState(initialValue);

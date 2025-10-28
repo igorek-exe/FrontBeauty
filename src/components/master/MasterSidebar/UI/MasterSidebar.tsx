@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { SvgIcon } from '@/components';
 import { useAppSelector } from '@/hooks/reduxHooks';
-import type { MasterSidebarProps } from '@/components/MasterSidebar';
+import type { MasterSidebarProps } from '@/components/master/MasterSidebar';
 import styles from './index.module.scss';
 
 // SVG-иконки

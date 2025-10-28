@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/stores/store';
 import { firstNames, lastNames, streets, specialties } from '@/data/masters';
-import type { Master } from '@/components';
+import type { Master } from '@/components/master/MasterList/index.model.ts';
 
 const getRandom = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
 const getRandomFloat = (min: number, max: number) => (Math.random() * (max - min) + min).toFixed(1);
