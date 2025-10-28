@@ -6,7 +6,7 @@ import { SupportInfo } from '@/layouts';
 const FooterNav: React.FC = () => {
     return (
         <div className={styles.footerNav}>
-            <p className={styles.wrappClients}>
+            <div className={styles.wrappClients}>
                 <h4 className={styles.titleFooterNav}>Клиент</h4>
                 <ul>
                     <li className={styles.wrappItemFooter}>
@@ -25,8 +25,8 @@ const FooterNav: React.FC = () => {
                         </LocalLink>
                     </li>
                 </ul>
-            </p>
-            <p className={styles.wrappMasters}>
+            </div>
+            <div className={styles.wrappMasters}>
                 <h4 className={styles.titleFooterNav}>Мастер </h4>
                 <ul>
                     <li className={styles.wrappItemFooter}>
@@ -40,8 +40,8 @@ const FooterNav: React.FC = () => {
                         </LocalLink>
                     </li>
                 </ul>
-            </p>
-            <p className={styles.wrappAbout}>
+            </div>
+            <div className={styles.wrappAbout}>
                 <h4 className={styles.titleFooterNav}>О нас </h4>
                 <ul>
                     <li className={styles.wrappItemFooter}>
@@ -60,7 +60,7 @@ const FooterNav: React.FC = () => {
                         </LocalLink>
                     </li>
                 </ul>
-            </p>
+            </div>
             <SupportInfo />
         </div>
     );

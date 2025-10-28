@@ -25,9 +25,9 @@ const Home: React.FC<HomeProps> = () => {
                 <div className="bg-white">
                     <div className="container _relative">
                         <SearchPanel title="Найди своего мастера ногтевого сервиса максимально быстро и удобно." />
-                        <p className={styles.wrappToolbar}>
+                        <div className={styles.wrappToolbar}>
                             <MastersToolbar />
-                        </p>
+                        </div>
                     </div>
                     <div className="container">
                         <MasterList />

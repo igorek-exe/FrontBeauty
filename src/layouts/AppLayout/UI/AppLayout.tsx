@@ -27,7 +27,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                     <div className="container">
                         <div className={styles.headerWrapp}>
                             <Logo icon={logoIcon} />
-                            <p className={styles.navbarMenu}>
+                            <div className={styles.navbarMenu}>
                                 <Dropdown
                                     buttonLabel="Меню"
                                     items={['Пункт 1', 'Пункт 2', 'Пункт 3']}
@@ -37,7 +37,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                                     onItemClick={(label) => alert(`Вы выбрали: ${label}`)}
                                 />
                                 <Menu />
-                            </p>
+                            </div>
                             <p className={styles.btnWrapp}>
                                 <LinkButton to="#" className="linkButton-login">
                                     Вход
@@ -61,16 +61,16 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                         <div className={styles.wrappFooter}>
                             <SvgIcon Icon={LogoFooter} className="logoFooter" />
 
-                            <p className={styles.wrappFooterNav}>
+                            <div className={styles.wrappFooterNav}>
                                 <FooterNav />
-                            </p>
+                            </div>
 
                             <hr className={styles.footerSeparator} />
 
-                            <p className={styles.basement}>
+                            <div className={styles.basement}>
                                 <FooterLegal companyName="LOGO" years="2011–2024" />
                                 <CountrySelector />
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
