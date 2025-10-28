@@ -3,7 +3,7 @@ import { SvgIcon, ExternalLink } from '@/components';
 import VK from '../../../assets/icons/VK.svg?react';
 import Youtube from '../../../assets/icons/Youtube.svg?react';
 import styles from './index.module.scss';
-import type { SupportInfoProps } from '@/layouts';
+import type { SupportInfoProps } from '@/layouts/SupportInfo/index.model.ts';
 
 const SupportInfo: React.FC<SupportInfoProps> = ({
     email = 'support@dvesoroki.by',

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { MasterEditFormProps } from '@/components';
+import type { MasterEditFormProps } from '@/components/forms/MasterEditForm/index.model.ts';
 import { Button, Input } from '@/components';
 import styles from './index.module.scss';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDropdown } from '@/hooks/useDropdown';
-import { Country } from './countryTypes';
+import type { Country } from './countryTypes';
 
 export const useCountrySelector = () => {
     const [selected, setSelected] = React.useState<string>('by');

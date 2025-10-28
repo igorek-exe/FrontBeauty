@@ -1,5 +1,5 @@
 import React from 'react';
-import type { MasterServicesFormProps } from '@/components';
+import type { MasterServicesFormProps } from '@/components/forms/MasterServicesForm/index.model.ts';
 import styles from './index.module.scss';
 
 const MasterServicesForm: React.FC<MasterServicesFormProps> = ({

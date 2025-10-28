@@ -10,7 +10,7 @@ import {
 } from '@/components';
 import { Main, AppLayout } from '@/layouts';
 import styles from './index.module.scss';
-import type { HomeProps } from '@/pages';
+import type { HomeProps } from '@/pages/Home/index.model.ts';
 
 const Home: React.FC<HomeProps> = () => {
     return (

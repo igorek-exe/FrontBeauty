@@ -1,7 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import type { ServiceCardSliderProps } from '@/components';
+import type { ServiceCardSliderProps } from '@/components/media/ServiceCardSlider/index.model.ts';
 import { ServiceCardContainer } from '@/components';
 import styles from './index.module.scss';
 

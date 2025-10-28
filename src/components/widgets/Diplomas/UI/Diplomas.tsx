@@ -1,6 +1,6 @@
 import React from 'react';
 import { ImageUploaderContainer } from '@/components';
-import type { DiplomasProps } from '@/components';
+import type { DiplomasProps } from '@/components/widgets/Diplomas/index.model.ts';
 import styles from './index.module.scss';
 
 const Diplomas: React.FC<DiplomasProps> = ({ uploadSlots = 6 }) => {

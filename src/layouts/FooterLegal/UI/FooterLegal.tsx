@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './index.module.scss';
-import type { FooterLegalProps } from '@/layouts/FooterLegal';
+import type { FooterLegalProps } from '@/layouts/FooterLegal/index.model.ts';
 import AgeIcon from '@/assets/icons/AgeIcon.svg?react';
 import { SvgIcon } from '@/components';
 

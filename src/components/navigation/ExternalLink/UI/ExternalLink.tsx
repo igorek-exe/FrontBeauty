@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from '@/utils/UI/cn.ts';
 import styles from './index.module.scss';
-import type { ExternalLinkProps } from '@/components';
+import type { ExternalLinkProps } from '@/components/navigation/ExternalLink/index.model.ts';
 
 export const ExternalLink: React.FC<ExternalLinkProps> = ({
     href,

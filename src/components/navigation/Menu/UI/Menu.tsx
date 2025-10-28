@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import type { MenuProps } from '@/components';
+import type { MenuProps } from '@/components/navigation/Menu/index.model.ts';
 import styles from './index.module.scss';
 import { cn } from '@/utils/UI/cn.ts';
 

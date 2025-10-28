@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components';
-import type { DiscountCardProps } from '@/components';
+import type { DiscountCardProps } from '@/components/cards/DiscountCard/index.model.ts';
 import styles from './index.module.scss';
 
 const DiscountCard: React.FC<DiscountCardProps> = ({ percent }) => {

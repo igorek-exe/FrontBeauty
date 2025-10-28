@@ -15,7 +15,7 @@ import PurpleArrowDown from '@/assets/icons/PurpleArrowDown.svg?react';
 import LoginIcon from '@/assets/icons/LoginRounded.svg?react';
 import AssignmentIcon from '@/assets/icons/AssignmentIndRounded.svg?react';
 import styles from './index.module.scss';
-import type { AppLayoutProps } from '@/layouts';
+import type { AppLayoutProps } from '@/layouts/AppLayout/index.model.ts';
 
 const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
     return (

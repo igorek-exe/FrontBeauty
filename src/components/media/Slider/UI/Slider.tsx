@@ -1,7 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import type { SliderProps } from '@/components/media/Slider';
+import type { SliderProps } from '@/components/media/Slider/index.model.ts';
 import { DiscountCard } from '@/components';
 import styles from './index.module.scss';
 import './slider.css';

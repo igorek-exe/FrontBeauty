@@ -2,7 +2,7 @@ import React from 'react';
 import SelectRole from '@/assets/icons/SelectRole.svg?react';
 import { SvgIcon } from '@/components';
 import styles from './index.module.scss';
-import type { RoleSelectProps } from '@/components';
+import type { RoleSelectProps } from '@/components/UI/RoleSelect/index.model.ts';
 
 export const RoleSelect: React.FC<RoleSelectProps> = ({ defaultRole = 'master', onChange }) => {
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

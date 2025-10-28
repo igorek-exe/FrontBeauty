@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from '@/utils/UI/cn.ts';
 import styles from './index.module.scss';
-import type { DropdownClassNames } from '@/components';
+import type { DropdownClassNames } from '@/components/UI/Dropdown/index.model.ts';
 
 type DropdownUIProps = {
     open: boolean;

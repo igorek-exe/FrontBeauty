@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Button } from '@/components';
 import styles from './inedx.module.scss';
-import type { ServiceFormData } from '@/components';
+import type { ServiceFormData } from '@/components/cards/ServiceCardForm/index.model.ts';
 
 type Props = {
     data: ServiceFormData;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './index.module.scss';
-import type { ScrollButtonProps } from '@/components';
+import type { ScrollButtonProps } from '@/components/feedback/ScrollButton/index.model.ts';
 import { useScrollButton } from '../model/useScrollButton';
 
 export const ScrollButton: React.FC<ScrollButtonProps> = ({

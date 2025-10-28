@@ -1,6 +1,6 @@
 import React from 'react';
 import { SearchForm } from '@/components';
-import type { SearchPanelProps } from '@/components';
+import type { SearchPanelProps } from '@/components/search/SearchPanel/index.model.ts';
 import styles from './index.module.scss';
 
 const SearchPanel: React.FC<SearchPanelProps> = ({ title }) => {

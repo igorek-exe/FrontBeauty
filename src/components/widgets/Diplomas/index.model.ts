@@ -1,0 +1,1 @@
+export type { DiplomasProps } from './model/diplomasTypes';
