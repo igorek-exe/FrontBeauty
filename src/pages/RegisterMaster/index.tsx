@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '@/stores/slices/authSlice.ts';
-import { RegisterMasterCredentials } from '@/stores/types/authTypes';
+import { RegisterCredentials  } from '@/stores/types/authTypes';
 import { AppDispatch } from '@/stores/store.ts';
 import { useNavigate } from 'react-router-dom';
 import styles from './index.module.scss';
@@ -18,24 +18,25 @@ import { Input } from '@/components';
 interface Errors {
     username: string;
     email: string;
-    password: string;
-    passwordConfirmation: string;
+    password1: string;
+    password2: string;
     agreeToPersonalData?: string;
 }
 
 const RegisterMaster: React.FC = () => {
-    const [credentials, setCredentials] = useState<RegisterMasterCredentials>({
+    const [credentials, setCredentials] = useState<RegisterCredentials >({
         role: 'master',
         username: '',
         email: '',
-        password: '',
+        password1: '',
+        password2: '',
     });
 
     const [errors, setErrors] = useState<Errors>({
         username: '',
         email: '',
-        password: '',
-        passwordConfirmation: '',
+        password1: '',
+        password2: '',
         agreeToPersonalData: '',
     });
 
@@ -50,30 +51,28 @@ const RegisterMaster: React.FC = () => {
     const [invalidFields, setInvalidFields] = useState<string[]>([]);
 
     const [iconClass, setIconClass] = useState({
-        password: '',
-        passwordConfirmation: '',
+        password1: '',
+        password2: '',
     });
 
     const dispatch: AppDispatch = useDispatch();
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (blurredField === 'password') {
+        if (blurredField === 'password1') {
             setIconClass((prev) => ({
                 ...prev,
-                password: errors.password ? 'passwordErr' : 'passwordValid',
+                password1: errors.password1 ? 'passwordErr' : 'passwordValid',
             }));
         }
 
-        if (blurredField === 'passwordConfirmation') {
+        if (blurredField === 'password2') {
             setIconClass((prev) => ({
                 ...prev,
-                passwordConfirmation: errors.passwordConfirmation
-                    ? 'passwordConfirmErr'
-                    : 'passwordConfirmValid',
+                password2: errors.password2 ? 'passwordConfirmErr' : 'passwordConfirmValid',
             }));
         }
-    }, [blurredField, errors.password, errors.passwordConfirmation]);
+    }, [blurredField, errors.password1, errors.password2]);
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
@@ -111,8 +110,8 @@ const RegisterMaster: React.FC = () => {
         setLoginError(
             errors.email ||
                 errors.username ||
-                errors.password ||
-                errors.passwordConfirmation ||
+                errors.password1 ||
+                errors.password2 ||
                 errors.agreeToPersonalData
         );
 
@@ -156,11 +155,11 @@ const RegisterMaster: React.FC = () => {
             case 'username':
                 errorMessage = validateLogin(value);
                 break;
-            case 'password':
+            case 'password1':
                 errorMessage = passwordValidator(value);
                 break;
-            case 'passwordConfirmation':
-                errorMessage = validatePasswordConfirmation(value, credentials.password);
+            case 'password2':
+                errorMessage = validatePasswordConfirmation(value, credentials.password1);
                 break;
             case 'email':
                 errorMessage = validateEmail(value);
@@ -288,28 +287,26 @@ const RegisterMaster: React.FC = () => {
                                 <div className={styles.passwordInputContainer}>
                                     <Input
                                         type={passwordVisible ? 'text' : 'password'}
-                                        name="password"
+                                        name="password1"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         placeholder="пароль"
                                         className={styles.formInput + ' ' + styles.passwordInput}
-                                        style={getInputStyle('password')}
+                                        style={getInputStyle('password1')}
                                     />
                                     <button
                                         type="button"
                                         className={styles.passwordToggleButton}
                                         onClick={togglePasswordVisibility}
                                     >
-                                        <SvgIcon Icon={EyeEmpty} className={iconClass.password} />
+                                        <SvgIcon Icon={EyeEmpty} className={iconClass.password1} />
                                     </button>
                                 </div>
-                                {errors.password ? (
-                                    <span className={styles.errorMessage + ' ' + styles.inputHint}>
-                                        {errors.password}
-                                    </span>
+                                {errors.password1 ? (
+                                    <span>...</span>
                                 ) : (
-                                    <span className={getHintClass('password')}>
-                                        {getHintText('password', 'пароль', 'придумайте пароль')}
+                                    <span className={getHintClass('password1')}>
+                                        {getHintText('password1', 'пароль', 'придумайте пароль')}
                                     </span>
                                 )}
                             </div>
@@ -321,35 +318,26 @@ const RegisterMaster: React.FC = () => {
                                 <div className={styles.passwordInputContainer}>
                                     <Input
                                         type={passwordConfirmationVisible ? 'text' : 'password'}
-                                        name="passwordConfirmation"
+                                        name="password2"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         placeholder="повторите пароль"
                                         className={styles.formInput + ' ' + styles.passwordInput}
-                                        style={getInputStyle('passwordConfirmation')}
+                                        style={getInputStyle('password2')}
                                     />
                                     <button
                                         type="button"
                                         className={styles.passwordToggleButton}
                                         onClick={togglePasswordConfirmationVisibility}
                                     >
-                                        <SvgIcon
-                                            Icon={EyeEmpty}
-                                            className={iconClass.passwordConfirmation}
-                                        />
+                                        <SvgIcon Icon={EyeEmpty} className={iconClass.password2} />
                                     </button>
                                 </div>
-                                {errors.passwordConfirmation ? (
-                                    <span className={styles.errorMessage + ' ' + styles.inputHint}>
-                                        {errors.passwordConfirmation}
-                                    </span>
+                                {errors.password2 ? (
+                                    <span>...</span>
                                 ) : (
-                                    <span className={getHintClass('passwordConfirmation')}>
-                                        {getHintText(
-                                            'passwordConfirmation',
-                                            'пароль',
-                                            'повторите пароль'
-                                        )}
+                                    <span className={getHintClass('password2')}>
+                                        {getHintText('password2', 'пароль', 'повторите пароль')}
                                     </span>
                                 )}
                             </div>

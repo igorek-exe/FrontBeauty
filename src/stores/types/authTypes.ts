@@ -55,18 +55,12 @@ export enum Role {
     client = 'client',
 }
 
-export interface RegisterMasterCredentials {
-    role: 'master';
+type RegisterCredentials = {
+    role: 'master' | 'client';
     username: string;
     email: string;
-    password: string;
+    password1: string;
+    password2: string;
 }
 
-export interface RegisterClientCredentials {
-    role: 'client';
-    username: string;
-    email: string;
-    password: string;
-}
-
-export type RegisterCredentials = RegisterClientCredentials | RegisterMasterCredentials;
+export type { RegisterCredentials };

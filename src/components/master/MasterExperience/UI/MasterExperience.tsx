@@ -41,12 +41,12 @@ export const MasterExperience: React.FC<MasterExperienceProps> = ({
                         <li key={index} className={styles.experienceItem}>
                             <SvgIcon Icon={Check} className="check" />
                             <p className={styles.text}>{item.title}</p>
-                            <p className={styles.experienceYearBlock}>
+                            <div className={styles.experienceYearBlock}>
                                 <span className={styles.label}>период работы</span>
                                 <p className={styles.year}>
                                     {item.yearStart} — {item.yearEnd}
                                 </p>
-                            </p>
+                            </div>
                         </li>
                     ))}
                 </ul>

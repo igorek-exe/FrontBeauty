@@ -24,7 +24,7 @@ export const loginUser = async (
 export const registerUser = async (
     credentials: RegisterCredentials
 ): Promise<{ user: User; token: string }> => {
-    const response = await fetch(`${API_BASE_URL}/register/`, {
+    const response = await fetch(`${API_BASE_URL}/registration/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(credentials),
