@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '@/stores/slices/authSlice.ts';
-import { RegisterCredentials  } from '@/stores/types/authTypes';
+import { RegisterCredentials } from '@/stores/types/authTypes';
 import { AppDispatch } from '@/stores/store.ts';
 import { useNavigate } from 'react-router-dom';
 import styles from './index.module.scss';
@@ -24,7 +24,7 @@ interface Errors {
 }
 
 const RegisterMaster: React.FC = () => {
-    const [credentials, setCredentials] = useState<RegisterCredentials >({
+    const [credentials, setCredentials] = useState<RegisterCredentials>({
         role: 'master',
         username: '',
         email: '',
