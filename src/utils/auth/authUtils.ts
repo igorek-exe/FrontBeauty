@@ -48,3 +48,53 @@ export const registerUser = async (
 
     return data;
 };
+
+export const activateLastUser = async () => {
+    const key = await getActivationKey();
+    await confirmEmailByKey(key);
+};
+
+const getActivationKey = async (): Promise<string> => {
+    const res = await fetch(`${API_BASE_URL}/activation_link/`);
+    const html = await res.text();
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const link = doc.querySelector('a')?.href;
+
+    if (!link) {
+        throw new Error('Не удалось найти ссылку активации');
+    }
+
+    const url = new URL(link);
+    const key = url.searchParams.get('key');
+
+    if (!key) {
+        throw new Error('Не удалось получить ключ активации');
+    }
+
+    return key;
+};
+
+const confirmEmailByKey = async (key: string) => {
+    const res = await fetch(`${API_BASE_URL}/registration/account-confirm-email/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ key }),
+    });
+    console.log(res);
+    if (!res.ok) {
+        throw new Error('Не удалось подтвердить email');
+    }
+
+    const data = await res.json();
+    const redirectUrl = data.redirect;
+    console.log(redirectUrl);
+    if (redirectUrl) {
+        window.location.href = redirectUrl;
+    } else {
+        window.location.href = '/';
+    }
+};

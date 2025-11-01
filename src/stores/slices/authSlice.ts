@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import { loginUser, registerUser } from '@/utils';
+import { activateLastUser, loginUser, registerUser } from '@/utils';
 import { AuthState, User, LoginCredentials, RegisterCredentials } from '@/stores/types/authTypes';
 
 // --- Асинхронные экшены ---
@@ -29,6 +29,7 @@ export const register = createAsyncThunk<
 >('auth/register', async (credentials, { rejectWithValue }) => {
     try {
         const { user, token } = await registerUser(credentials);
+        await activateLastUser();
         localStorage.setItem('token', token);
         return { user, token };
     } catch (error: unknown) {

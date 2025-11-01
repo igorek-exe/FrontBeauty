@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { register } from '@/stores/slices/authSlice.ts';
 import { RegisterCredentials } from '@/stores/types/authTypes';
 import { AppDispatch } from '@/stores/store.ts';
-import { useNavigate } from 'react-router-dom';
 import styles from './index.module.scss';
 import EyeEmpty from '@/assets/icons/EyeEmpty.svg?react';
 import {
@@ -56,7 +55,6 @@ const RegisterMaster: React.FC = () => {
     });
 
     const dispatch: AppDispatch = useDispatch();
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (blurredField === 'password1') {
@@ -117,7 +115,6 @@ const RegisterMaster: React.FC = () => {
 
         try {
             await dispatch(register(credentials)).unwrap();
-            navigate('/master');
         } catch (error) {
             if (error instanceof Error) {
                 setLoginError(error.message);
