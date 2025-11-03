@@ -300,7 +300,9 @@ const RegisterMaster: React.FC = () => {
                                     </button>
                                 </div>
                                 {errors.password1 ? (
-                                    <span>...</span>
+                                    <span className={`${styles.errorMessage} ${styles.inputHint}`}>
+                                        {errors.password1}
+                                    </span>
                                 ) : (
                                     <span className={getHintClass('password1')}>
                                         {getHintText('password1', 'пароль', 'придумайте пароль')}
@@ -331,7 +333,9 @@ const RegisterMaster: React.FC = () => {
                                     </button>
                                 </div>
                                 {errors.password2 ? (
-                                    <span>...</span>
+                                    <span className={`${styles.errorMessage} ${styles.inputHint}`}>
+                                        {errors.password2}
+                                    </span>
                                 ) : (
                                     <span className={getHintClass('password2')}>
                                         {getHintText('password2', 'пароль', 'повторите пароль')}
