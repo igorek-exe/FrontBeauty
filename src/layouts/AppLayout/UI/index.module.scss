@@ -21,6 +21,10 @@
   gap: $spacing-16;
 }
 
+.masterCapture {
+  @include fonts($manroupe-font, $font-weight-400, $font-size-20, $color-purple);
+}
+
 .wrappFooter {
   margin: $spacing-0 $spacing-100;
   padding-bottom: $spacing-50;

@@ -1,16 +1,11 @@
 import React from 'react';
-import {
-    CountrySelector,
-    LinkButton,
-    Logo,
-    Menu,
-    ScrollButton,
-    SvgIcon,
-} from '@/components';
+import { CountrySelector, LinkButton, Logo, Menu, ScrollButton, SvgIcon } from '@/components';
 import { Header, Footer, FooterNav, FooterLegal } from '@/layouts';
 import logoIcon from '@/assets/icons/Logo.svg?react';
 import LogoFooter from '@/assets/icons/LogoFooter.svg?react';
 import LoginIcon from '@/assets/icons/LoginRounded.svg?react';
+import LogoutIcon from '@/assets/icons/LogoutIcon.svg?react';
+import MasterSign from '@/assets/icons/MasterSign.svg?react';
 import AssignmentIcon from '@/assets/icons/AssignmentIndRounded.svg?react';
 import styles from './index.module.scss';
 import type { AppLayoutProps } from '@/layouts/AppLayout/index.model.ts';
@@ -30,7 +25,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children, showAuthButtons }) => {
                                 <Menu />
                             </div>
                             <p className={styles.btnWrapp}>
-                                {showAuthButtons && (
+                                {(showAuthButtons && (
                                     <>
                                         <LinkButton to="#" className="linkButton-login">
                                             Вход
@@ -44,6 +39,16 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children, showAuthButtons }) => {
                                             <SvgIcon Icon={AssignmentIcon} />
                                         </LinkButton>
                                     </>
+                                )) || (
+                                    <>
+                                        <span className={styles.masterCapture}>Кабинет мастера</span>
+                                        <SvgIcon Icon={MasterSign} />
+                                        <LinkButton to="#" className="linkButton-login">
+                                            Выход
+                                            <SvgIcon Icon={LogoutIcon} />
+                                        </LinkButton>
+                                    </>
+
                                 )}
                             </p>
                         </div>
