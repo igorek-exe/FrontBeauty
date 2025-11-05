@@ -2,7 +2,7 @@
 @use '../../../../styles/mixins' as *;
 
 .banner {
-  @include rowing(space-evenly, center, column);
+  @include rowing(space-evenly, center, null, column);
   @include sizes(null, 100%);
 }
 

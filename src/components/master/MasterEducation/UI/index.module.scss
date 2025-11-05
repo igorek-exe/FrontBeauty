@@ -36,7 +36,7 @@
 }
 
 .educationYearBlock {
-  @include rowing(null, null, column);
+  @include rowing(null, null, null, column);
   @include sizes(112px);
   margin-left: auto;
 }

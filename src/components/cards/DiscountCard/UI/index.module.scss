@@ -2,7 +2,7 @@
 @use '../../../../styles/mixins' as *;
 
 .discountCard {
-  @include rowing(space-between, flex-end, column);
+  @include rowing(space-between, flex-end, null, column);
   @include sizes(410px, 260px);
   padding: $spacing-40 $spacing-20 $spacing-20;
   background: {

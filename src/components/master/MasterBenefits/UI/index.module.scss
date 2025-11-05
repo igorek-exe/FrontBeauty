@@ -2,7 +2,7 @@
 @use '../../../../styles/mixins' as *;
 
 .wrapper {
-  @include rowing(space-between, null, column);
+  @include rowing(space-between, null, null, column);
   @include sizes(null, 485px);
   margin: $spacing-28 $spacing-0 $spacing-12;
   padding: $spacing-12;

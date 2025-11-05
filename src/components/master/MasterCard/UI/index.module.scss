@@ -41,7 +41,7 @@
 }
 
 .infoWrapper {
-  @include rowing(space-between, null, column);
+  @include rowing(space-between, null, null, column);
   @include sizes(100%);
 }
 

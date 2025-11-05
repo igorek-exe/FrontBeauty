@@ -7,7 +7,7 @@
 }
 
 .content {
-  @include rowing(null, null, column);
+  @include rowing(null, null, null, column);
   padding: $spacing-0 $spacing-30;
 }
 

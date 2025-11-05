@@ -2,7 +2,7 @@
 @use '../../../../styles/mixins' as *;
 
 .wrappHelpSection {
-  @include rowing(center, center, column);
+  @include rowing(center, center, null, column);
   padding: $spacing-50 $spacing-0;
 }
 

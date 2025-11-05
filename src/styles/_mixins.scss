@@ -1,7 +1,8 @@
-@mixin rowing($dist: null, $align: null, $direct: null) {
+@mixin rowing($dist: null, $align: null, $space: null, $direct: null) {
   display: flex;
   justify-content: $dist;
   align-items: $align;
+  gap: $space;
   flex-direction: $direct;
 }
 
