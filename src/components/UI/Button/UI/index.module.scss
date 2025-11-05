@@ -85,8 +85,8 @@
 }
 
 .editButton {
+  @include sizes(null, $spacing-40);
   padding: $spacing-0;
-  margin-left: auto;
   border: none;
   background-color: transparent;
 }

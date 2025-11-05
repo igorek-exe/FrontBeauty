@@ -21,7 +21,9 @@ export const MasterProfileCard: React.FC<MasterProfileCardProps> = ({
                 {photoUrl ? (
                     <img src={photoUrl} alt="Фото мастера" className={styles.profilePhoto} />
                 ) : (
-                    <SvgIcon Icon={Avatar} />
+                    <div className={styles.avatarWrapper}>
+                        <SvgIcon Icon={Avatar} />
+                    </div>
                 )}
                 <h2 className={styles.title}>Мой профиль</h2>
                 {!isEditing && (
@@ -32,11 +34,26 @@ export const MasterProfileCard: React.FC<MasterProfileCardProps> = ({
             </div>
 
             {!isEditing ? (
-                <>
-                    <p className={styles.masterName}>{user.name}</p>
-                    <p className={styles.masterEmail}>{user.email}</p>
-                    <p className={styles.masterPhone}>{user.phone}</p>
-                </>
+                <div className={styles.infoGroup}>
+                    <div className={styles.infoItem}>
+                        <p className={styles.masterName}>{user.name}</p>
+                        <Button onClick={onEdit} classNames={{ buttonClass: 'editButton' }}>
+                            <SvgIcon Icon={Edit} />
+                        </Button>
+                    </div>
+                    <div className={styles.infoItem}>
+                        <p className={styles.masterEmail}>{user.email}</p>
+                        <Button onClick={onEdit} classNames={{ buttonClass: 'editButton' }}>
+                            <SvgIcon Icon={Edit} />
+                        </Button>
+                    </div>
+                    <div className={styles.infoItem}>
+                        <p className={styles.masterPhone}>{user.phone}</p>
+                        <Button onClick={onEdit} classNames={{ buttonClass: 'editButton' }}>
+                            <SvgIcon Icon={Edit} />
+                        </Button>
+                    </div>
+                </div>
             ) : (
                 <MasterEditForm
                     formData={formData}

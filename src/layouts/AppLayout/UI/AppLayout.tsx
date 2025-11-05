@@ -41,14 +41,15 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children, showAuthButtons }) => {
                                     </>
                                 )) || (
                                     <>
-                                        <span className={styles.masterCapture}>Кабинет мастера</span>
+                                        <span className={styles.masterCapture}>
+                                            Кабинет мастера
+                                        </span>
                                         <SvgIcon Icon={MasterSign} />
                                         <LinkButton to="#" className="linkButton-login">
                                             Выход
                                             <SvgIcon Icon={LogoutIcon} />
                                         </LinkButton>
                                     </>
-
                                 )}
                             </p>
                         </div>

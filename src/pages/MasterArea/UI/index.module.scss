@@ -3,7 +3,7 @@
 
 .mainPanel {
   @include rowing(space-between);
-  padding: $spacing-16 $spacing-24;
+  padding: $spacing-16 $spacing-24 $spacing-10;
 }
 
 .masterProfileSection {
@@ -19,6 +19,7 @@
 }
 
 .wrappAboutCard {
+  @include rowing(null, null, $spacing-24, column);
   margin: $spacing-0 $spacing-24;
   border-radius: $spacing-12;
   background-color: $color-pink;

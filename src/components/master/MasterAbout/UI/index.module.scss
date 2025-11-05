@@ -2,15 +2,14 @@
 @use '../../../../styles/mixins' as *;
 
 .aboutCard {
-  margin-bottom: $spacing-24;
-  padding: $spacing-16 $spacing-24 $spacing-30;
+  padding: $spacing-16 $spacing-24;
   background-color: $color-white;
   border-radius: $spacing-12;
 }
 
 .header {
-  @include rowing(null, center);
-  padding-bottom: $spacing-16;
+  @include rowing(space-between, center);
+  padding-bottom: $spacing-12;
 }
 
 .title {
