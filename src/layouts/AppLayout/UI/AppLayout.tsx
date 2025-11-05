@@ -17,7 +17,7 @@ import AssignmentIcon from '@/assets/icons/AssignmentIndRounded.svg?react';
 import styles from './index.module.scss';
 import type { AppLayoutProps } from '@/layouts/AppLayout/index.model.ts';
 
-const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
+const AppLayout: React.FC<AppLayoutProps> = ({ children, showAuthButtons }) => {
     return (
         <>
             <ScrollButton />
@@ -39,14 +39,21 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                                 <Menu />
                             </div>
                             <p className={styles.btnWrapp}>
-                                <LinkButton to="#" className="linkButton-login">
-                                    Вход
-                                    <SvgIcon Icon={LoginIcon} />
-                                </LinkButton>
-                                <LinkButton to="/register/master" className="linkButton-reg">
-                                    Регистрация
-                                    <SvgIcon Icon={AssignmentIcon} />
-                                </LinkButton>
+                                {showAuthButtons && (
+                                    <>
+                                        <LinkButton to="#" className="linkButton-login">
+                                            Вход
+                                            <SvgIcon Icon={LoginIcon} />
+                                        </LinkButton>
+                                        <LinkButton
+                                            to="/register/master"
+                                            className="linkButton-reg"
+                                        >
+                                            Регистрация
+                                            <SvgIcon Icon={AssignmentIcon} />
+                                        </LinkButton>
+                                    </>
+                                )}
                             </p>
                         </div>
                     </div>

@@ -3,7 +3,7 @@ import { MasterBenefits, MasterPromoSection } from '@/components';
 
 const MasterPreLogin = () => {
     return (
-        <AppLayout>
+        <AppLayout showAuthButtons={true}>
             <Main>
                 <div className="bg-white">
                     <div className="container">

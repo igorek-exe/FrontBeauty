@@ -4,7 +4,7 @@
 .masterSidebar {
   @include sizes(100%);
   position: sticky;
-  top: $spacing-96;
+  top: $spacing-80;
   align-self: flex-start;
   max-width: 270px;
   margin-bottom: $spacing-14;

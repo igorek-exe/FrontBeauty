@@ -9,12 +9,11 @@
 .masterProfileSection {
   @include rowing();
   gap: $spacing-20;
-  padding-top: $spacing-96;
+  padding-top: $spacing-10;
 }
 
 .wrappMainPanel {
   flex-grow: 1;
-  margin: $spacing-14 $spacing-0;
   background-color: $color-pink;
 }
 

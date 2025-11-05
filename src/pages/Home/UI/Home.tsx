@@ -14,7 +14,7 @@ import type { HomeProps } from '@/pages/Home/index.model.ts';
 
 const Home: React.FC<HomeProps> = () => {
     return (
-        <AppLayout>
+        <AppLayout showAuthButtons={true}>
             <Main>
                 <div className={styles.hero}>
                     <div className="container _h-100">
