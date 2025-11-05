@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     CountrySelector,
-    Dropdown,
     LinkButton,
     Logo,
     Menu,
@@ -11,11 +10,11 @@ import {
 import { Header, Footer, FooterNav, FooterLegal } from '@/layouts';
 import logoIcon from '@/assets/icons/Logo.svg?react';
 import LogoFooter from '@/assets/icons/LogoFooter.svg?react';
-import PurpleArrowDown from '@/assets/icons/PurpleArrowDown.svg?react';
 import LoginIcon from '@/assets/icons/LoginRounded.svg?react';
 import AssignmentIcon from '@/assets/icons/AssignmentIndRounded.svg?react';
 import styles from './index.module.scss';
 import type { AppLayoutProps } from '@/layouts/AppLayout/index.model.ts';
+import { cn } from '@/utils';
 
 const AppLayout: React.FC<AppLayoutProps> = ({ children, showAuthButtons }) => {
     return (
@@ -23,19 +22,11 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children, showAuthButtons }) => {
             <ScrollButton />
 
             <Header>
-                <div className="bg-light-pink">
+                <div className={cn(styles, 'bg-light-pink', 'wrapper')}>
                     <div className="container">
                         <div className={styles.headerWrapp}>
                             <Logo icon={logoIcon} />
                             <div className={styles.navbarMenu}>
-                                <Dropdown
-                                    buttonLabel="Меню"
-                                    items={['Пункт 1', 'Пункт 2', 'Пункт 3']}
-                                    icon={
-                                        <SvgIcon Icon={PurpleArrowDown} className="dropDownMenu" />
-                                    }
-                                    onItemClick={(label) => alert(`Вы выбрали: ${label}`)}
-                                />
                                 <Menu />
                             </div>
                             <p className={styles.btnWrapp}>

@@ -5,14 +5,13 @@ import styles from './index.module.scss';
 import { cn } from '@/utils/UI/cn.ts';
 
 const defaultItems = [
-    { label: 'Главная', path: '/' },
-    { label: 'Контакты', path: '/contacts' },
-    { label: 'Помощь', path: '/help' },
-    { label: 'Отзывы', path: '/reviews' },
+    { label: 'Главная страница', path: '/' },
+    { label: 'Мастрерам', path: '/' },
+    { label: 'Клиентам', path: '/' },
 ];
 
 const Menu: React.FC<MenuProps> = ({ items = defaultItems }) => {
-    const [activeItem, setActiveItem] = useState(items[0].label);
+    const [activeItem, setActiveItem] = useState(null);
 
     return (
         <nav className={styles.nav}>
