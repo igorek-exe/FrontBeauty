@@ -47,7 +47,7 @@ export type UserState = UserProfile & {
 
 const defaultEducation: EducationItem[] = [
     {
-        title: 'Пэрис нэйл, курс «Комбинированный + аппаратный маникюр + наращивание на верхние формы + топ дизайн. Уровень 1»',
+        title: 'Введите данные вашего образования',
         year: '2024',
     },
 ];

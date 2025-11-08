@@ -41,10 +41,13 @@ export const MasterEducation: React.FC<MasterEducationProps> = ({
                         <li key={index} className={styles.educationItem}>
                             <SvgIcon Icon={Check} className="check" />
                             <p className={styles.educationText}>{item.title}</p>
-                            <p className={styles.educationYearBlock}>
-                                <span className={styles.label}>год окончания</span>
-                                <span className={styles.year}>{item.year}</span>
-                            </p>
+                            <div className={styles.educationYearBlock}>
+                                <span className={styles.label}>период обучения</span>
+                                <p className={styles.wrappYearEducation}>
+                                    <span className={styles.year}>{item.year}</span>
+                                    <span className={styles.year}>{item.year}</span>
+                                </p>
+                            </div>
                         </li>
                     ))}
                 </ul>
