@@ -7,7 +7,7 @@ function App() {
         <Routes>
             <Route path="/" element={<MasterArea />} />
             {/*<Route path="/master" element={<MasterArea />} />*/}
-            <Route path="/master-profiles/:id" element={<MasterArea />} />
+            <Route path="/master-profiles/:id/" element={<MasterArea />} />
             <Route path="/register/master" element={<RegisterMaster />} />
             <Route path="/masters/pre-login" element={<MasterPreLogin />} />
             <Route path="/clients/pre-login" element={<ClientPreLogin />} />
