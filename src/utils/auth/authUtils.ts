@@ -1,6 +1,5 @@
 import { LoginCredentials, RegisterCredentials, User } from '@/stores/types/authTypes';
-
-const API_BASE_URL = 'http://100.108.1.26:8000/auth'; // Можно вынести в .env
+import { API_BASE_URL, PUBLIC_BASE_URL } from '@/config/env';
 
 // --- Авторизация ---
 export const loginUser = async (
@@ -84,17 +83,34 @@ const confirmEmailByKey = async (key: string) => {
         },
         body: JSON.stringify({ key }),
     });
-    console.log(res);
+
     if (!res.ok) {
         throw new Error('Не удалось подтвердить email');
     }
 
-    const data = await res.json();
-    const redirectUrl = data.redirect;
-    console.log(redirectUrl);
+    const data = await res.json().catch(() => ({}));
+    let redirectUrl = data.redirect;
+
     if (redirectUrl) {
-        window.location.href = redirectUrl;
+        try {
+            const incomingUrl = new URL(redirectUrl);
+            const base = new URL(PUBLIC_BASE_URL);
+
+            incomingUrl.protocol = base.protocol;
+            incomingUrl.host = base.host;
+
+            redirectUrl = incomingUrl.toString();
+        } catch {
+            if (!redirectUrl.startsWith('http')) {
+                redirectUrl = `${PUBLIC_BASE_URL}${redirectUrl.startsWith('/') ? '' : '/'}${redirectUrl}`;
+            } else {
+                redirectUrl = PUBLIC_BASE_URL;
+            }
+        }
     } else {
-        window.location.href = '/';
+        redirectUrl = PUBLIC_BASE_URL;
     }
+
+    window.location.href = redirectUrl;
 };
+
